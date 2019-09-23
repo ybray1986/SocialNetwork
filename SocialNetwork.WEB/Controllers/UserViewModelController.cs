@@ -18,7 +18,9 @@ namespace SocialNetwork.WEB.Controllers
         [HttpGet]
         public ActionResult Edit(UserViewModel modelParam)
         {
-            var UsersBO = DependencyResolver.Current.GetService(UsersBO);
+            var UsersBO = DependencyResolver.Current.GetService<UsersBO>();
+            UsersBO.
+            using ()
         }
     }
 }

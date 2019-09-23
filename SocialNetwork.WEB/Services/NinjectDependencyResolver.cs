@@ -18,8 +18,8 @@ namespace SocialNetwork.WEB.Services
 
         private void AddBindings()
         {
-            //Get data from IUnitOfwork to UnitOfWork
-            //Get binding with AutoMapper
+            //Get data from IUnitOfwork to UnitOfWork(from, to)
+            //Get binding with AutoMapper(from, to)
         }
 
         public object GetService(Type serviceType)
