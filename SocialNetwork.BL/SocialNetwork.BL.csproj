@@ -61,6 +61,7 @@
     <Compile Include="BusinessObjectBase.cs" />
     <Compile Include="ModelBO\FriendsBO.cs" />
     <Compile Include="ModelBO\UsersBO.cs" />
+    <Compile Include="Profiles\ProfileBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -68,8 +69,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Profiles\" />
     <Folder Include="Repositories\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SocialNetwork.DAL\SocialNetwork.DAL.csproj">
+      <Project>{ADFEFACE-3FAE-4387-BD0B-F63D6AFBAD4E}</Project>
+      <Name>SocialNetwork.DAL</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

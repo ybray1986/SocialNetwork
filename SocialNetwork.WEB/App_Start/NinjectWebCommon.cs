@@ -53,7 +53,7 @@ namespace SocialNetwork.WEB.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            DependencyResolver.SetResolver(SocialNetwork.WEB.Services.NinjectDependencyResolver);
+            DependencyResolver.SetResolver(new Services.NinjectDependencyResolver(kernel));
         }        
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SocialNetwork.BL.ModelBO
 {
-    class UsersBO
+    public class UsersBO
     {
         public int Id { get; set; }
         public string LastName { get; set; }

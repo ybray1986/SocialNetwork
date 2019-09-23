@@ -11,6 +11,9 @@ namespace SocialNetwork.DAL.Entities
             : base("name=DbContext")
         {
         }
+        public DbContext(string connectionString): base(connectionString)
+        {
+        }
 
         public virtual DbSet<Friends> Friends { get; set; }
         public virtual DbSet<Users> Users { get; set; }

@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SocialNetwork.DAL.WorkOfUnit
+namespace SocialNetwork.DAL.UnitOfWork
 {
-    interface IWorkOfUnit: IDisposable
+    interface IUnitOfWork: IDisposable
     {
         Repository<Friends> FriendsWoURepository { get; }
         Repository<Users> UsersWoURepository { get; }

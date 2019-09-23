@@ -123,11 +123,14 @@
   <ItemGroup>
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\UserViewModelController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\NinjectDependencyResolver.cs" />
+    <Compile Include="ViewModels\FriendsViewModel.cs" />
+    <Compile Include="ViewModels\UserViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -141,8 +144,18 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\UserViewModel\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SocialNetwork.BL\SocialNetwork.BL.csproj">
+      <Project>{D98B5468-70A2-4A9D-9A47-3EF2DC0F36B4}</Project>
+      <Name>SocialNetwork.BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SocialNetwork.DAL\SocialNetwork.DAL.csproj">
+      <Project>{ADFEFACE-3FAE-4387-BD0B-F63D6AFBAD4E}</Project>
+      <Name>SocialNetwork.DAL</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

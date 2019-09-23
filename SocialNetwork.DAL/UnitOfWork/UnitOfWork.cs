@@ -6,10 +6,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SocialNetwork.DAL.WorkOfUnit
+namespace SocialNetwork.DAL.UnitOfWork
 {
-    public class WorkOfUnit : IWorkOfUnit
+    public class UnitOfWork : IUnitOfWork
     {
+        private readonly DbContext db;
+        public UnitOfWork()
+        {
+            new DbContext();
+        }
+        public  UnitOfWork(DbContext dbParam)
+        {
+            db = dbParam;
+        }
         public Repository<Friends> FriendsWoURepository
         {
             get

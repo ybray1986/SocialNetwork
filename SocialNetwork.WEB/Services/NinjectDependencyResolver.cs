@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Ninject;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +9,19 @@ namespace SocialNetwork.WEB.Services
 {
     public class NinjectDependencyResolver : IDependencyResolver
     {
+        IKernel kernel;
+        public NinjectDependencyResolver(IKernel kernelParam)
+        {
+            kernel = kernelParam;
+            AddBindings();
+        }
+
+        private void AddBindings()
+        {
+            //Get data from IUnitOfwork to UnitOfWork
+            //Get binding with AutoMapper
+        }
+
         public object GetService(Type serviceType)
         {
             throw new NotImplementedException();
