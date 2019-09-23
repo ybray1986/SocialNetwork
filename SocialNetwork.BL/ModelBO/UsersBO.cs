@@ -16,6 +16,5 @@ namespace SocialNetwork.BL.ModelBO
         public string Photo { get; set; }
         public DateTime RegisteredDate { get; set; }
         UsersBO() { }
-        public UsersBO Get
     }
 }

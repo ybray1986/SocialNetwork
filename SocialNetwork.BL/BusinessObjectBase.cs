@@ -11,6 +11,5 @@ namespace SocialNetwork.BL
     {
         IMapper mapper;
         //
-        BusinessObjectBase()
     }
 }
