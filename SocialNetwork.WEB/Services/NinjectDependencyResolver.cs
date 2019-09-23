@@ -10,6 +10,7 @@ namespace SocialNetwork.WEB.Services
     public class NinjectDependencyResolver : IDependencyResolver
     {
         IKernel kernel;
+        public static IDependencyResolver Current;
         public NinjectDependencyResolver(IKernel kernelParam)
         {
             kernel = kernelParam;

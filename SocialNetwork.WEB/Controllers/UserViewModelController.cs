@@ -1,4 +1,5 @@
 ﻿using SocialNetwork.BL.ModelBO;
+using SocialNetwork.WEB.Services;
 using SocialNetwork.WEB.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -18,7 +19,7 @@ namespace SocialNetwork.WEB.Controllers
         [HttpGet]
         public ActionResult Edit(UserViewModel modelParam)
         {
-            var UsersBO = DependencyResolver.Current.GetService<UsersBO>();
+            var UsersBO = NinjectDependencyResolver.Current.GetService<UsersBO>();
             UsersBO.
             using ()
         }
