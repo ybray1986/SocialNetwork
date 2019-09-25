@@ -10,14 +10,14 @@ namespace SocialNetwork.DAL.Repositories
 {
     public class Repository<T> : IRepository<T> where T : class
     {
-        SocialNetwork.DAL.Entities.DbContext db;
-        DbSet<T> table;
-        Repository()
+        private DbContext db;
+        private DbSet<T> table;
+        public Repository()
         {
-            db = new SocialNetwork.DAL.Entities.DbContext();
+            db = new SocialNetworkContext();
             table = db.Set<T>();
         }
-        Repository(SocialNetwork.DAL.Entities.DbContext model)
+        public Repository(DbContext model)
         {
             this.db = model;
             table = db.Set<T>();

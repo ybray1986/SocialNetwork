@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SocialNetwork.DAL.UnitOfWork
 {
-    interface IUnitOfWork: IDisposable
+    public interface IUnitOfWork: IDisposable
     {
         Repository<Friends> FriendsWoURepository { get; }
         Repository<Users> UsersWoURepository { get; }

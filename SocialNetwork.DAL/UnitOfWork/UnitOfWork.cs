@@ -2,6 +2,7 @@
 using SocialNetwork.DAL.Repositories;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,27 +12,25 @@ namespace SocialNetwork.DAL.UnitOfWork
     public class UnitOfWork : IUnitOfWork
     {
         private readonly DbContext db;
-        public UnitOfWork()
-        {
-            new DbContext();
-        }
         public  UnitOfWork(DbContext dbParam)
         {
             db = dbParam;
         }
+        Repository<Friends> _friendsWoURepository;
         public Repository<Friends> FriendsWoURepository
         {
             get
             {
-                throw new NotImplementedException();
+                return (_friendsWoURepository == null) ? new Repository<Friends>(db) : _friendsWoURepository;
             }
         }
 
+        Repository<Users> _usersWoURepository;
         public Repository<Users> UsersWoURepository
         {
             get
             {
-                throw new NotImplementedException();
+                return (_usersWoURepository == null) ? new Repository<Users>(db) : _usersWoURepository;
             }
         }
 
@@ -45,6 +44,10 @@ namespace SocialNetwork.DAL.UnitOfWork
                 if (disposing)
                 {
                     // TODO: освободить управляемое состояние (управляемые объекты).
+                    if (db != null)
+                    {
+                        db.Dispose();
+                    }
                 }
 
                 // TODO: освободить неуправляемые ресурсы (неуправляемые объекты) и переопределить ниже метод завершения.
@@ -66,7 +69,7 @@ namespace SocialNetwork.DAL.UnitOfWork
             // Не изменяйте этот код. Разместите код очистки выше, в методе Dispose(bool disposing).
             Dispose(true);
             // TODO: раскомментировать следующую строку, если метод завершения переопределен выше.
-            // GC.SuppressFinalize(this);
+            GC.SuppressFinalize(this);
         }
         #endregion
     }

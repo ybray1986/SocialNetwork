@@ -1,16 +1,18 @@
-﻿using Ninject;
+﻿using AutoMapper;
+using Ninject;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Ninject.Activation;
+using SocialNetwork.WEB.Profiles;
 
-namespace SocialNetwork.WEB.Services
+namespace SocialNetwork.WEB.Infrastucture
 {
     public class NinjectDependencyResolver : IDependencyResolver
     {
         IKernel kernel;
-        public static IDependencyResolver Current;
         public NinjectDependencyResolver(IKernel kernelParam)
         {
             kernel = kernelParam;
@@ -19,18 +21,27 @@ namespace SocialNetwork.WEB.Services
 
         private void AddBindings()
         {
-            //Get data from IUnitOfwork to UnitOfWork(from, to)
-            //Get binding with AutoMapper(from, to)
+            kernel.Bind<IMapper>().ToMethod(Mapping);
+        }
+
+        private IMapper Mapping(IContext context)
+        {
+            Mapper.Initialize(cfg =>
+            {
+                cfg.ConstructServicesUsing(t => kernel.Get(t));
+                cfg.AddProfile<MapperProfile>();
+            });
+            return Mapper.Instance;
         }
 
         public object GetService(Type serviceType)
         {
-            throw new NotImplementedException();
+            return kernel.TryGet(serviceType);
         }
 
         public IEnumerable<object> GetServices(Type serviceType)
         {
-            throw new NotImplementedException();
+            return kernel.GetAll(serviceType);
         }
     }
 }

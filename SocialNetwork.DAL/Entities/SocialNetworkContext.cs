@@ -5,13 +5,13 @@ namespace SocialNetwork.DAL.Entities
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
 
-    public partial class DbContext : System.Data.Entity.DbContext
+    public partial class SocialNetworkContext : DbContext
     {
-        public DbContext()
+        public SocialNetworkContext()
             : base("name=DbContext")
         {
         }
-        public DbContext(string connectionString): base(connectionString)
+        public SocialNetworkContext(string connectionString): base(connectionString)
         {
         }
 
@@ -21,9 +21,9 @@ namespace SocialNetwork.DAL.Entities
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
         }
-        public class DbContextInitializer : DropCreateDatabaseAlways<DbContext>
+        public class DbContextInitializer : DropCreateDatabaseAlways<SocialNetworkContext>
         {
-            protected override void Seed(DbContext context)
+            protected override void Seed(SocialNetworkContext context)
             {
                 context.Friends.Add(new Entities.Friends { Id = 1, FriendId = 2, UserId = 1 });
                 context.Users.Add(new Entities.Users { Id = 1, FirstName = "John", LastName = "Doe", MiddleName = "", BirthDate = new DateTime(1999, 05, 10), Photo = @"~\SocialNetwork\SocialNetwork.DAL\Content\Photo\Users\default\default-user-icon.jpg", RegisteredDate = new DateTime(2019, 09, 20) });

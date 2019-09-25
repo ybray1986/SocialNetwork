@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace SocialNetwork.DAL.UnitOfWork
 {
-    class UnitOfWorkFactory
+    public class UnitOfWorkFactory
     {
-        void Create()
+        public IUnitOfWork Create()
         {
-            new UnitOfWork(new DbContext());
+            return new UnitOfWork(new SocialNetworkContext());
         }
     }
 }

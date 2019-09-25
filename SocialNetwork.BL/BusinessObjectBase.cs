@@ -8,15 +8,14 @@ using SocialNetwork.DAL.UnitOfWork;
 
 namespace SocialNetwork.BL
 {
-    class BusinessObjectBase
+    public abstract class BusinessObjectBase
     {
-        IMapper mapper;
-        UnitOfWork unitOfWork;
-        BusinessObjectBase(IMapper mapperParam, UnitOfWork unitOfWorkParam)
+        protected IMapper mapper;
+        protected UnitOfWorkFactory unitOfWorkFactory;
+        public BusinessObjectBase(IMapper mapperParam, UnitOfWorkFactory unitOfWorkFactoryParam)
         {
             mapper = mapperParam;
-            unitOfWork = unitOfWorkParam;
+            unitOfWorkFactory = unitOfWorkFactoryParam;
         }
-        //
     }
 }
