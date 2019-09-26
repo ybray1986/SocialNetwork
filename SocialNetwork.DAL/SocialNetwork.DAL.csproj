@@ -130,10 +130,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Photo\Users\default\default-user-icon.jpg" />
-    <Content Include="Data\SocialNetwork.mdf">
+    <Content Include="SocialNetwork.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Data\SocialNetwork_log.ldf">
+    <Content Include="SocialNetwork_log.ldf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>SocialNetwork.mdf</DependentUpon>
     </Content>
