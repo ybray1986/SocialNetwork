@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using SocialNetwork.BL.ModelBO;
-using SocialNetwork.WEB.Services;
 using SocialNetwork.WEB.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -13,7 +12,7 @@ namespace SocialNetwork.WEB.Controllers
     public class UserViewModelController : Controller
     {
         IMapper mapper;
-        UserViewModelController(IMapper mapperParam)
+        public UserViewModelController(IMapper mapperParam)
         {
             mapper = mapperParam;
         }
