@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace SocialNetwork.BL.ModelBO
 {
-    class MessagesBO
+    public class MessagesBO
     {
+        public string TextMessage { get; set; } // For messages
     }
 }

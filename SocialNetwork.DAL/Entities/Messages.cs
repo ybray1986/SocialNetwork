@@ -13,5 +13,6 @@ namespace SocialNetwork.DAL.Entities
         public string From { get; set; }
         public string To { get; set; }
         public DateTime SendTime { get; set; }
+        public string TextMessage { get; set; }
     }
 }
