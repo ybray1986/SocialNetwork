@@ -110,12 +110,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\Ninject.Web.Common.cs" />
+    <Compile Include="Entities\Messages.cs" />
     <Compile Include="Entities\SocialNetworkContext.cs" />
-    <Compile Include="Entities\Friends.cs" />
+    <Compile Include="Entities\Relationship.cs" />
     <Compile Include="Entities\Users.cs" />
-    <Compile Include="Migrations\201909260902496_DALMigration.cs" />
-    <Compile Include="Migrations\201909260902496_DALMigration.Designer.cs">
-      <DependentUpon>201909260902496_DALMigration.cs</DependentUpon>
+    <Compile Include="Migrations\201909271212081_EntityMigration.cs" />
+    <Compile Include="Migrations\201909271212081_EntityMigration.Designer.cs">
+      <DependentUpon>201909271212081_EntityMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -130,13 +131,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Photo\Users\default\default-user-icon.jpg" />
-    <Content Include="SocialNetwork.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SocialNetwork_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>SocialNetwork.mdf</DependentUpon>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
@@ -156,8 +150,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201909260902496_DALMigration.resx">
-      <DependentUpon>201909260902496_DALMigration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201909271212081_EntityMigration.resx">
+      <DependentUpon>201909271212081_EntityMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

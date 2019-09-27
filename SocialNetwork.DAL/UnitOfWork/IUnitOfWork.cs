@@ -10,7 +10,7 @@ namespace SocialNetwork.DAL.UnitOfWork
 {
     public interface IUnitOfWork: IDisposable
     {
-        Repository<Friends> FriendsWoURepository { get; }
+        Repository<Relationship> FriendsWoURepository { get; }
         Repository<Users> UsersWoURepository { get; }
     }
 }

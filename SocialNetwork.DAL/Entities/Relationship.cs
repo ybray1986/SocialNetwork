@@ -6,7 +6,7 @@ namespace SocialNetwork.DAL.Entities
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class Friends
+    public partial class Relationship
     {
         [Key]
         [Column(Order = 0)]

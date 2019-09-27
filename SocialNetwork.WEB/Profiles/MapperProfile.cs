@@ -20,10 +20,10 @@ namespace SocialNetwork.WEB.Profiles
             this.CreateMap<UserViewModel, UsersBO>().ConstructUsing(m => DependencyResolver.Current.GetService<UsersBO>());
             this.CreateMap<UsersBO, Users>().ConstructUsing(m => DependencyResolver.Current.GetService<Users>());
 
-            this.CreateMap<Friends, FriendsBO>().ConstructUsing(m=> DependencyResolver.Current.GetService<FriendsBO>());
+            this.CreateMap<Relationship, FriendsBO>().ConstructUsing(m=> DependencyResolver.Current.GetService<FriendsBO>());
             this.CreateMap<FriendsBO, FriendsViewModel>().ConstructUsing(m => DependencyResolver.Current.GetService<FriendsViewModel>());
             this.CreateMap<FriendsViewModel, FriendsBO>().ConstructUsing(m => DependencyResolver.Current.GetService<FriendsBO>());
-            this.CreateMap<FriendsBO, Friends>().ConstructUsing(m => DependencyResolver.Current.GetService<Friends>());
+            this.CreateMap<FriendsBO, Relationship>().ConstructUsing(m => DependencyResolver.Current.GetService<Relationship>());
         }
     }
 }
