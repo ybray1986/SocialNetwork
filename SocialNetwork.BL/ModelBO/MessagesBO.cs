@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SocialNetwork.BL.ModelBO
 {
-    public class FriendsBO
+    class MessagesBO
     {
     }
 }

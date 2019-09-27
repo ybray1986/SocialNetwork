@@ -94,7 +94,8 @@
   <ItemGroup>
     <Compile Include="App_Start\Ninject.Web.Common.cs" />
     <Compile Include="BusinessObjectBase.cs" />
-    <Compile Include="ModelBO\FriendsBO.cs" />
+    <Compile Include="ModelBO\MessagesBO.cs" />
+    <Compile Include="ModelBO\RelationshipBO.cs" />
     <Compile Include="ModelBO\UsersBO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
