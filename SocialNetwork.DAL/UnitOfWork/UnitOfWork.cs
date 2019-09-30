@@ -17,7 +17,7 @@ namespace SocialNetwork.DAL.UnitOfWork
             db = dbParam;
         }
         Repository<Relationship> _relationshipWoURepository;
-        public Repository<Relationship> FriendsWoURepository
+        public Repository<Relationship> FriendWoURepository
         {
             get
             {
@@ -25,12 +25,12 @@ namespace SocialNetwork.DAL.UnitOfWork
             }
         }
 
-        Repository<Users> _usersWoURepository;
-        public Repository<Users> UsersWoURepository
+        Repository<User> _userWoURepository;
+        public Repository<User> UserWoURepository
         {
             get
             {
-                return (_usersWoURepository == null) ? new Repository<Users>(db) : _usersWoURepository;
+                return (_userWoURepository == null) ? new Repository<User>(db) : _userWoURepository;
             }
         }
 

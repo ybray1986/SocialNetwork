@@ -6,7 +6,7 @@ namespace SocialNetwork.DAL.Entities
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class Users
+    public partial class User
     {
         [Key]
         [Column(Order = 0)]

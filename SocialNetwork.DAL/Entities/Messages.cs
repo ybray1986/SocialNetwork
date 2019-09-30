@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SocialNetwork.DAL.Entities
 {
-    public class Messages
+    public class Message
     {
         public int Id { get; set; }
         public int RelationshipId { get; set; }
