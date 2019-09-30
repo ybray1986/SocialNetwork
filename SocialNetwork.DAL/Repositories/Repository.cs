@@ -47,5 +47,10 @@ namespace SocialNetwork.DAL.Repositories
         {
             db.SaveChanges();
         }
+
+        public T Get(int id)
+        {
+            return table.Find(id);
+        }
     }
 }

@@ -12,14 +12,14 @@ namespace SocialNetwork.WEB.Controllers
     public class UserViewModelController : Controller
     {
         IMapper mapper;
-        UserViewModelController(IMapper mapperParam)
+        public UserViewModelController(IMapper mapperParam)
         {
             mapper = mapperParam;
         }
         // GET: UserViewModel
         public ActionResult Index()
         {
-            var UserBO = DependencyResolver.Current.GetService<UsersBO>();
+            var UserBO = DependencyResolver.Current.GetService<UserBO>();
             var UserBOList = UserBO.GetListUsers();
             var model = UserBOList.Select(item => mapper.Map<UserViewModel>(item)).ToList();
             return View(model);

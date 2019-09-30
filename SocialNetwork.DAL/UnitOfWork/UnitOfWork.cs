@@ -16,21 +16,21 @@ namespace SocialNetwork.DAL.UnitOfWork
         {
             db = dbParam;
         }
-        Repository<Friends> _friendsWoURepository;
-        public Repository<Friends> FriendsWoURepository
+        Repository<Relationship> _relationshipWoURepository;
+        public Repository<Relationship> FriendWoURepository
         {
             get
             {
-                return (_friendsWoURepository == null) ? new Repository<Friends>(db) : _friendsWoURepository;
+                return (_relationshipWoURepository == null) ? new Repository<Relationship>(db) : _relationshipWoURepository;
             }
         }
 
-        Repository<Users> _usersWoURepository;
-        public Repository<Users> UsersWoURepository
+        Repository<User> _userWoURepository;
+        public Repository<User> UserWoURepository
         {
             get
             {
-                return (_usersWoURepository == null) ? new Repository<Users>(db) : _usersWoURepository;
+                return (_userWoURepository == null) ? new Repository<User>(db) : _userWoURepository;
             }
         }
 

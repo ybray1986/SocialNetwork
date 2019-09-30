@@ -15,15 +15,15 @@ namespace SocialNetwork.WEB.Profiles
     {
         public MapperProfile()
         {
-            this.CreateMap<Users, UsersBO>().ConstructUsing(m => DependencyResolver.Current.GetService<UsersBO>());
-            this.CreateMap<UsersBO, UserViewModel>().ConstructUsing(m => DependencyResolver.Current.GetService<UserViewModel>());
-            this.CreateMap<UserViewModel, UsersBO>().ConstructUsing(m => DependencyResolver.Current.GetService<UsersBO>());
-            this.CreateMap<UsersBO, Users>().ConstructUsing(m => DependencyResolver.Current.GetService<Users>());
+            this.CreateMap<User, UserBO>().ConstructUsing(m => DependencyResolver.Current.GetService<UserBO>());
+            this.CreateMap<UserBO, UserViewModel>().ConstructUsing(m => DependencyResolver.Current.GetService<UserViewModel>());
+            this.CreateMap<UserViewModel, UserBO>().ConstructUsing(m => DependencyResolver.Current.GetService<UserBO>());
+            this.CreateMap<UserBO, User>().ConstructUsing(m => DependencyResolver.Current.GetService<User>());
 
-            this.CreateMap<Friends, FriendsBO>().ConstructUsing(m=> DependencyResolver.Current.GetService<FriendsBO>());
-            this.CreateMap<FriendsBO, FriendsViewModel>().ConstructUsing(m => DependencyResolver.Current.GetService<FriendsViewModel>());
-            this.CreateMap<FriendsViewModel, FriendsBO>().ConstructUsing(m => DependencyResolver.Current.GetService<FriendsBO>());
-            this.CreateMap<FriendsBO, Friends>().ConstructUsing(m => DependencyResolver.Current.GetService<Friends>());
+            this.CreateMap<Relationship, RelationshipBO>().ConstructUsing(m=> DependencyResolver.Current.GetService<RelationshipBO>());
+            this.CreateMap<RelationshipBO, FriendsViewModel>().ConstructUsing(m => DependencyResolver.Current.GetService<FriendsViewModel>());
+            this.CreateMap<FriendsViewModel, RelationshipBO>().ConstructUsing(m => DependencyResolver.Current.GetService<RelationshipBO>());
+            this.CreateMap<RelationshipBO, Relationship>().ConstructUsing(m => DependencyResolver.Current.GetService<Relationship>());
         }
     }
 }

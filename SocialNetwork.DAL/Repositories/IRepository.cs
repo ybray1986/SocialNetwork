@@ -13,5 +13,6 @@ namespace SocialNetwork.DAL.Repositories
         void Delete(int id);
         void Save();
         IEnumerable<T> GetAll();
+        T Get(int id);
     }
 }

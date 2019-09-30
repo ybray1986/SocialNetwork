@@ -11,6 +11,8 @@ namespace SocialNetwork.WEB.App_Start
     using Ninject;
     using Ninject.Web.Common;
     using System.Web.Mvc;
+    using Ninject.Web.Common.WebHost;
+
     public static class NinjectWebCommon 
     {
         private static readonly Bootstrapper bootstrapper = new Bootstrapper();
