@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SocialNetwork.BL.ModelBO
 {
-    public class UserBO: BusinessObjectBase
+    public class UserBO : BusinessObjectBase
     {
         public int Id { get; set; }
         public string LastName { get; set; }
@@ -18,7 +18,11 @@ namespace SocialNetwork.BL.ModelBO
         public string Photo { get; set; }
         public DateTime RegisteredDate { get; set; }
 
-        public UserBO(IMapper mapperParam, UnitOfWorkFactory unitOfWorkFactoryParam) : base(mapperParam, unitOfWorkFactoryParam) { }
+        //bind construct to get data from unitOfWork
+        public UserBO(IMapper mapperParam, UnitOfWorkFactory unitOfWorkFactoryParam) : base(mapperParam, unitOfWorkFactoryParam)
+        {
+            
+        }
 
         public List<UserBO> GetListUsers()
         {
@@ -27,6 +31,7 @@ namespace SocialNetwork.BL.ModelBO
             {
                 users = unitOfWork.UserWoURepository.GetAll().Select(model => mapper.Map<UserBO>(model)).ToList();
             }
+
             return users;
         }
         public UserBO GetUserBOById(int id)

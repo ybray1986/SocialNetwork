@@ -14,7 +14,7 @@ namespace SocialNetwork.WEB.Infrastucture
     {
         public override void Load()
         {
-            Bind<IMapper>().ToMethod(AutoMapping);
+            Bind<IMapper>().ToMethod(AutoMapping).InSingletonScope();
         }
 
         private IMapper AutoMapping(IContext context)

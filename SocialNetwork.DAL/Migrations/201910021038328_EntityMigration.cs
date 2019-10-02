@@ -8,7 +8,7 @@ namespace SocialNetwork.DAL.Migrations
         public override void Up()
         {
             CreateTable(
-                "dbo.Messages",
+                "dbo.Message",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
@@ -16,11 +16,12 @@ namespace SocialNetwork.DAL.Migrations
                         From = c.String(),
                         To = c.String(),
                         SendTime = c.DateTime(nullable: false),
+                        TextMessage = c.String(),
                     })
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
-                "dbo.Relationships",
+                "dbo.Relationship",
                 c => new
                     {
                         Id = c.Int(nullable: false),
@@ -30,7 +31,7 @@ namespace SocialNetwork.DAL.Migrations
                 .PrimaryKey(t => new { t.Id, t.UserId, t.FriendId });
             
             CreateTable(
-                "dbo.Users",
+                "dbo.User",
                 c => new
                     {
                         Id = c.Int(nullable: false),
@@ -47,9 +48,9 @@ namespace SocialNetwork.DAL.Migrations
         
         public override void Down()
         {
-            DropTable("dbo.Users");
-            DropTable("dbo.Relationships");
-            DropTable("dbo.Messages");
+            DropTable("dbo.User");
+            DropTable("dbo.Relationship");
+            DropTable("dbo.Message");
         }
     }
 }
