@@ -12,7 +12,7 @@ namespace SocialNetwork.WEB.App_Start
     using Ninject.Web.Common;
     using System.Web.Mvc;
     using Ninject.Web.Common.WebHost;
-
+    using Infrastucture;
     public static class NinjectWebCommon 
     {
         private static readonly Bootstrapper bootstrapper = new Bootstrapper();
@@ -55,7 +55,7 @@ namespace SocialNetwork.WEB.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            DependencyResolver.SetResolver(new Infrastucture.NinjectDependencyResolver(kernel));
+            kernel.Load<AutoMapperModule>();
         }        
     }
 }
