@@ -15,15 +15,15 @@ namespace SocialNetwork.WEB.Profiles
     {
         public MapperProfile()
         {
-            this.CreateMap<User, UserBO>().ConstructUsing(m => DependencyResolver.Current.GetService<UserBO>());
-            this.CreateMap<UserBO, UserViewModel>().ConstructUsing(m => DependencyResolver.Current.GetService<UserViewModel>());
-            this.CreateMap<UserViewModel, UserBO>().ConstructUsing(m => DependencyResolver.Current.GetService<UserBO>());
-            this.CreateMap<UserBO, User>().ConstructUsing(m => DependencyResolver.Current.GetService<User>());
+            this.CreateMap<User, UserBO>();
+            this.CreateMap<UserBO, UserViewModel>();
+            this.CreateMap<UserViewModel, UserBO>();
+            this.CreateMap<UserBO, User>();
 
-            this.CreateMap<Relationship, RelationshipBO>().ConstructUsing(m=> DependencyResolver.Current.GetService<RelationshipBO>());
-            this.CreateMap<RelationshipBO, FriendsViewModel>().ConstructUsing(m => DependencyResolver.Current.GetService<FriendsViewModel>());
-            this.CreateMap<FriendsViewModel, RelationshipBO>().ConstructUsing(m => DependencyResolver.Current.GetService<RelationshipBO>());
-            this.CreateMap<RelationshipBO, Relationship>().ConstructUsing(m => DependencyResolver.Current.GetService<Relationship>());
+            this.CreateMap<Relationship, RelationshipBO>();
+            this.CreateMap<RelationshipBO, FriendsViewModel>();
+            this.CreateMap<FriendsViewModel, RelationshipBO>();
+            this.CreateMap<RelationshipBO, Relationship>();
         }
     }
 }
