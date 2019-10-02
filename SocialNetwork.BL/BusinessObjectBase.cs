@@ -11,11 +11,10 @@ namespace SocialNetwork.BL
     public abstract class BusinessObjectBase
     {
         protected IMapper mapper;
-        protected UnitOfWorkFactory unitOfWorkFactory;
-        public BusinessObjectBase(IMapper mapperParam, UnitOfWorkFactory unitOfWorkFactoryParam)
+        public BusinessObjectBase() { }
+        public BusinessObjectBase(IMapper mapperParam)
         {
             mapper = mapperParam;
-            unitOfWorkFactory = unitOfWorkFactoryParam;
         }
     }
 }
