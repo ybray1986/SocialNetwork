@@ -4,8 +4,10 @@ namespace SocialNetwork.DAL.Entities
     using System.Data.Entity;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
+    using Microsoft.AspNet.Identity.EntityFramework;
+    using SocialNetwork.DAL.Identity;
 
-    public partial class SocialNetworkContext : DbContext
+    public partial class SocialNetworkContext : IdentityDbContext<AppUser>
     {
         public SocialNetworkContext()
             : base("name=DbContext")

@@ -6,9 +6,10 @@ using System.Web;
 
 namespace SocialNetwork.WEB.Identity
 {
-    public class AppRole: IdentityRole
+    public class AppRole : IdentityRole
     {
-        //https://stackoverflow.com/questions/31960433/adding-asp-net-mvc5-identity-authentication-to-an-existing-project
-
+        public AppRole(string roleName) : base(roleName)
+        {
+        }
     }
 }
