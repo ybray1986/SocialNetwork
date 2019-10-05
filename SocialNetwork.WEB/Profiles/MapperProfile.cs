@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
-using SocialNetwork.DAL.Entities;
 using SocialNetwork.BL.ModelBO;
 using System.Web.Mvc;
 using SocialNetwork.WEB.ViewModels;
+using SocialNetwork.DAL.Entities;
 
 namespace SocialNetwork.WEB.Profiles
 {

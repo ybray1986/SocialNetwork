@@ -1,9 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
-using Microsoft.Owin.Security;
 using SocialNetwork.BL.ModelBO;
-using SocialNetwork.WEB.Identity;
 using SocialNetwork.WEB.ViewModels;
 using System;
 using System.Collections.Generic;

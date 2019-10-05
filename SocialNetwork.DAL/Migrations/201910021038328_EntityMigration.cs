@@ -8,7 +8,7 @@ namespace SocialNetwork.DAL.Migrations
         public override void Up()
         {
             CreateTable(
-                "dbo.Message",
+                "dbo.Messages",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
@@ -21,7 +21,7 @@ namespace SocialNetwork.DAL.Migrations
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
-                "dbo.Relationship",
+                "dbo.Relationships",
                 c => new
                     {
                         Id = c.Int(nullable: false),
@@ -31,7 +31,7 @@ namespace SocialNetwork.DAL.Migrations
                 .PrimaryKey(t => new { t.Id, t.UserId, t.FriendId });
             
             CreateTable(
-                "dbo.User",
+                "dbo.Users",
                 c => new
                     {
                         Id = c.Int(nullable: false),
@@ -48,9 +48,9 @@ namespace SocialNetwork.DAL.Migrations
         
         public override void Down()
         {
-            DropTable("dbo.User");
-            DropTable("dbo.Relationship");
-            DropTable("dbo.Message");
+            DropTable("dbo.Users");
+            DropTable("dbo.Relationships");
+            DropTable("dbo.Messages");
         }
     }
 }
