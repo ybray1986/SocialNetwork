@@ -21,6 +21,10 @@ namespace SocialNetwork.BL.ModelBO
         IMapper mapper;
         //bind construct to get data from unitOfWork
         public UserBO() { }
+        public UserBO(IMapper mapperParam)
+        {
+            mapper = mapperParam;
+        }
 
         public List<UserBO> GetListUsers()
         {

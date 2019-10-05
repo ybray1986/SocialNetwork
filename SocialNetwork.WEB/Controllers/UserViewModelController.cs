@@ -22,8 +22,8 @@ namespace SocialNetwork.WEB.Controllers
         {
             var UserBO = mapper.ServiceCtor.Invoke(typeof(UserBO));
             var UserBOList = (UserBO as UserBO).GetListUsers();
-            //var model = UserBOList.Select(item => mapper.Map<UserViewModel>(item)).ToList();
-            return View(/*model*/);
+            var model = UserBOList.Select(item => mapper.Map<UserViewModel>(item)).ToList();
+            return View(model);
         }
         //[HttpGet]
         //public ActionResult Edit(UserViewModel modelParam)
