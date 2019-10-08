@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SocialNetwork.AUTH.Infrastucture
 {
-    interface IAuthProvider<T> where T:class
+    public interface IAuthProvider<T> where T:class
     {
         bool isValid(string login, string password);
         void Add(T model);

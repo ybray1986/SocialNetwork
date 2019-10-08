@@ -35,7 +35,7 @@ namespace SocialNetwork.WEB.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (authProvider.Authenticate(model.UserName, model.Password))
+                if (authProvider.isValid(model.UserName, model.Password))
                 {
                     return Redirect(returnUrl ?? Url.Action("Index", "Admin"));
                 }
