@@ -7,7 +7,6 @@ using Ninject.Modules;
 using AutoMapper;
 using Ninject.Activation;
 using SocialNetwork.WEB.Profiles;
-using SocialNetwork.AUTH.Infrastucture;
 
 namespace SocialNetwork.WEB.Infrastucture
 {
@@ -16,7 +15,7 @@ namespace SocialNetwork.WEB.Infrastucture
         public override void Load()
         {
             Bind<IMapper>().ToMethod(AutoMapping).InSingletonScope();
-            Bind<IAuthProvider>().To<FormsAuthProvider>();
+            //Bind<IAuthProvider>().To<FormsAuthProvider>();
         }
 
         private IMapper AutoMapping(IContext context)

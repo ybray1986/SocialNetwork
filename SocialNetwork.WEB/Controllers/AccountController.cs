@@ -22,7 +22,6 @@ namespace SocialNetwork.WEB.Controllers
         [HttpPost]
         public ActionResult Register(RegisterViewModel model)
         {
-
             return View();
         }
         // GET: Account
