@@ -1,42 +1,64 @@
-﻿using SocialNetwork.AUTH.Entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Web;
+using System.Web.Security;
 
 namespace SocialNetwork.AUTH.Infrastucture
 {
-    public class CustomRoleProvider : ICustomRoleProvider
+    class CustomRoleProvider : RoleProvider
     {
-        public string[] GetRolesForUser(string userName)
+        public override string ApplicationName { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
+        public override void AddUsersToRoles(string[] usernames, string[] roleNames)
         {
-            if (!HttpContext.Current.User.Identity.IsAuthenticated)
-            {
-                return null;
-            }
-
-            var userRoles = new string[] { };
-
-            using (AuthDbContext dbContext = new AuthDbContext())
-            {
-                var selectedUser = (from us in dbContext.AppUsers.Include("Roles")
-                                    where string.Compare(us.UserName, userName, StringComparison.OrdinalIgnoreCase) == 0
-                                    select us).FirstOrDefault();
-
-                if (selectedUser != null)
-                {
-                    userRoles = new[] { selectedUser.Roles.Select(r => r.RoleName).ToString() };
-                }
-                return userRoles.ToArray();
-            }
+            throw new NotImplementedException();
         }
 
-        public bool IsUserInRole(string userName, string roleName)
+        public override void CreateRole(string roleName)
         {
-            var userRoles = GetRolesForUser(userName);
-            return userRoles.Contains(roleName);
+            throw new NotImplementedException();
+        }
+
+        public override bool DeleteRole(string roleName, bool throwOnPopulatedRole)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override string[] FindUsersInRole(string roleName, string usernameToMatch)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override string[] GetAllRoles()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override string[] GetRolesForUser(string username)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override string[] GetUsersInRole(string roleName)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override bool IsUserInRole(string username, string roleName)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void RemoveUsersFromRoles(string[] usernames, string[] roleNames)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override bool RoleExists(string roleName)
+        {
+            throw new NotImplementedException();
         }
     }
 }

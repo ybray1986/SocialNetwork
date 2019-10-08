@@ -48,9 +48,13 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.Providers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Providers.Core.2.0.0\lib\net40\System.Web.Providers.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -62,11 +66,9 @@
     <Compile Include="Entities\AppRole.cs" />
     <Compile Include="Entities\AppUser.cs" />
     <Compile Include="Entities\AuthDbContext.cs" />
-    <Compile Include="Infrastucture\CustomMembershipUser.cs" />
+    <Compile Include="Infrastucture\AuthProvider.cs" />
     <Compile Include="Infrastucture\CustomRoleProvider.cs" />
-    <Compile Include="Infrastucture\FormsAuthProvider.cs" />
     <Compile Include="Infrastucture\IAuthProvider.cs" />
-    <Compile Include="Infrastucture\ICustomRoleProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

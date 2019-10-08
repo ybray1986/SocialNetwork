@@ -15,6 +15,16 @@ namespace SocialNetwork.WEB.Controllers
         {
             authProvider = authParam;
         }
+        public ActionResult Register()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Register(RegisterViewModel model)
+        {
+
+            return View();
+        }
         // GET: Account
         public ActionResult Login()
         {

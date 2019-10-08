@@ -6,9 +6,7 @@ using System.Threading.Tasks;
 
 namespace SocialNetwork.AUTH.Infrastucture
 {
-    interface ICustomRoleProvider
+    class AuthProvider<T>:IAuthProvider<T> where T: class
     {
-        bool IsUserInRole(string userName, string roleName);
-        string[] GetRolesForUser(string userName);
     }
 }
