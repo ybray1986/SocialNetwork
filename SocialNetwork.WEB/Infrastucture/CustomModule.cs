@@ -17,7 +17,6 @@ namespace SocialNetwork.WEB.Infrastucture
         {
             Bind<IMapper>().ToMethod(AutoMapping).InSingletonScope();
             Bind<IAuthProvider>().To<FormsAuthProvider>();
-            Bind<ICustomRoleProvider>().To<CustomRoleProvider>();
         }
 
         private IMapper AutoMapping(IContext context)

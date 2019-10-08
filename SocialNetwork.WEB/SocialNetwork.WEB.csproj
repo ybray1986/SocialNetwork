@@ -160,7 +160,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Infrastucture\CustomModue.cs" />
+    <Compile Include="Infrastucture\CustomModule.cs" />
     <Compile Include="Profiles\MapperProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\FriendsViewModel.cs" />
@@ -199,10 +199,6 @@
     <ProjectReference Include="..\SocialNetwork.BL\SocialNetwork.BL.csproj">
       <Project>{D98B5468-70A2-4A9D-9A47-3EF2DC0F36B4}</Project>
       <Name>SocialNetwork.BL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SocialNetwork.DAL\SocialNetwork.DAL.csproj">
-      <Project>{ADFEFACE-3FAE-4387-BD0B-F63D6AFBAD4E}</Project>
-      <Name>SocialNetwork.DAL</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
