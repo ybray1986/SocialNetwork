@@ -70,6 +70,11 @@
     <Compile Include="Infrastucture\AuthProvider.cs" />
     <Compile Include="Infrastucture\CustomRoleProvider.cs" />
     <Compile Include="Infrastucture\IAuthProvider.cs" />
+    <Compile Include="Migrations\201910091432325_AuthMigration.cs" />
+    <Compile Include="Migrations\201910091432325_AuthMigration.Designer.cs">
+      <DependentUpon>201910091432325_AuthMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -78,6 +83,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Service\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201910091432325_AuthMigration.resx">
+      <DependentUpon>201910091432325_AuthMigration.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
