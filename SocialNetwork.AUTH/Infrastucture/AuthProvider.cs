@@ -9,39 +9,76 @@ namespace SocialNetwork.AUTH.Infrastucture
 {
     public class AuthProvider : IAuthProvider
     {
+
         public void Add(AppUser model)
         {
-            throw new NotImplementedException();
+            using (AuthDbContext db = new AuthDbContext())
+            {
+                db.AppUsers.Add(model);
+                db.SaveChanges();
+            }
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            using(AuthDbContext db = new AuthDbContext())
+            {
+                var user = db.AppUsers.Find(id);
+                db.AppUsers.Remove(user);
+                db.SaveChanges();
+            }
         }
 
         public void Edit(AppUser model)
         {
-            throw new NotImplementedException();
+            using (AuthDbContext db = new AuthDbContext())
+            {
+                var result = db.AppUsers.SingleOrDefault(item => item.UserId == model.UserId);
+                if (result != null)
+                {
+                    db.Entry(result).CurrentValues.SetValues(model);
+                    db.SaveChanges();
+                }
+            }
         }
 
         public IEnumerable<AppUser> GetListUsers()
         {
-            throw new NotImplementedException();
+            using (AuthDbContext db = new AuthDbContext())
+            {
+                return db.AppUsers.ToList();
+            }
+        }
+
+        public AppUser GetUserByEmail(AppUser model)
+        {
+            using (AuthDbContext db = new AuthDbContext())
+            {
+                var user = db.AppUsers.Where(name => name.Email == model.Email).FirstOrDefault();
+                return user;
+            }
         }
 
         public AppUser GetUserById(int id)
         {
-            throw new NotImplementedException();
+            using(AuthDbContext db = new AuthDbContext())
+            {
+                return db.AppUsers.Find(id);
+            }
+            
         }
 
         public bool isValid(string login, string password)
         {
-            throw new NotImplementedException();
-        }
-
-        public void Save()
-        {
-            throw new NotImplementedException();
+            using (AuthDbContext db = new AuthDbContext())
+            {
+                var user = db.AppUsers.Where(l => l.Email == login && l.Password == password).FirstOrDefault();
+                if (user != null)
+                {
+                    return true;
+                }
+                return false;
+            }
         }
     }
 }

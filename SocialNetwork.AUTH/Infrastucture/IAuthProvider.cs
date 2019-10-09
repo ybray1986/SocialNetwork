@@ -12,9 +12,9 @@ namespace SocialNetwork.AUTH.Infrastucture
         bool isValid(string login, string password);
         void Add(AppUser model);
         AppUser GetUserById(int id);
+        AppUser GetUserByEmail(AppUser model);
         IEnumerable<AppUser> GetListUsers();
         void Edit(AppUser model);
         void Delete(int id);
-        void Save();
     }
 }
