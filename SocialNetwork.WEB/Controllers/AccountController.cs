@@ -55,7 +55,8 @@ namespace SocialNetwork.WEB.Controllers
             {
                 if (authProvider.isValid(model.UserName, model.Password))
                 {
-                    return Redirect(returnUrl ?? Url.Action("Index", "Admin"));
+                    FormsAuthentication.SetAuthCookie(model.UserName, true);
+                    return Redirect(returnUrl ?? Url.Action("Index", "Home"));
                 }
                 else
                 {
@@ -65,7 +66,7 @@ namespace SocialNetwork.WEB.Controllers
             }
             else
             {
-                return View();
+                return View(model);
             }
         }
     }
