@@ -8,6 +8,7 @@ using SocialNetwork.BL.ModelBO;
 using System.Web.Mvc;
 using SocialNetwork.WEB.ViewModels;
 using SocialNetwork.DAL.Entities;
+using SocialNetwork.AUTH.Entities;
 
 namespace SocialNetwork.WEB.Profiles
 {
@@ -24,6 +25,8 @@ namespace SocialNetwork.WEB.Profiles
             this.CreateMap<RelationshipBO, FriendsViewModel>();
             this.CreateMap<FriendsViewModel, RelationshipBO>();
             this.CreateMap<RelationshipBO, Relationship>();
+
+            this.CreateMap<AppUser, RegisterViewModel>().ReverseMap();
         }
     }
 }

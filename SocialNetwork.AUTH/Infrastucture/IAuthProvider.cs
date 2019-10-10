@@ -9,7 +9,7 @@ namespace SocialNetwork.AUTH.Infrastucture
 {
     public interface IAuthProvider
     {
-        bool isValid(string login, string password);
+        bool isValid(string email, string password);
         void Add(AppUser model);
         AppUser GetUserById(int id);
         AppUser GetUserByEmail(AppUser model);

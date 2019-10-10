@@ -68,11 +68,11 @@ namespace SocialNetwork.AUTH.Infrastucture
             
         }
 
-        public bool isValid(string login, string password)
+        public bool isValid(string email, string password)
         {
             using (AuthDbContext db = new AuthDbContext())
             {
-                var user = db.AppUsers.Where(l => l.Email == login && l.Password == password).FirstOrDefault();
+                var user = db.AppUsers.Where(l => l.Email == email && l.Password == password).FirstOrDefault();
                 if (user != null)
                 {
                     return true;

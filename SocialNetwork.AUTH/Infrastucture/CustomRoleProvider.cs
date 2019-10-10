@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SocialNetwork.AUTH.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,20 +8,9 @@ using System.Web.Security;
 
 namespace SocialNetwork.AUTH.Infrastucture
 {
-    public class CustomRoleProvider : RoleProvider
+    public class CustomRoleProvider:RoleProvider
     {
-        public override string ApplicationName
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
+        public override string ApplicationName { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         public override void AddUsersToRoles(string[] usernames, string[] roleNames)
         {
@@ -47,9 +37,18 @@ namespace SocialNetwork.AUTH.Infrastucture
             throw new NotImplementedException();
         }
 
-        public override string[] GetRolesForUser(string username)
+        public override string[] GetRolesForUser(string email)
         {
-            throw new NotImplementedException();
+            string[] roles = new string[] { };
+            using (AuthDbContext db = new AuthDbContext())
+            {
+                AppUser user = db.AppUsers.Where(u => u.Email == email).FirstOrDefault();
+                if (user != null)
+                {
+                    roles = user.Roles.Select(r => r.RoleName).ToArray();
+                }
+                return roles;
+            }
         }
 
         public override string[] GetUsersInRole(string roleName)
@@ -57,9 +56,22 @@ namespace SocialNetwork.AUTH.Infrastucture
             throw new NotImplementedException();
         }
 
-        public override bool IsUserInRole(string username, string roleName)
+        public override bool IsUserInRole(string email, string roleName)
         {
-            throw new NotImplementedException();
+            using (AuthDbContext db = new AuthDbContext())
+            {
+                // Получаем пользователя
+                AppUser user = db.AppUsers.Where(u => u.Email == email).FirstOrDefault();
+
+                if (user != null && user.Roles.Contains(new AppRole { RoleName = roleName }))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
         }
 
         public override void RemoveUsersFromRoles(string[] usernames, string[] roleNames)

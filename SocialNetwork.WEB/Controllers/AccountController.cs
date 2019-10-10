@@ -30,11 +30,11 @@ namespace SocialNetwork.WEB.Controllers
             if (ModelState.IsValid)
             {
                 var user = authProvider.GetUserByEmail(mapper.Map<AppUser>(model));//mapper
-                if (user != null)
+                if (user == null)
                 {
-                    authProvider.Add(user);
+                    authProvider.Add(mapper.Map<AppUser>(model));
                     FormsAuthentication.SetAuthCookie(model.Email, true);
-
+                    return RedirectToAction("Index", "Home");
                 }
                 else
                 {
@@ -53,9 +53,9 @@ namespace SocialNetwork.WEB.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (authProvider.isValid(model.UserName, model.Password))
+                if (authProvider.isValid(model.Email, model.Password))
                 {
-                    FormsAuthentication.SetAuthCookie(model.UserName, true);
+                    FormsAuthentication.SetAuthCookie(model.Email, true);
                     return Redirect(returnUrl ?? Url.Action("Index", "Home"));
                 }
                 else
@@ -68,6 +68,11 @@ namespace SocialNetwork.WEB.Controllers
             {
                 return View(model);
             }
+        }
+        public ActionResult Logout()
+        {
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Index", "Home");
         }
     }
 }
