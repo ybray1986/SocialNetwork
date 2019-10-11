@@ -11,7 +11,7 @@ namespace SocialNetwork.WEB.Infrastucture
     {
         public void Configuration(IAppBuilder app)
         {
-            app.MapSignalR();//Для задействования функциональности SignalR
+            app.MapSignalR();
         }
     }
 }
