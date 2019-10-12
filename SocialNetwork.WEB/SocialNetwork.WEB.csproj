@@ -226,10 +226,6 @@
     <Folder Include="Views\LoginViewModel\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SocialNetwork.AUTH\SocialNetwork.AUTH.csproj">
-      <Project>{904f78a0-d9f0-4e9f-af40-b5e08b2ee108}</Project>
-      <Name>SocialNetwork.AUTH</Name>
-    </ProjectReference>
     <ProjectReference Include="..\SocialNetwork.BL\SocialNetwork.BL.csproj">
       <Project>{D98B5468-70A2-4A9D-9A47-3EF2DC0F36B4}</Project>
       <Name>SocialNetwork.BL</Name>

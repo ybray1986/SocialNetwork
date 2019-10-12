@@ -11,6 +11,8 @@ namespace SocialNetwork.DAL.UnitOfWork
     public interface IUnitOfWork: IDisposable
     {
         Repository<Relationship> FriendWoURepository { get; }
-        Repository<User> UserWoURepository { get; }
+        Repository<AppUser> UserWoURepository { get; }
+        Repository<AppRole> RoleWoURepository { get; }
+        Repository<Message> MessageWoURepository { get; }
     }
 }

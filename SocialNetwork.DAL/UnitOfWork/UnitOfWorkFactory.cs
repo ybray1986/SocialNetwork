@@ -9,7 +9,7 @@ namespace SocialNetwork.DAL.UnitOfWork
 {
     public class UnitOfWorkFactory
     {
-        public static IUnitOfWork Create()
+        public IUnitOfWork Create()
         {
             return new UnitOfWork(new SocialNetworkContext());
         }

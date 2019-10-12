@@ -11,7 +11,7 @@ namespace SocialNetwork.WEB.Hubs
         public string ConnectionId { get; set; }
         public string Name { get; set; }
     }
-    public class ChatHub:Hub
+    public class ChatHub : Hub
     {
         static List<User> Users = new List<User>();
 

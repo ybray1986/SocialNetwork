@@ -25,14 +25,20 @@ namespace SocialNetwork.DAL.UnitOfWork
             }
         }
 
-        Repository<User> _userWoURepository;
-        public Repository<User> UserWoURepository
+        Repository<AppUser> _userWoURepository;
+        public Repository<AppUser> UserWoURepository
         {
             get
             {
-                return (_userWoURepository == null) ? new Repository<User>(db) : _userWoURepository;
+                return (_userWoURepository == null) ? new Repository<AppUser>(db) : _userWoURepository;
             }
         }
+
+        Repository<AppRole> _roleWoURepository;
+        public Repository<AppRole> RoleWoURepository => _roleWoURepository ?? new Repository<AppRole>(db);
+
+        Repository<Message> _messageWoURepository;
+        public Repository<Message> MessageWoURepository => _messageWoURepository ?? new Repository<Message>(db);
 
         #region IDisposable Support
         private bool disposedValue = false; // Для определения избыточных вызовов

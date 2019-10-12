@@ -64,9 +64,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\AppRole.cs" />
-    <Compile Include="Entities\AppUser.cs" />
-    <Compile Include="Entities\AuthDbContext.cs" />
     <Compile Include="Infrastucture\AuthProvider.cs" />
     <Compile Include="Infrastucture\CustomRoleProvider.cs" />
     <Compile Include="Infrastucture\IAuthProvider.cs" />
@@ -82,6 +79,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Entities\" />
     <Folder Include="Service\" />
   </ItemGroup>
   <ItemGroup>

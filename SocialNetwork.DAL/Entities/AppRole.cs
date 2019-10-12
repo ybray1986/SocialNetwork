@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SocialNetwork.AUTH.Entities
+namespace SocialNetwork.DAL.Entities
 {
     public class AppRole
     {

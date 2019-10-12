@@ -16,10 +16,10 @@ namespace SocialNetwork.WEB.Profiles
     {
         public MapperProfile()
         {
-            this.CreateMap<User, UserBO>();
+            this.CreateMap<AppUser, UserBO>();
             this.CreateMap<UserBO, UserViewModel>();
             this.CreateMap<UserViewModel, UserBO>();
-            this.CreateMap<UserBO, User>();
+            this.CreateMap<UserBO, AppUser>();
 
             this.CreateMap<Relationship, RelationshipBO>();
             this.CreateMap<RelationshipBO, FriendsViewModel>();

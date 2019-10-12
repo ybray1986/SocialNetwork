@@ -1,6 +1,4 @@
 ﻿using AutoMapper;
-using SocialNetwork.AUTH.Entities;
-using SocialNetwork.AUTH.Infrastucture;
 using SocialNetwork.WEB.ViewModels;
 using System;
 using System.Collections.Generic;
