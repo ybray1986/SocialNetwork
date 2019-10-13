@@ -14,5 +14,6 @@ namespace SocialNetwork.DAL.UnitOfWork
         Repository<AppUser> UserWoURepository { get; }
         Repository<AppRole> RoleWoURepository { get; }
         Repository<Message> MessageWoURepository { get; }
+        void Save();
     }
 }

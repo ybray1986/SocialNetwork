@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using Microsoft.AspNet.Identity;
 using SocialNetwork.BL.ModelBO;
 using SocialNetwork.WEB.ViewModels;
 using System;
@@ -21,7 +20,7 @@ namespace SocialNetwork.WEB.Controllers
         public ActionResult Index()
         {
             var UserBO = mapper.ServiceCtor.Invoke(typeof(UserBO));
-            var UserBOList = (UserBO as UserBO).GetListUsers();
+            var UserBOList = (UserBO as UserBO).GetBOListUsers();
             var model = UserBOList.Select(item => mapper.Map<UserViewModel>(item)).ToList();
             return View(model);
         }

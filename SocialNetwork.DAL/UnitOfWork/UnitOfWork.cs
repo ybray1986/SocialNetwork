@@ -40,6 +40,10 @@ namespace SocialNetwork.DAL.UnitOfWork
         Repository<Message> _messageWoURepository;
         public Repository<Message> MessageWoURepository => _messageWoURepository ?? new Repository<Message>(db);
 
+        public void Save()
+        {
+            db.SaveChanges();
+        }
         #region IDisposable Support
         private bool disposedValue = false; // Для определения избыточных вызовов
 
@@ -77,6 +81,8 @@ namespace SocialNetwork.DAL.UnitOfWork
             // TODO: раскомментировать следующую строку, если метод завершения переопределен выше.
             GC.SuppressFinalize(this);
         }
+
+        
         #endregion
     }
 }

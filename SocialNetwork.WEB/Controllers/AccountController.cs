@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using SocialNetwork.BL.ModelBO;
 using SocialNetwork.WEB.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -12,25 +13,24 @@ namespace SocialNetwork.WEB.Controllers
     public class AccountController : Controller
     {
         private IMapper mapper;
-        private IAuthProvider authProvider;
-        public AccountController(IMapper mapperParam ,IAuthProvider authParam)
+        public AccountController(IMapper mapperParam)
         {
             mapper = mapperParam;
-            authProvider = authParam;
         }
         public ActionResult Register()
         {
             return View();
         }
         [HttpPost]
-        public ActionResult Register(RegisterViewModel model)
+        public ActionResult Register(UserViewModel model)
         {
             if (ModelState.IsValid)
             {
-                var user = authProvider.GetUserByEmail(mapper.Map<AppUser>(model));//mapper
-                if (user == null)
+                var userBO = mapper.Map<UserBO>(model);
+                userBO.GetUserBOByEmail(model.Email);
+                if (userBO == null)
                 {
-                    authProvider.Add(mapper.Map<AppUser>(model));
+                    userBO.SaveBO();
                     FormsAuthentication.SetAuthCookie(model.Email, true);
                     return RedirectToAction("Index", "Home");
                 }
@@ -51,7 +51,8 @@ namespace SocialNetwork.WEB.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (authProvider.isValid(model.Email, model.Password))
+                var user = mapper.ServiceCtor.Invoke(typeof(UserBO));
+                if ((user as UserBO).isValid(model.Email, model.Password))
                 {
                     FormsAuthentication.SetAuthCookie(model.Email, true);
                     return Redirect(returnUrl ?? Url.Action("Index", "Home"));

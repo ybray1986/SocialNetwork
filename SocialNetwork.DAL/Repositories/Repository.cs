@@ -35,7 +35,7 @@ namespace SocialNetwork.DAL.Repositories
 
         public void Update(T model)
         {
-            db.Entry(model).State = EntityState.Modified;
+            db.Entry(model).CurrentValues.SetValues(model);
         }
 
         public IEnumerable<T> GetAll()

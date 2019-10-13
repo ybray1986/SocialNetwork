@@ -8,7 +8,6 @@ using SocialNetwork.BL.ModelBO;
 using System.Web.Mvc;
 using SocialNetwork.WEB.ViewModels;
 using SocialNetwork.DAL.Entities;
-using SocialNetwork.AUTH.Entities;
 
 namespace SocialNetwork.WEB.Profiles
 {
@@ -16,17 +15,16 @@ namespace SocialNetwork.WEB.Profiles
     {
         public MapperProfile()
         {
-            this.CreateMap<AppUser, UserBO>();
-            this.CreateMap<UserBO, UserViewModel>();
-            this.CreateMap<UserViewModel, UserBO>();
-            this.CreateMap<UserBO, AppUser>();
+            this.CreateMap<AppUser, UserBO>().ConstructUsingServiceLocator();
+            this.CreateMap<UserBO, UserViewModel>().ConstructUsingServiceLocator();
+            this.CreateMap<UserViewModel, UserBO>().ConstructUsingServiceLocator();
+            this.CreateMap<UserBO, AppUser>().ConstructUsingServiceLocator();
 
             this.CreateMap<Relationship, RelationshipBO>();
             this.CreateMap<RelationshipBO, FriendsViewModel>();
             this.CreateMap<FriendsViewModel, RelationshipBO>();
             this.CreateMap<RelationshipBO, Relationship>();
 
-            this.CreateMap<AppUser, RegisterViewModel>().ReverseMap();
         }
     }
 }

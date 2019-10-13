@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using SocialNetwork.DAL.Entities;
 using SocialNetwork.DAL.UnitOfWork;
 using System;
 using System.Collections.Generic;
@@ -10,18 +11,24 @@ namespace SocialNetwork.BL.ModelBO
 {
     public class UserBO : BusinessObjectBase
     {
-        public int Id { get; set; }
-        public string LastName { get; set; }
+        public int UserId { get; set; }
+        public string UserName { get; set; }
         public string FirstName { get; set; }
+        public string LastName { get; set; }
         public string MiddleName { get; set; }
         public DateTime BirthDate { get; set; }
         public string Photo { get; set; }
         public DateTime RegisteredDate { get; set; }
-        //bind construct to get data from unitOfWork
+        public string Email { get; set; }
+        public string Password { get; set; }
+        public bool IsActive { get; set; }
+        public Guid ActivationCode { get; set; }
+        public virtual ICollection<AppRole> Roles { get; set; }
+        //Bind construct to get data from unitOfWork
         public UserBO(IMapper mapperParam, UnitOfWorkFactory unitOfWorkFactoryParam) : base(mapperParam, unitOfWorkFactoryParam)
         {
         }
-        public List<UserBO> GetListUsers()
+        public List<UserBO> GetBOListUsers()
         {
             List<UserBO> users = new List<UserBO>();
             using (var unitOfWork = unitOfWorkFactory.Create())
@@ -40,36 +47,35 @@ namespace SocialNetwork.BL.ModelBO
             }
             return user;
         }
-        public void Edit(AppUser model)
+        void AddEditBO(IUnitOfWork unitOfWork)
         {
-            using (AuthDbContext db = new AuthDbContext())
+            var user = mapper.Map<AppUser>(this);
+            unitOfWork.UserWoURepository.Add(user);
+            unitOfWork.Save();
+        }
+        public void SaveBO()
+        {
+            using (var unitOfWork = unitOfWorkFactory.Create())
             {
-                var result = db.AppUsers.SingleOrDefault(item => item.UserId == model.UserId);
-                if (result != null)
-                {
-                    db.Entry(result).CurrentValues.SetValues(model);
-                    db.SaveChanges();
-                }
+                AddEditBO(unitOfWork);
             }
         }
-        public AppUser GetUserByEmail(AppUser model)
+
+        public UserBO GetUserBOByEmail(string email)
         {
-            using (AuthDbContext db = new AuthDbContext())
+            UserBO user;
+
+            using (var unitOfWork = unitOfWorkFactory.Create())
             {
-                var user = db.AppUsers.Where(name => name.Email == model.Email).FirstOrDefault();
-                return user;
+                user = unitOfWork.UserWoURepository.GetAll().Where(a => a.Email == email).Select(item => mapper.Map<UserBO>(item)).FirstOrDefault();
             }
+            return user;
         }
         public bool isValid(string email, string password)
         {
-            using (AuthDbContext db = new AuthDbContext())
+            using (var unitOfWork = unitOfWorkFactory.Create())
             {
-                var user = db.AppUsers.Where(l => l.Email == email && l.Password == password).FirstOrDefault();
-                if (user != null)
-                {
-                    return true;
-                }
-                return false;
+                return unitOfWork.UserWoURepository.GetAll().Where(user => user.Email == email && user.Password == password).Any();
             }
         }
     }

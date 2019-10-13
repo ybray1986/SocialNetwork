@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SocialNetwork.DAL.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,9 +8,42 @@ using System.Web.Security;
 
 namespace SocialNetwork.BL.Providers
 {
-    public class CustomRoleProvider:RoleProvider
+    public class CustomRoleProvider : RoleProvider
     {
-        public override string ApplicationName { get { throw new NotImplementedException(); } set { throw new NotImplementedException(); } }
+
+        public override string[] GetRolesForUser(string email)
+        {
+            string[] roles = new string[] { };
+            using (SocialNetworkContext db = new SocialNetworkContext())
+            {
+                AppUser user = db.AppUsers.Where(u => u.Email == email).FirstOrDefault();
+                if (user != null)
+                {
+                    roles = user.Roles.Select(r => r.RoleName).ToArray();
+                }
+                return roles;
+            }
+        }
+
+
+        public override bool IsUserInRole(string email, string roleName)
+        {
+            using (SocialNetworkContext db = new SocialNetworkContext())
+            {
+                // Получаем пользователя
+                AppUser user = db.AppUsers.Where(u => u.Email == email).FirstOrDefault();
+
+                if (user != null && user.Roles.Contains(new AppRole { RoleName = roleName }))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+        public override string ApplicationName { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         public override void AddUsersToRoles(string[] usernames, string[] roleNames)
         {
@@ -36,41 +70,9 @@ namespace SocialNetwork.BL.Providers
             throw new NotImplementedException();
         }
 
-        public override string[] GetRolesForUser(string email)
-        {
-            string[] roles = new string[] { };
-            using (AuthDbContext db = new AuthDbContext())
-            {
-                AppUser user = db.AppUsers.Where(u => u.Email == email).FirstOrDefault();
-                if (user != null)
-                {
-                    roles = user.Roles.Select(r => r.RoleName).ToArray();
-                }
-                return roles;
-            }
-        }
-
         public override string[] GetUsersInRole(string roleName)
         {
             throw new NotImplementedException();
-        }
-
-        public override bool IsUserInRole(string email, string roleName)
-        {
-            using (AuthDbContext db = new AuthDbContext())
-            {
-                // Получаем пользователя
-                AppUser user = db.AppUsers.Where(u => u.Email == email).FirstOrDefault();
-
-                if (user != null && user.Roles.Contains(new AppRole { RoleName = roleName }))
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
         }
 
         public override void RemoveUsersFromRoles(string[] usernames, string[] roleNames)
