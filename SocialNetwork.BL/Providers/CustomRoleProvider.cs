@@ -25,14 +25,11 @@ namespace SocialNetwork.BL.Providers
             }
         }
 
-
         public override bool IsUserInRole(string email, string roleName)
         {
             using (SocialNetworkContext db = new SocialNetworkContext())
             {
-                // Получаем пользователя
                 AppUser user = db.AppUsers.Where(u => u.Email == email).FirstOrDefault();
-
                 if (user != null && user.Roles.Contains(new AppRole { RoleName = roleName }))
                 {
                     return true;
@@ -43,6 +40,7 @@ namespace SocialNetwork.BL.Providers
                 }
             }
         }
+
         public override string ApplicationName { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         public override void AddUsersToRoles(string[] usernames, string[] roleNames)
