@@ -7,9 +7,9 @@
 <body>
     <div class="main">
         <div id="loginBlock">
-            Введите логин:<br />
-            <input id="txtUserName" type="text" />
-            <input id="btnLogin" type="button" value="Войти" />
+            @*Введите логин:<br />*@
+            <input id="txtUserName" type="text"  value="@User.Identity.Name"/>
+            @*<input id="btnLogin" type="button" value="Войти" />*@
         </div>
         <div id="chatBody">
             <div id="header"></div>
