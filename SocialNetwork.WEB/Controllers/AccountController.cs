@@ -21,6 +21,7 @@ namespace SocialNetwork.WEB.Controllers
         {
             return View();
         }
+        //On register add default photo to form in view
         [HttpPost]
         public ActionResult Register(UserViewModel model)
         {
