@@ -41,7 +41,7 @@ namespace SocialNetwork.BL.Providers
             }
         }
 
-        public override string ApplicationName { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public override string ApplicationName { get { throw new NotImplementedException(); } set { throw new NotImplementedException(); } }
 
         public override void AddUsersToRoles(string[] usernames, string[] roleNames)
         {

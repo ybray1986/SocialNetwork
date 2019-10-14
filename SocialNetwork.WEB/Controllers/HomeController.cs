@@ -8,6 +8,7 @@ namespace SocialNetwork.WEB.Controllers
 {
     public class HomeController : Controller
     {
+        //Page of user
         // GET: Home
         public ActionResult Index()
         {

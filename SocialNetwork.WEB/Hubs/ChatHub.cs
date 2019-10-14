@@ -19,6 +19,7 @@ namespace SocialNetwork.WEB.Hubs
         public void Send(string name, string message)
         {
             Clients.All.addMessage(name, message);
+            //Add serializer to json and paste to file
         }
 
         // Подключение нового пользователя

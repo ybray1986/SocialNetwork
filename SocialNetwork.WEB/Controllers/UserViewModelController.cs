@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace SocialNetwork.WEB.Controllers
 {
+    //Add some filters to get data from this controller
     public class UserViewModelController : Controller
     {
         IMapper mapper;
