@@ -1,7 +1,5 @@
 ﻿$(function () {
 
-    $('#chatBody').hide();
-    $('#loginBlock').show();
     // Ссылка на автоматически-сгенерированный прокси хаба
     var chat = $.connection.chatHub;
     // Объявление функции, которая хаб вызывает при получении сообщений
@@ -13,10 +11,7 @@
 
     // Функция, вызываемая при подключении нового пользователя
     chat.client.onConnected = function (id, userName, allUsers) {
-
-        $('#loginBlock').hide();
-        $('#chatBody').show();
-        // установка в скрытых полях имени и id текущего пользователя
+        // Установка в скрытых полях имени и id текущего пользователя
         $('#hdId').val(id);
         $('#username').val(userName);
         $('#header').html('<h3>Добро пожаловать, ' + userName + '</h3>');
@@ -42,38 +37,28 @@
 
     // Открываем соединение
     $.connection.hub.start().done(function () {
-
+        // Обработка логина
+        var name = $("#txtUserName").val();
+        chat.server.connect(name);
         $('#sendmessage').click(function () {
             // Вызываем у хаба метод Send
             chat.server.send($('#username').val(), $('#message').val());
             $('#message').val('');
         });
-
-        // обработка логина
-        $("#btnLogin").click(function () {
-
-            var name = $("#txtUserName").val();
-            if (name.length > 0) {
-                chat.server.connect(name);
-            }
-            else {
-                alert("Введите имя");
-            }
-        });
     });
-});
-// Кодирование тегов
-function htmlEncode(value) {
-    var encodedValue = $('<div />').text(value).html();
-    return encodedValue;
-}
-//Добавление нового пользователя
-function AddUser(id, name) {
-
-    var userId = $('#hdId').val();
-
-    if (userId != id) {
-
-        $("#chatusers").append('<p id="' + id + '"><b>' + name + '</b></p>');
+    // Кодирование тегов
+    function htmlEncode(value) {
+        var encodedValue = $('<div />').text(value).html();
+        return encodedValue;
     }
-}
+    //Добавление нового пользователя
+    function AddUser(id, name) {
+
+        var userId = $('#hdId').val();
+
+        if (userId != id) {
+
+            $("#chatusers").append('<p id="' + id + '"><b>' + name + '</b></p>');
+        }
+    }
+})

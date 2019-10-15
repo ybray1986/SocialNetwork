@@ -39,7 +39,7 @@ namespace SocialNetwork.DAL.Entities
                 context.AppRoles.Add(new AppRole { RoleId = 1, RoleName = "admin" });
                 context.AppRoles.Add(new AppRole { RoleId = 2, RoleName = "user" });
                 context.Relationships.Add(new Entities.Relationship { Id = 1, FriendId = 2, UserId = 1 });
-                context.AppUsers.Add(new Entities.AppUser { UserId = 1, FirstName = "John", LastName = "Doe", MiddleName = "", BirthDate = new DateTime(1999, 05, 10), Photo = @"~\SocialNetwork\SocialNetwork.DAL\Content\Photo\Users\default\default-user-icon.jpg", RegisteredDate = new DateTime(2019, 09, 20) });
+                context.AppUsers.Add(new Entities.AppUser { UserId = 1, FirstName = "John", LastName = "Doe", MiddleName = "", Email="user1@mail.ru", BirthDate = new DateTime(1999, 05, 10), Photo = @"~\SocialNetwork\SocialNetwork.DAL\Content\Photo\Users\default\default-user-icon.jpg", Password="1234", RegisteredDate = new DateTime(2019, 09, 20) });
                 context.AppUsers.Add(new Entities.AppUser { UserId = 2, FirstName = "Max", LastName = "Payne", MiddleName = "", BirthDate = new DateTime(1998, 01, 20), Photo = @"~\SocialNetwork\SocialNetwork.DAL\Content\Photo\Users\default\default-user-icon.jpg", RegisteredDate = new DateTime(2019, 09, 20) });
                 context.Messages.Add(new Entities.Message { Id = 1, RelationshipId = 1, From = "John Doe", To = "Max Payne", SendTime = new DateTime(2019, 09, 21) });
                 base.Seed(context);
