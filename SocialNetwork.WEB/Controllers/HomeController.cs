@@ -3,6 +3,8 @@ using SocialNetwork.BL.ModelBO;
 using SocialNetwork.WEB.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -36,10 +38,11 @@ namespace SocialNetwork.WEB.Controllers
         }
         public FileContentResult GetImage(int id)
         {
+            byte[] defPhoto = System.IO.File.ReadAllBytes(@"C:\Users\Aman\Source\Repos\ybray1986\SocialNetwork\SocialNetwork.WEB\Content\photo\Users\default\default.png");
             var userBO = mapper.ServiceCtor(typeof(UserBO));
             var model = (userBO as UserBO).GetUserBOById(id);
             var userViewModel = mapper.Map<UserViewModel>(model);
-            return File(userViewModel.Photo, null);
+            return new FileContentResult(/*userViewModel.Photo??*/defPhoto, "image/png");
         }
     }
 }
