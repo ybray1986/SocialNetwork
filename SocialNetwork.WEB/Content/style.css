@@ -1,0 +1,208 @@
+﻿@import url("https://use.typekit.net/ggg8dii.css");
+html {
+    background-color: #E3E3E3;
+}
+body, button, input, select, textarea {
+    font-family: Helvetica Neue, Arial, sans-serif;
+    font-size: 12px;
+    color: #211922;
+}
+header {
+    height: 44px;
+    width: 100%;
+    background-color: #ffffff;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 670;
+    position: fixed;
+    box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.1),0px 1px 0px 0px rgba(0,0,0,0.1);
+}
+#header-inner{
+    max-width:1250px;
+    min-width:750px;
+    margin:0px auto;
+    display:block;
+    height:29px;
+    overflow:visible;
+    padding:7px 0px 0px;
+    z-index:680;
+}
+.logo {
+    left: 50%;
+    height: 26px;
+    width: 204px;
+    position: absolute;
+    font-family: voluta-script-pro, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color:#ff0000;
+    font-size:46px;
+    margin-left:-52px;
+    margin-top:0px;
+    top:-7px;
+}
+#header-left{
+    float:left;
+    margin-left:7px;
+    width:250px;
+}
+#header-right {
+    float: right;
+    margin-right: 7px;
+    width: 250px;
+}
+/*ButtonBEGIN*/
+.buttonC {
+    float: left;
+    margin-right: 6px;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+}
+.buttonC-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 690;
+}
+
+/* Links inside the dropdown */
+.buttonC-content a {
+    color: rgb(113,113,113);
+    padding: 12px 16px;
+    text-decoration: none;
+    font-weight: bold;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.buttonC-content a:hover {
+    background-color: #ddd;
+}
+
+/* Show the dropdown menu on hover */
+.buttonC:hover .buttonC-content {
+    display: block;
+}
+
+.buttonC > button{
+    height: 30px;
+    width: 36px;
+    border-radius: 3px 3px 3px 3px;
+    background: linear-gradient(rgb(255,255,255),rgb(240,240,240));
+    border: 1px solid rgb(204,204,204);
+    text-shadow: 0px 1px rgb(255,255,255);
+}
+.buttonC > button em{
+    color: #bdbdbd;
+    position: relative;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 20px;
+}
+.buttonC > button:hover{
+    background-image: linear-gradient(#e3262e,#ab171e);
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.22);
+    background-color: #ab171e;
+    border: 1px solid rgb(113,113,113);
+    text-shadow: 0 -1px rgba(0,0,0,0.11);
+}
+.buttonC > button:hover em{
+    color: #fff;
+    vertical-align: middle;
+}
+/*ButtonEND*/
+/*SearchBEGIN*/
+header .searchForm{
+    float:left;
+    position:relative;
+    width:194px;
+}
+.searchForm .field{
+    border-radius:3px 3px 3px 3px;
+    box-shadow:0px 0px 2px rgba(0,0,0,0.07) inset;
+    background:none repeat scroll 0% 0% rgb(250, 249,247);
+    border: 1px solid rgb(204,204,204);
+    color:rgb(113,113,113);
+    font-size:13px;
+    font-weight:bold;
+    padding:6px 30px 6px 9px;
+    z-index:670;
+}
+.searchForm .submit{
+    height:17px;
+    width:21px;
+    border: 0px;
+    position:absolute;
+    right:9px;
+    top:7px;
+    z-index:671;
+    margin-right:3px;
+    background-color:transparent;
+}
+
+.searchForm .submit em{
+    color: #bdbdbd;
+    top:-4px;
+    position:relative;
+    font-size:14px;
+    font-weight:normal;
+    line-height:20px;
+}
+/*SearchEND*/
+/*ProfileBEGIN*/
+.profile-wrapper{
+    overflow:hidden;
+}
+.profile{
+    background:linear-gradient(rgb(255,255,255),rgb(240,240,240));
+    border-radius:3px 3px 3px 3px;
+    border:1px solid rgb(204,204,204);
+    margin-right:7px;
+    position:relative;
+    height:28px;
+}
+.profile a{
+    color:rgb(113,113,113);
+    font-size:13px;
+    font-weight:bold;
+    text-decoration:none;
+}
+.profile:hover{
+    margin-right:7px;
+    border-radius:3px 3px 3px 3px;
+    border:1px solid transparent;
+    /*background:linear-gradient(to bottom, #e3262 0%,#ab171e 100%);*/
+
+    background-image: linear-gradient(#e3262e,#ab171e);
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.22);
+    background-color: #ab171e;
+    /*border: 1px solid rgb(113,113,113);*/
+    text-shadow: 0 -1px rgba(0,0,0,0.11)
+}
+.profile a:hover{
+    color: #fff;
+}
+.profile .profile-link{
+    float:left;
+    width:100%;
+}
+.profile .profile-image {
+    border-radius:3px 0px 0px 3px;
+    float:left;
+    height:30px;
+    margin:-1px;
+    width:30px;
+}
+.profile .profile-name{
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    display:block;
+    height:21px;
+    padding:6px 9px 1px 10px;
+}
+/*ProfileEND*/

@@ -1,4 +1,7 @@
-﻿using System;
+﻿using AutoMapper;
+using SocialNetwork.BL.ModelBO;
+using SocialNetwork.WEB.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,8 +11,12 @@ namespace SocialNetwork.WEB.Controllers
 {
     public class HomeController : Controller
     {
-        //Page of user
+        IMapper mapper;
         // GET: Home
+        HomeController(IMapper mapperParam)
+        {
+            mapper = mapperParam;
+        }
         public ActionResult Index()
         {
             if (User.Identity.IsAuthenticated)
@@ -21,6 +28,12 @@ namespace SocialNetwork.WEB.Controllers
                 ViewBag.Result = "You are not logged in!";
             }
             return View();
+        }
+        public ActionResult Search()
+        {
+            var userBO = mapper.ServiceCtor(typeof(UserBO));
+            var model = (userBO as UserBO).GetBOListUsers().Select(item=>mapper.Map<UserViewModel>(item)).ToList();
+            return PartialView(model);
         }
     }
 }
