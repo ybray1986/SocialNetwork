@@ -38,11 +38,11 @@ namespace SocialNetwork.WEB.Controllers
         }
         public FileContentResult GetImage(int id)
         {
-            byte[] defPhoto = System.IO.File.ReadAllBytes(@"C:\Users\Aman\Source\Repos\ybray1986\SocialNetwork\SocialNetwork.WEB\Content\photo\Users\default\default.png");
+            byte[] defPhoto = System.IO.File.ReadAllBytes(Server.MapPath("~/Content/photo/Users/default/default.png"));
             var userBO = mapper.ServiceCtor(typeof(UserBO));
             var model = (userBO as UserBO).GetUserBOById(id);
             var userViewModel = mapper.Map<UserViewModel>(model);
-            return new FileContentResult(/*userViewModel.Photo??*/defPhoto, "image/png");
+            return new FileContentResult((userViewModel.Photo != null && userViewModel.Photo.Length > 0) ? userViewModel.Photo : defPhoto, "image/png");
         }
     }
 }
