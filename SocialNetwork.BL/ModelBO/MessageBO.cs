@@ -8,6 +8,5 @@ namespace SocialNetwork.BL.ModelBO
 {
     public class MessageBO
     {
-        public string TextMessage { get; set; } // For messages
     }
 }

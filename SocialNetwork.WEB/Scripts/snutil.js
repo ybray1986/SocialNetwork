@@ -9,4 +9,17 @@
     //    }
     //};
     //category.on('click', toggleCatDropDown);
+    typeahead = $('.typeahead');
+    field = $('.field');
+
+    toggleSearchDropDown = function () {
+
+        if (field.val() === "") {
+            typeahead.css("display", "none");
+        } else {
+            typeahead.css("display", "block");
+        }
+    };
+
+    field.on('keyup', toggleSearchDropDown);
 });

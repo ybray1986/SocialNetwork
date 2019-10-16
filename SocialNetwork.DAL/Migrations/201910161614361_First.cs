@@ -26,7 +26,7 @@ namespace SocialNetwork.DAL.Migrations
                         LastName = c.String(),
                         MiddleName = c.String(),
                         BirthDate = c.DateTime(nullable: false),
-                        Photo = c.String(),
+                        Photo = c.Binary(),
                         RegisteredDate = c.DateTime(nullable: false),
                         Email = c.String(),
                         Password = c.String(),

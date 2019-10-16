@@ -11,9 +11,8 @@ namespace SocialNetwork.WEB.Controllers
 {
     public class HomeController : Controller
     {
-        IMapper mapper;
-        // GET: Home
-        HomeController(IMapper mapperParam)
+        private IMapper mapper;
+        public HomeController(IMapper mapperParam)
         {
             mapper = mapperParam;
         }
@@ -34,6 +33,13 @@ namespace SocialNetwork.WEB.Controllers
             var userBO = mapper.ServiceCtor(typeof(UserBO));
             var model = (userBO as UserBO).GetBOListUsers().Select(item=>mapper.Map<UserViewModel>(item)).ToList();
             return PartialView(model);
+        }
+        public FileContentResult GetImage(int id)
+        {
+            var userBO = mapper.ServiceCtor(typeof(UserBO));
+            var model = (userBO as UserBO).GetUserBOById(id);
+            var userViewModel = mapper.Map<UserViewModel>(model);
+            return File(userViewModel.Photo, null);
         }
     }
 }

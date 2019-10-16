@@ -132,26 +132,6 @@ header .searchForm{
     padding:6px 30px 6px 9px;
     z-index:670;
 }
-.searchForm .submit{
-    height:17px;
-    width:21px;
-    border: 0px;
-    position:absolute;
-    right:9px;
-    top:7px;
-    z-index:671;
-    margin-right:3px;
-    background-color:transparent;
-}
-
-.searchForm .submit em{
-    color: #bdbdbd;
-    top:-4px;
-    position:relative;
-    font-size:14px;
-    font-weight:normal;
-    line-height:20px;
-}
 /*SearchEND*/
 /*ProfileBEGIN*/
 .profile-wrapper{
@@ -206,3 +186,48 @@ header .searchForm{
     padding:6px 9px 1px 10px;
 }
 /*ProfileEND*/
+/*DropdownSearch BEGIN*/
+.typeahead {
+    background-color: #FFFFFF;
+    border-radius: 3px 3px 3px 3px;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.44);
+    display: none;
+    left: 0;
+    margin: 0 1px;
+    position: relative;
+    right: 0;
+    top: 0;
+    z-index: 600;
+}
+
+.typeahead ul {
+    padding-top: 5px;
+    margin-top: 0px;
+    padding-left: 0px;
+    padding-bottom: 5px;
+    list-style-type:none;
+}
+
+.typeahead ul li {
+    padding: 10px;
+    vertical-align: middle;
+}
+
+.typeahead ul li:hover {
+    background-color: #f3efec;
+    color: #000;
+}
+
+.typeahead ul li a:hover {
+    color: #000;
+}
+
+.typeahead img {
+    border-radius: 3px;
+}
+
+.typeahead .name {
+    padding: 0px 0px 20px 5px;
+    vertical-align: middle;
+}
+/*DropdownSearch END*/

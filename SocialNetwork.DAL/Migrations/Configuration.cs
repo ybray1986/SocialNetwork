@@ -9,7 +9,7 @@ namespace SocialNetwork.DAL.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
         }
 
         protected override void Seed(SocialNetwork.DAL.Entities.SocialNetworkContext context)

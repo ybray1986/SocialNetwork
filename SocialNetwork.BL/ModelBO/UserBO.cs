@@ -17,7 +17,7 @@ namespace SocialNetwork.BL.ModelBO
         public string LastName { get; set; }
         public string MiddleName { get; set; }
         public DateTime BirthDate { get; set; }
-        public string Photo { get; set; }
+        public byte[] Photo { get; set; }
         public DateTime RegisteredDate { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }

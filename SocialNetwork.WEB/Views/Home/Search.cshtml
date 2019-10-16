@@ -1,0 +1,15 @@
+﻿@model IEnumerable<SocialNetwork.WEB.ViewModels.UserViewModel>
+
+<div class="typeahead" style="display: none;">
+    <ul>
+        @foreach (var item in Model)
+        {
+        <li>
+            <a href="#">
+                <span class="img"><img src="@Url.Action("GetImage", "Home", new { @item.UserId })"/></span>
+                <span class="name">@item.LastName @item.FirstName</span>
+            </a>
+        </li>
+        }
+    </ul>
+</div>
