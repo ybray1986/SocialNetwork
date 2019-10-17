@@ -199,16 +199,15 @@ header .searchForm{
     top: 0;
     z-index: 600;
 }
-
 .typeahead ul {
     padding-top: 5px;
     margin-top: 0px;
     padding-left: 0px;
     padding-bottom: 5px;
-    list-style-type:none;
 }
 
 .typeahead ul li {
+    list-style: none outside none;
     padding: 10px;
     vertical-align: middle;
 }

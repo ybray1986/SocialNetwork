@@ -5,7 +5,7 @@
         @foreach (var item in Model)
         {
         <li>
-            <a href="#">
+            <a href="">
                 <span class="img"> <img src="@Url.Action("GetImage", "Home", new {id = item.UserId})"/></span>
                 <span class="name">@item.LastName @item.FirstName</span>
             </a>
