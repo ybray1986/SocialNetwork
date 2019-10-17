@@ -30,11 +30,15 @@ namespace SocialNetwork.WEB.Controllers
             }
             return View();
         }
+        public ActionResult AddContent()
+        {
+            return PartialView("_AddContent");
+        }
         public ActionResult Search()
         {
             var userBO = mapper.ServiceCtor(typeof(UserBO));
             var model = (userBO as UserBO).GetBOListUsers().Select(item=>mapper.Map<UserViewModel>(item)).ToList();
-            return PartialView(model);
+            return PartialView("_Search", model);
         }
         public FileContentResult GetImage(int id)
         {

@@ -31,13 +31,13 @@
                         <a href="#">Link 1</a>
                         <a href="#">Link 2</a>
                         <a href="#">Link 3</a>
-                        <br/>
+                        <br />
                         <a href="#">About</a>
                         <a href="#">Contact</a>
                     </div>
                 </div>
                 <div class="searchForm">
-                    <input type="text" class="field" placeholder="Search"/>
+                    <input type="text" class="field" placeholder="Search" />
                     @Html.Action("Search", "Home")
                 </div>
             </div>
@@ -48,6 +48,7 @@
                         <em class="icon-plus"></em>
                     </button>
                 </div>
+                @Html.Action("AddContent", "Home")
                 <div class="buttonC notifications" style="float:right">
                     <button type="button">
                         <em class="icon-bell-alt"></em>
@@ -66,8 +67,8 @@
             </div>
         </div>
     </header>
-    
-    @*@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+
+@*@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
     @Html.ActionLink("Social Network", "Index", "UserViewModel", new { area = "" }, new { @class = "navbar-brand" })
 
     @if (User.Identity.IsAuthenticated)
@@ -79,11 +80,11 @@
         @Html.ActionLink("Login", "Login", "Account");
     }
     <li>@Html.ActionLink("Register", "Register", "Account");</li>*@
-
-    <div class="container body-content">
-        @RenderBody()
-        <footer></footer>
-    </div>
+    
+<div class="container body-content">
+    @RenderBody()
+    <footer></footer>
+</div>
     @*<script src="~/Scripts/bootstrap.min.js"></script>*@
 </body>
 </html>
