@@ -30,6 +30,10 @@ namespace SocialNetwork.WEB.Controllers
             }
             return View();
         }
+        public ActionResult Notification()
+        {
+            return PartialView("_Notification");
+        }
         public ActionResult AddContent()
         {
             return PartialView("_AddContent");

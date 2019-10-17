@@ -216,6 +216,7 @@
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Home\_AddContent.cshtml" />
     <Content Include="Views\Home\_Search.cshtml" />
+    <Content Include="Views\Home\_Notification.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

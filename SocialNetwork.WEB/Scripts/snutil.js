@@ -32,4 +32,15 @@
     addcontent.on('click', toggleNewContentPopUp);
     close_modalpopup.on('click', toggleNewContentPopUp);
     //
+    Profile = $('.profile');
+    ProfileDropdown = $('.profile-dropdown');
+    toggleProfileDropDown = function () {
+        if (ProfileDropdown.css("display") === "block") {
+            ProfileDropdown.css("display", "none");
+        } else {
+            ProfileDropdown.css("display", "block");
+        }
+    };
+    Profile.on('click', toggleProfileDropDown);
+    //
 });

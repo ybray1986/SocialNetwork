@@ -69,8 +69,9 @@ header {
     z-index: 690;
 }
 
+
 /* Links inside the dropdown */
-.buttonC-content a {
+.buttonC-content a{
     color: rgb(113,113,113);
     padding: 12px 16px;
     text-decoration: none;
@@ -84,7 +85,7 @@ header {
 }
 
 /* Show the dropdown menu on hover */
-.buttonC:hover .buttonC-content {
+.buttonC:hover .buttonC-content, .buttonC:hover .notification-wrapper{
     display: block;
 }
 
@@ -216,7 +217,12 @@ header .searchForm{
     background-color: #f3efec;
     color: #000;
 }
-
+.typeahead ul li a {
+    color: rgb(113,113,113);
+    text-decoration: none;
+    font-weight: bold;
+    display: flex;
+}
 .typeahead ul li a:hover {
     color: #000;
 }
@@ -226,8 +232,10 @@ header .searchForm{
 }
 
 .typeahead .name {
-    padding: 0px 0px 20px 5px;
+    padding: 0px;
     vertical-align: middle;
+    margin:5px;
+    align-self:center;
 }
 /*DropdownSearch END*/
 /*AddContent BEGIN*/
@@ -367,9 +375,9 @@ h1, h2, h3, h4, h5, h6 {
     height: 15px;
 }
 
-    .formFooter .formFooterButtons {
-        float: right;
-    }
+.formFooter .formFooterButtons {
+    float: right;
+}
 
 /*AddContent END*/
 
@@ -400,7 +408,7 @@ h1, h2, h3, h4, h5, h6 {
     text-shadow: 0 -1px rgba(0,0,0,0.11)
 }
 
-.Button.btn.primary:hover {
+.buttonC.btn.primary:hover {
     background-image: linear-gradient(#e63d44,#c11a22);
     box-shadow: 0 1px 3px 0 rgba(0,0,0,0.22);
     border: 1px solid #920c12
@@ -423,3 +431,75 @@ select {
 }
 
 /*Select END*/
+/*ProfileDropDown START*/
+.profile-dropdown {
+    margin: 0px 1px;
+    position: relative;
+    top: 0px;
+    border-radius: 3px 3px 3px 3px;
+    box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.44);
+    background: none repeat scroll 0% 0% rgb(255, 255, 255);
+    display: none;
+    left: 0px;
+    right: 0px;
+    z-index: 600;
+}
+
+
+.profile-dropdown ul {
+    padding-top: 5px;
+    margin-top: 0px;
+    padding-left: 0px;
+    padding-bottom: 5px;
+}
+
+.profile-dropdown ul li {
+    list-style: none outside none;
+    padding: 10px;
+    vertical-align: middle;
+}
+
+.profile-dropdown ul li:hover {
+    background-color: #f3efec;
+    color: #000;
+}
+.profile-dropdown ul li a {
+    color: rgb(113,113,113);
+    text-decoration: none;
+    font-weight: bold;
+    display: block;
+}
+    .profile-dropdown ul li a:hover {
+        color: #000;
+    }
+/*ProfileDropDown END*/
+/*Notification BEGIN*/
+.notification-wrapper .notification {
+    color: rgb(113,113,113);
+    display: flex;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 3px;
+}
+.notification-wrapper .notification .name {
+    padding: 0px;
+    vertical-align: middle;
+    margin: 5px;
+    align-self: center;
+}
+
+.notification-wrapper {
+    min-width: 160px;
+    position: absolute;
+    display: none;
+    list-style: none outside none;
+    padding: 10px;
+    vertical-align: middle;
+    background-color: #f1f1f1;
+    z-index: 690;
+}
+.notification-wrapper:hover {
+    background-color: #f3efec;
+    color: #000;
+}
+/*Notification END*/

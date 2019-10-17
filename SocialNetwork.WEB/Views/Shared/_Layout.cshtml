@@ -40,6 +40,7 @@
                     <input type="text" class="field" placeholder="Search" />
                     @Html.Action("Search", "Home")
                 </div>
+                
             </div>
             <a href="/" class="logo">Social Network</a>
             <div id="header-right">
@@ -53,7 +54,9 @@
                     <button type="button">
                         <em class="icon-bell-alt"></em>
                     </button>
+                    @Html.Action("Notification", "Home")
                 </div>
+                
                 <div class="profile-wrapper">
                     <div class="profile">
                         <a href="#">
@@ -62,6 +65,30 @@
                                 <span class="profile-name">User Name</span>
                             </div>
                         </a>
+                    </div>
+                    <div class="profile-dropdown" style="display: none;">
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    Your Posts
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Your Likes
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Settings
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Logout
+                                </a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
