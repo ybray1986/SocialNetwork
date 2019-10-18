@@ -503,3 +503,181 @@ select {
     color: #000;
 }
 /*Notification END*/
+/*MainContent BEGIN*/
+#main{
+    padding-top: 45px;
+}
+#main-inner{
+    max-width:1250px;
+    min-width:750px;
+    margin:0px auto;
+}
+/*MainContent END*/
+/*Mansory BEGIN*/
+#container .grid-sizer {
+    width: 10px;
+}
+
+#container .item {
+    width: 236px;
+    margin: 14px 7px 0px;
+    background-color: #fff;
+    border-radius: 3px 3px 3px 3px;
+    box-shadow: 0px 0px 2px #888888;
+}
+
+#container .item img {
+    width: 236px;
+    border-radius: 3px 3px 0px 0px;
+}
+
+#container .item img:hover {
+    background: none repeat scroll rgba(255,255,255,0.1)
+}
+
+#container .item.w2 {
+    width: 40%;
+}
+/*OpenModal BEGIN */
+.open-modal {
+    position: relative;
+    top: 400px;
+}
+
+.pin-meta {
+    padding: 6px 14px 7px;
+}
+
+.pin-description {
+    margin: 5px 0px;
+    font-size: 13px;
+    line-height: 17px;
+    word-wrap: break-word;
+}
+
+.pin-description a {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+}
+
+a {
+    color: rgb(113, 113, 113);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.pin-social-meta .social-item {
+    display: inline-block;
+    vertical-align: middle;
+    color: rgb(167, 167, 167);
+    padding-right: 7px;
+}
+
+.pin-user-attribution {
+    font-family: 'Helvetica',sans-serif;
+    font-weight: bold;
+    color: rgb(119, 119, 119);
+    border-top: 1px solid rgb(231, 231, 231);
+}
+
+.first-attribution {
+    padding-top: 10px;
+}
+
+.attribution-item {
+    border-radius: 0px 0px 3px 3px;
+    overflow: hidden;
+    display: block;
+    line-height: 14px;
+    padding: 5px 14px;
+}
+
+.attribution-item:hover {
+    background: #f1f1f1;
+}
+
+.attribution-item img {
+    border-radius: 2px 2px 2px 2px !important;
+    float: left;
+    height: 30px;
+    margin-right: 5px;
+    width: 30px !important;
+}
+
+.attribution-title {
+    color: rgb(183, 183, 183);
+}
+
+.attribution-name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: rgb(113, 113, 113);
+    display: block;
+}
+
+.last-attribution {
+    padding-bottom: 10px;
+}
+
+.pin-description {
+    border-top: medium none;
+    /*border-top: 1px solid rgb(227, 227, 227);*/
+    font-size: 17px;
+    line-height: 23px;
+    color: rgb(51, 51, 51);
+    word-wrap: break-word;
+}
+
+.pin-description-comment {
+    margin-bottom: 0px;
+    padding: 23px 20px;
+    overflow: hidden;
+}
+
+.user-thumb-container {
+    position: relative;
+    margin-right: 16px;
+    width: 50px;
+    float: left;
+}
+
+.user-thumb-container img {
+    border-radius: 3px 3px 3px 3px !important;
+    height: 50px !important;
+    width: 50px !important;
+    padding: 0px 0px !important;
+}
+
+.commenter-name-comment-text {
+    margin-left: 66px;
+}
+
+
+.comment-description-creator {
+    color: rgb(69, 69, 69);
+    font-size: 16px;
+    line-height: 26px;
+}
+
+
+.comment-description-time-ago {
+    color: rgb(153, 153, 153);
+    font-size: 13px;
+    font-weight: normal;
+}
+
+
+.comment-description-content {
+    color: rgb(23, 23, 23);
+    font-size: 15px;
+    font-weight: normal;
+    line-height: 20px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    max-width: 600px;
+}
+/*OpenModal END*/
+/*Mansory END*/

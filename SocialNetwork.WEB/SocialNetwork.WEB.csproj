@@ -159,7 +159,9 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\custom\bootstrap.css" />
     <Content Include="Content\custom\bootstrap.min.css" />
-    <Content Include="Content\images\searchicon.png" />
+    <Content Include="Content\images\pin1.jpg" />
+    <Content Include="Content\images\pin2.jpg" />
+    <Content Include="Content\images\pin3.jpg" />
     <Content Include="Content\photo\Users\default\default.png" />
     <Content Include="Content\photo\Users\default\frame.jpg" />
     <Content Include="Content\Site.css" />
@@ -178,6 +180,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\masonry.pkgd.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\snutil.js" />
     <Content Include="Web.config" />

@@ -4,20 +4,12 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Social Network</title>
-    @*<link href="~/Content/Site.css" rel="stylesheet" type="text/css" />*@
-    @*<link href="~/Content/custom/bootstrap.css" rel="stylesheet" type="text/css" />*@
     <link href="~/Content/style.css" rel="stylesheet" type="text/css" />
-    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet"/>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet" />
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
     <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/Scripts/masonry.pkgd.min.js"></script>
     <script src="~/Scripts/snutil.js"></script>
-    <!--Ссылка на библиотеку SignalR -->
-    @*<script src="~/Scripts/jquery.signalR-2.4.1.js"></script>*@
-    <!--Ссылка на автоматически сгенерированный скрипт хаба SignalR -->
-    @*<script src="~/signalr/hubs"></script>*@
-    <!--Ссылка на скрипт Чата -->
-    @*<script src="~/Scripts/util.js"></script>*@
-
 </head>
 <body>
     <header>
@@ -108,10 +100,7 @@
     }
     <li>@Html.ActionLink("Register", "Register", "Account");</li>*@
     
-<div class="container body-content">
     @RenderBody()
     <footer></footer>
-</div>
-    @*<script src="~/Scripts/bootstrap.min.js"></script>*@
 </body>
 </html>
