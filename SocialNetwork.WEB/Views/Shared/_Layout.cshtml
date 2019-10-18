@@ -62,12 +62,7 @@
                         <ul>
                             <li>
                                 <a href="#">
-                                    Your Posts
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    Your Likes
+                                    Profile
                                 </a>
                             </li>
                             <li>
@@ -99,8 +94,9 @@
         @Html.ActionLink("Login", "Login", "Account");
     }
     <li>@Html.ActionLink("Register", "Register", "Account");</li>*@
-    
-    @RenderBody()
+    <div id="main">
+        @RenderBody()
+    </div>
     <footer></footer>
 </body>
 </html>

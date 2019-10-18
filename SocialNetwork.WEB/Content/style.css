@@ -81,7 +81,8 @@ header {
 
 /* Change color of dropdown links on hover */
 .buttonC-content a:hover {
-    background-color: #ddd;
+    background-color:#ddd;
+    color: #000;
 }
 
 /* Show the dropdown menu on hover */
@@ -274,12 +275,12 @@ header .searchForm{
     margin-top: 200px;
 }
 
-.standardForm {
+.standard-form {
     margin: 0px auto 70px;
     width: 550px;
 }
 
-.standardForm > h1 {
+.standard-form > h1 {
     border-bottom: 1px solid rgb(231, 231, 231);
     color: rgb(51, 51, 51);
     font-size: 20px;
@@ -289,18 +290,18 @@ header .searchForm{
     position: relative;
 }
 
-.standardForm > ul {
+.standard-form > ul {
     border-radius: 3px 3px 3px 3px;
     background: none repeat scroll 0% 0% rgb(255, 255, 255);
     margin: 0px;
 }
 
 
-.standardForm > ul > li:first-child {
+.standard-form > ul > li:first-child {
     border: 0px none;
 }
 
-.standardForm > ul > li {
+.standard-form > ul > li {
     overflow: hidden;
     border-top: 1px solid rgb(223, 223, 223);
     padding: 15px 21px 15px 27px;
@@ -316,7 +317,7 @@ ul li {
     padding: 0px;
 }
 
-.standardForm > ul > li > h3 {
+.standard-form > ul > li > h3 {
     color: rgb(85, 85, 85);
     float: left;
     font-size: 13px;
@@ -328,13 +329,13 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0px;
 }
 
-.standardForm > ul > li > div {
+.standard-form > ul > li > div {
     margin-left: 150px;
     min-height: 28px;
     padding-left: 1px;
 }
 
-.standardForm > ul > li > div > .content {
+.standard-form > ul > li > div > .content {
     border-radius: 1px 1px 1px 1px;
     -moz-box-sizing: border-box;
     background: none repeat scroll 0% 0% rgb(240, 240, 240);
@@ -348,13 +349,13 @@ h1, h2, h3, h4, h5, h6 {
     word-wrap: break-word;
 }
 
-.standardForm textarea {
+.standard-form textarea {
     height: 85px;
     line-height: 20px;
     resize: vertical;
 }
 
-.standardForm input[type="text"], .standardForm input[type="email"], .standardForm input[type="password"], .standardForm textarea {
+.standard-form input[type="text"], .standard-form input[type="email"], .standard-form input[type="password"], .standard-form textarea {
     background: linear-gradient(rgb(240, 240, 240), rgb(245, 245, 245)) repeat scroll 0% 0% transparent;
     border-radius: 3px 3px 3px 3px;
     box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.12) inset;
@@ -366,7 +367,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
-.formFooter {
+.form-footer {
     border-radius: 0px 0px 3px 3px;
     background: none repeat scroll 0% 0% rgb(240, 240, 240);
     clear: both;
@@ -375,7 +376,7 @@ h1, h2, h3, h4, h5, h6 {
     height: 15px;
 }
 
-.formFooter .formFooterButtons {
+.form-footer .form-footer-buttons {
     float: right;
 }
 
@@ -469,9 +470,9 @@ select {
     font-weight: bold;
     display: block;
 }
-    .profile-dropdown ul li a:hover {
-        color: #000;
-    }
+.profile-dropdown ul li a:hover {
+    color: #000;
+}
 /*ProfileDropDown END*/
 /*Notification BEGIN*/
 .notification-wrapper .notification {
@@ -487,7 +488,9 @@ select {
     margin: 5px;
     align-self: center;
 }
-
+.notification .name:hover {
+    color: #000;
+}
 .notification-wrapper {
     min-width: 160px;
     position: absolute;
@@ -495,7 +498,7 @@ select {
     list-style: none outside none;
     padding: 10px;
     vertical-align: middle;
-    background-color: #f1f1f1;
+    background-color: #fff;
     z-index: 690;
 }
 .notification-wrapper:hover {
@@ -680,4 +683,312 @@ a {
     max-width: 600px;
 }
 /*OpenModal END*/
+/*ModalContainer BEGIN*/
+.modal-container {
+    display: none;
+    overflow-y: scroll;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(227, 224, 226, 0.95);
+    z-index: 10000;
+}
+
+.modal-content {
+    display: none;
+    overflow-y: scroll;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    z-index: 10000;
+}
+
+.modal-popup {
+    width: 736px;
+    margin: 50px auto;
+    position: relative;
+}
+
+.modal-popup .modal-box {
+    /*height: 800px;*/
+    width: 736px;
+    /*margin: 50px auto;*/
+    background: indianred;
+    border-radius: 3px 3px 3px 3px;
+    position: relative;
+    background: none repeat scroll 0% 0% rgb(248, 248, 248);
+    box-shadow: 0px 0px 2px #888888;
+    margin-bottom: 14px;
+}
+
+.modal-popup .modal-box-popup {
+    width: 651px;
+    background: indianred;
+    border-radius: 3px 3px 3px 3px;
+    position: relative;
+    background: none repeat scroll 0% 0% rgb(248, 248, 248);
+    box-shadow: 0px 0px 2px #888888;
+    margin-bottom: 14px;
+    margin-top: 200px;
+}
+
+.modal-popup img {
+    position: relative;
+    padding: 40px 0px;
+    margin: 0px auto;
+    display: block;
+    max-width: 100%;
+}
+
+
+.comment-description-content textarea {
+    background: linear-gradient(rgb(240, 240, 240), rgb(245, 245, 245)) repeat scroll 0% 0% transparent;
+    border-radius: 3px 3px 3px 3px;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.12) inset;
+    width: 100%;
+    border: 1px solid rgb(214, 211, 206);
+    color: rgb(51, 51, 51);
+    font-size: 14px;
+    padding: 7px;
+}
+
+
+.buttonC.close.visible {
+    transform: translateY(0px);
+}
+
+.closeup .visible {
+    display: block;
+}
+
+.close {
+    padding-left: 2px;
+    position: fixed;
+    top: 0px;
+    z-index: 652;
+}
+
+.buttonC.close {
+    background: linear-gradient(rgb(255, 255, 255), rgb(235, 235, 235)) repeat scroll 0% 0% transparent;
+    border-radius: 0px 0px 3px 3px;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.34), 1px 0px 0px rgba(255, 255, 255, 0.9) inset;
+    cursor: pointer;
+    display: block;
+    height: 44px;
+    right: 14px;
+    width: 44px;
+    transition-delay: 0.3s;
+    transition-duration: 0.35s;
+    transition-property: -webkit-transform, -moz-transform, -o-transform, transform;
+    transform: translateY(-60px);
+}
+
+.buttonC.borderless {
+    background-color: transparent;
+    border: 0px none;
+    margin: 0px;
+    padding: 0px;
+}
+
+
+.buttonC.close em {
+    height: 16px;
+    width: 16px;
+    background-image: url('icons/cross.png');
+}
+
+.buttonC em {
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+}
+
+.pin-commentlist {
+    background-color: #fff;
+}
+/*ModalContainer END*/
 /*Mansory END*/
+/*Editing START*/
+.definitions {
+    margin: 0px auto 70px;
+    width: 734px;
+}
+
+.definitions h1 {
+    color: rgba(21, 21, 21, 0.8);
+    text-shadow: 1px 2px 4px rgb(227, 227, 227), 0px 0px 0px rgb(0, 0, 0), 1px 2px 4px rgb(227, 227, 227), 0px 1px 0px rgb(255, 255, 255);
+    font-size: 47px;
+    font-weight: bold;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 736px;
+    text-align: center;
+    line-height: 54px;
+    margin-bottom: 52px;
+}
+
+
+.definitions > ul {
+    border-radius: 3px 3px 3px 3px;
+    box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.33);
+    background: none repeat scroll 0% 0% rgb(255, 255, 255);
+    margin-bottom: 14px;
+}
+
+.definitions > ul > li {
+    overflow: hidden;
+    border-top: 1px solid rgb(223, 223, 223);
+    padding: 15px 21px 15px 27px;
+}
+
+.definitions > ul > li > h3 {
+    color: rgb(85, 85, 85);
+    float: left;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 4px 10px 0px 0px;
+    width: 216px;
+}
+
+.definitions > ul > li > div {
+    margin-left: 226px;
+    min-height: 28px;
+    padding-left: 1px;
+}
+
+label {
+    cursor: pointer;
+}
+
+
+.form-inline-checked-set {
+    padding-top: 6px;
+}
+
+.form-text-field,
+.definitions input[type="text"],
+.definitions input[type="email"],
+.definitions input[type="password"],
+.definitions textarea,
+.login-form input[type="text"],
+.login-form input[type="email"],
+.login-form input[type="password"],
+.login-form textarea {
+    background: linear-gradient(rgb(240, 240, 240), rgb(245, 245, 245)) repeat scroll 0% 0% transparent;
+    border-radius: 3px 3px 3px 3px;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.12) inset;
+    -moz-box-sizing: border-box;
+    width: 100%;
+    border: 1px solid rgb(214, 211, 206);
+    color: rgb(51, 51, 51);
+    font-size: 14px;
+    padding: 7px;
+}
+
+.form-select-field,
+.definitions select,
+.login-form select {
+    border-radius: 3px 3px 3px 3px;
+    -moz-box-sizing: border-box;
+    width: 100%;
+    background-color: rgb(245, 245, 245);
+    border: 1px solid rgb(207, 207, 207);
+    color: rgb(51, 51, 51);
+    cursor: pointer;
+    font-weight: bold;
+    height: 28px;
+    padding: 4px 4px 4px 14px;
+}
+
+.form-inline-checked-set {
+    padding-top: 6px;
+}
+
+fieldset {
+    border: 0px none;
+    margin: 0px;
+    padding: 0px;
+}
+
+
+.form-inline-checked-set li {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 25px;
+}
+
+.form-inline-checked-set label {
+    color: rgb(85, 85, 85);
+    cursor: pointer;
+}
+
+
+.form-inline-checked-set label > input {
+    margin-right: 3px;
+}
+
+.form-inline-checked-set label > span {
+    font-size: 13px;
+    font-weight: bold;
+    vertical-align: middle;
+}
+
+.form-inline-checked-set label {
+    color: rgb(85, 85, 85);
+    cursor: pointer;
+}
+
+.form-checked-set li {
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.form-checked-set label > span {
+    font-size: 13px;
+    font-weight: bold;
+    vertical-align: middle;
+}
+
+.form-checked-set label {
+    color: rgb(85, 85, 85);
+    cursor: pointer;
+}
+
+.form-checked-set label .fancy-toggle {
+    margin-right: 8px;
+}
+
+.form-checked-set span {
+    line-height: 28px;
+}
+
+.form-footer {
+    box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.33);
+    border-radius: 0px 0px 3px 3px;
+    background: none repeat scroll 0% 0% rgb(240, 240, 240);
+    clear: both;
+    border-top: 1px solid rgb(218, 218, 218);
+    padding: 10px 20px;
+    height: 35px;
+}
+
+.form-footer .form-footer-delete {
+    float: left;
+    margin-right: 10px;
+}
+
+.form-footer .form-footer-buttons {
+    float: right;
+}
+
+.form-footer .btn.buttonC {
+    margin-left: 8px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+/*Editing END*/

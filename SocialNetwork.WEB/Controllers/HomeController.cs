@@ -20,14 +20,6 @@ namespace SocialNetwork.WEB.Controllers
         }
         public ActionResult Index()
         {
-            if (User.Identity.IsAuthenticated)
-            {
-                ViewBag.Result = User.Identity.Name;
-            }
-            else
-            {
-                ViewBag.Result = "You are not logged in!";
-            }
             return View();
         }
         public ActionResult Notification()

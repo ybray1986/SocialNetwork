@@ -159,11 +159,11 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\custom\bootstrap.css" />
     <Content Include="Content\custom\bootstrap.min.css" />
+    <Content Include="Content\icons\cross.png" />
     <Content Include="Content\images\pin1.jpg" />
     <Content Include="Content\images\pin2.jpg" />
     <Content Include="Content\images\pin3.jpg" />
     <Content Include="Content\photo\Users\default\default.png" />
-    <Content Include="Content\photo\Users\default\frame.jpg" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\style.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -220,6 +220,7 @@
     <Content Include="Views\Home\_AddContent.cshtml" />
     <Content Include="Views\Home\_Search.cshtml" />
     <Content Include="Views\Home\_Notification.cshtml" />
+    <Content Include="Views\Account\Edit.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

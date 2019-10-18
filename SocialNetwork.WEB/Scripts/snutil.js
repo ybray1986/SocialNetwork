@@ -32,15 +32,26 @@
     addcontent.on('click', toggleNewContentPopUp);
     close_modalpopup.on('click', toggleNewContentPopUp);
     //
-    Profile = $('.profile');
-    ProfileDropdown = $('.profile-dropdown');
+    profile = $('.profile');
+    profileDropdown = $('.profile-dropdown');
     toggleProfileDropDown = function () {
-        if (ProfileDropdown.css("display") === "block") {
-            ProfileDropdown.css("display", "none");
+        if (profileDropdown.css("display") === "block") {
+            profileDropdown.css("display", "none");
         } else {
-            ProfileDropdown.css("display", "block");
+            profileDropdown.css("display", "block");
         }
     };
-    Profile.on('click', toggleProfileDropDown);
+    profile.on('click', toggleProfileDropDown);
     //
+    open_modal = $('.open-modal');
+    close_modal = $('.close-modal');
+    modal_container = $('.modal-container');
+    toggleModal = function () {
+        body.toggleClass('body-locked');
+        modal_container.toggleClass('dp-block');
+    };
+    open_modal.on('click', toggleModal);
+    close_modal.on('click', toggleModal);
+    //
+    //open_settings = 
 });

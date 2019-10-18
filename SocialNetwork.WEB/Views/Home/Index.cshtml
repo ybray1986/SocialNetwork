@@ -1,49 +1,108 @@
 ﻿
 <body>
-    <div id="main">
-        <div id="main-inner">
-            <div id="container" class="js-masonry" data-masonry-options='{ "columnWidth": ".grid-sizer", "itemSelector": ".item"}'>
-                <div class="grid-sizer"></div>
-                <div class="item open-modal">
-                    <a href="#">
-                        <img src="~/Content/images/pin1.jpg" />
+    <div id="main-inner">
+        <div id="container" class="js-masonry" data-masonry-options='{ "columnWidth": ".grid-sizer", "itemSelector": ".item"}'>
+            <div class="grid-sizer"></div>
+            <div class="item open-modal">
+                <a href="#">
+                    <img src="~/Content/images/pin1.jpg" />
+                </a>
+                <div class="pin-meta">
+                    <p class="pin-description">
+                        Some Description Text
+                    </p>
+                    <div class="pin-social-meta">
+                        <a class="social-item-likes" href="#">
+                            1 like
+                        </a>
+                    </div>
+                </div>
+                <div class="pin-user-attribution">
+                    <a class="attribution-item first-attribution " href="#">
+                        <img class="attribution-img" style=""
+                                src="~/Content/photo/Users/default/default.png" />
+                        <span class="attribution-title">
+                            Posted by
+                        </span>
+                        <span class="attribution-name">
+                            User Name
+                        </span>
                     </a>
-                    <div class="pin-meta">
-                        <p class="pin-description">
-                            Some Description Text
-                        </p>
-                        <div class="pin-social-meta">
-                            <a class="social-item-likes" href="#">
-                                1 like
+                    <a class="attribution-item last-attribution " href="#">
+                        <img class="attribution-img" style=""
+                                src="~/Content/photo/Users/default/default.png" />
+                        <span class="attribution-title">
+                            in
+                        </span>
+                        <span class="attribution-name">Category</span>
+                    </a>
+                </div>
+            </div>
+            <div class="item open-modal">
+                <img src="~/Content/images/pin2.jpg" />
+            </div>
+            <div class="item open-modal">
+                <img src="~/Content/images/pin3.jpg" />
+            </div>
+            <div class="modal-container dp-none">
+                <button class="buttonC borderless close visible close-modal" style="right: 31px;">
+                    <em></em>
+                </button>
+                <div class="modal-popup">
+                    <div class="modal-box">
+
+                        <img src="~/Content/images/pin1.jpg" />
+                    </div>
+                    <div class="modal-box">
+                        <div class="pin-description">
+                            <div class="pin-description-comment detailed">
+                                <a class="user-thumb-container" href="#">
+                                    <img class="user-thumb" alt="" src="~/Content/photo/Users/default/default.png" />
+                                </a>
+                                <div class="commenter-name-comment-text">
+                                    <div class="commenter-wrapper">
+                                        <a class="comment-description-creator" href="#">
+                                            July Mark
+                                        </a>
+                                        <span class="comment-description-time-ago">
+                                            • 4 days ago
+                                        </span>
+                                    </div>
+                                    <h1 class="comment-description-content">
+                                        playa del carmen Looking for 3-5 people to work with and mentor to earn a FREE Trip to Play De carmen in Mexico. 2 spots left to join!
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
+                            
+                        <div class="pin-description-comment detailed">
+                            <a class="user-thumb-container" href="">
+                                <img class="user-thumb" alt="" src="~/Content/photo/Users/default/default.png" />
                             </a>
+                            <div class="commenter-name-comment-text">
+                                <div class="commenter-wrapper">
+                                    <a class="comment-description-creator" href="#">
+                                        July Mark
+                                    </a>
+                                    <span class="comment-description-time-ago">
+                                        • This is you
+                                    </span>
+                                </div>
+                                <h1 class="comment-description-content">
+                                    <div class="">
+                                        <textarea class="content" placeholder="Comment this post" name="description"></textarea>
+                                    </div>
+                                </h1>
+                                <p>
+                                    <button class="buttonC btn primary" type="button">
+                                        <span class="buttonText">
+                                            Submit
+                                        </span>
+                                    </button>
+                                </p>
+                            </div>
                         </div>
                     </div>
-                    <div class="pin-user-attribution">
-                        <a class="attribution-item first-attribution " href="#">
-                            <img class="attribution-img" style="" 
-                                 src="~/Content/photo/Users/default/default.png"/>
-                            <span class="attribution-title">
-                                Posted by
-                            </span>
-                            <span class="attribution-name">
-                                User Name
-                            </span>
-                        </a>
-                        <a class="attribution-item last-attribution " href="#">
-                            <img class="attribution-img" style=""
-                                 src="~/Content/photo/Users/default/default.png"/>
-                            <span class="attribution-title">
-                                in
-                            </span>
-                            <span class="attribution-name">Category</span>
-                        </a>
-                    </div>
-                </div>
-                <div class="item open-modal">
-                    <img src="~/Content/images/pin2.jpg" />
-                </div>
-                <div class="item open-modal">
-                    <img src="~/Content/images/pin3.jpg" />
                 </div>
             </div>
         </div>

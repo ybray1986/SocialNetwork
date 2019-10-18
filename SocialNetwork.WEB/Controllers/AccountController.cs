@@ -69,6 +69,33 @@ namespace SocialNetwork.WEB.Controllers
                 return View(model);
             }
         }
+        public ActionResult Edit()
+        {
+            return View();
+        }
+        [HttpGet]
+        public ActionResult Edit(int? id)
+        {
+            var userBO = mapper.ServiceCtor.Invoke(typeof(UserBO));
+            var model = mapper.Map<UserViewModel>(userBO);
+            if (id != null)
+            {
+                var userBOList = (userBO as UserBO).GetUserBOById(id.GetValueOrDefault());
+                model = mapper.Map<UserViewModel>(userBOList);
+            }
+            return View(model);
+        }
+        [HttpPost]
+        public ActionResult Edit(UserViewModel modelParam)
+        {
+            var userBO = mapper.Map<UserBO>(modelParam);
+            if (ModelState.IsValid)
+            {
+                userBO.SaveBO();
+                return RedirectToAction("Index", "Home");
+            }
+            return View(modelParam);
+        }
         public ActionResult Logout()
         {
             FormsAuthentication.SignOut();
