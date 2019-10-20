@@ -31,6 +31,7 @@ namespace SocialNetwork.WEB.Controllers
                 userBO = userBO.GetUserBOByLogin(model.UserName);
                 if (userBO == null)
                 {
+                    userBO = mapper.Map<UserBO>(model);
                     userBO.SaveBO();
                     FormsAuthentication.SetAuthCookie(model.UserName, true);
                     return RedirectToAction("Index", "Home");
