@@ -42,7 +42,8 @@ namespace SocialNetwork.WEB.Controllers
             var userBO = mapper.ServiceCtor(typeof(UserBO));
             var model = (userBO as UserBO).GetUserBOById(id);
             var userViewModel = mapper.Map<UserViewModel>(model);
-            return new FileContentResult((userViewModel.UserImage != null && userViewModel.UserImage.Length > 0) ? userViewModel.UserImage : defPhoto, "image/png");
+            var result = (userViewModel.UserImage != null && userViewModel.UserImage.Length > 0) ? userViewModel.UserImage : defPhoto;
+            return new FileContentResult(result, "image/png");
         }
     }
 }
