@@ -14,7 +14,7 @@ namespace SocialNetwork.DAL.Entities
         public int IdUser { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public DataType DateBirth { get; set; }
+        public DateTime DateBirth { get; set; }
         public string Email { get; set; }
         public virtual Country IdCountry { get; set; }
         public string Gender { get; set; }

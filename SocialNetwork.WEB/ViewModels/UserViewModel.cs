@@ -14,10 +14,10 @@ namespace SocialNetwork.WEB.ViewModels
         public string FirstName { get; set; }
         [Required]
         public string LastName { get; set; }
-        public DataType DateBirth { get; set; }
+        public DateTime DateBirth { get; set; }
         [Required]
         public string Email { get; set; }
-        public int IdCountry { get; set; }
+        public CountryViewModel IdCountry { get; set; }
         public string Gender { get; set; }
         [Required]
         public string UserName { get; set; }

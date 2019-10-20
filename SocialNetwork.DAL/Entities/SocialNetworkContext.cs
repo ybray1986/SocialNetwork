@@ -28,6 +28,7 @@ namespace SocialNetwork.DAL.Entities
         {
             protected override void Seed(SocialNetworkContext context)
             {
+                context.Users.Add(new User() { DateBirth = new DateTime(1980, 12, 01), NotificationEmails = true, NotificationPostComments = true, NotificationPostLikers = true, FirstLogin = 1 });
                 base.Seed(context);
             }
         }

@@ -58,7 +58,7 @@ namespace SocialNetwork.DAL.Migrations
                         IdUser = c.Int(nullable: false, identity: true),
                         FirstName = c.String(),
                         LastName = c.String(),
-                        DateBirth = c.Int(nullable: false),
+                        DateBirth = c.DateTime(nullable: false),
                         Email = c.String(),
                         Gender = c.String(),
                         UserName = c.String(),

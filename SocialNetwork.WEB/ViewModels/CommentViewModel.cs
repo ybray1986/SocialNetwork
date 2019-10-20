@@ -11,8 +11,8 @@ namespace SocialNetwork.WEB.ViewModels
     {
         public int IdComment { get; set; }
         public string CommentText { get; set; }
-        public int IdPost { get; set; }
-        public int IdUser { get; set; }
+        public PostViewModel IdPost { get; set; }
+        public UserViewModel IdUser { get; set; }
         public DateTime CommentDate { get; set; }
     }
 }

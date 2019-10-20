@@ -19,6 +19,16 @@ namespace SocialNetwork.WEB.Profiles
             this.CreateMap<UserBO, UserViewModel>().ConstructUsingServiceLocator();
             this.CreateMap<UserViewModel, UserBO>().ConstructUsingServiceLocator();
             this.CreateMap<UserBO, User>().ConstructUsingServiceLocator();
+
+            this.CreateMap<Country, CountryBO>().ConstructUsingServiceLocator();
+            this.CreateMap<CountryBO, CountryViewModel>().ConstructUsingServiceLocator();
+            this.CreateMap<CountryViewModel, CountryBO>().ConstructUsingServiceLocator();
+            this.CreateMap<CountryBO, Country>().ConstructUsingServiceLocator();
+
+            this.CreateMap<Role, RoleBO>().ConstructUsingServiceLocator();
+            this.CreateMap<RoleBO, RoleViewModel>().ConstructUsingServiceLocator();
+            this.CreateMap<RoleViewModel, RoleBO>().ConstructUsingServiceLocator();
+            this.CreateMap<RoleBO, Role>().ConstructUsingServiceLocator();
         }
     }
 }

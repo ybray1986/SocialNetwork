@@ -9,7 +9,7 @@ namespace SocialNetwork.WEB.ViewModels
 {
     public class PostLikeViewModel
     {
-        public int IdPost { get; set; }
-        public int IdUser { get; set; }
+        public PostViewModel IdPost { get; set; }
+        public UserViewModel IdUser { get; set; }
     }
 }

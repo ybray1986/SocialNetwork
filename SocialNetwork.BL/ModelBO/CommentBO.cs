@@ -11,8 +11,8 @@ namespace SocialNetwork.BL.ModelBO
     {
         public int IdComment { get; set; }
         public string CommentText { get; set; }
-        public int IdPost { get; set; }
-        public int IdUser { get; set; }
+        public PostBO IdPost { get; set; }
+        public UserBO IdUser { get; set; }
         public DateTime CommentDate { get; set; }
     }
 }
