@@ -28,7 +28,7 @@ namespace SocialNetwork.WEB.Controllers
             if (ModelState.IsValid)
             {
                 var userBO = mapper.Map<UserBO>(model);
-                userBO.GetUserBOByLogin(model.UserName);
+                userBO = userBO.GetUserBOByLogin(model.UserName);
                 if (userBO == null)
                 {
                     userBO.SaveBO();
@@ -47,6 +47,7 @@ namespace SocialNetwork.WEB.Controllers
         {
             return View();
         }
+        
         [HttpPost]
         public ActionResult Login(LoginViewModel model, string returnUrl)
         {
@@ -60,7 +61,7 @@ namespace SocialNetwork.WEB.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Incorrect username or password");
+                    ModelState.AddModelError("", "Incorrect User Name or Password");
                     return View();
                 }
             }
@@ -68,6 +69,10 @@ namespace SocialNetwork.WEB.Controllers
             {
                 return View(model);
             }
+        }
+        public ActionResult Main()
+        {
+            return View();
         }
         public ActionResult _Profile()
         {

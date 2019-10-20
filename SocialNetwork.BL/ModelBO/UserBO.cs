@@ -14,17 +14,17 @@ namespace SocialNetwork.BL.ModelBO
         public int IdUser { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public DateTime DateBirth { get; set; }
+        public DateTime? DateBirth { get; set; }
         public string Email { get; set; }
         public CountryBO IdCountry { get; set; }
         public string Gender { get; set; }
         public string UserName { get; set; }
         public string UserPassword { get; set; }
         public byte[] UserImage { get; set; }
-        public int FirstLogin { get; set; }
-        public bool NotificationEmails { get; set; }
-        public bool NotificationPostLikers { get; set; }
-        public bool NotificationPostComments { get; set; }
+        public int? FirstLogin { get; set; }
+        public bool? NotificationEmails { get; set; }
+        public bool? NotificationPostLikers { get; set; }
+        public bool? NotificationPostComments { get; set; }
         public RoleBO Role { get; set; }
 
         public UserBO(IMapper mapperParam, UnitOfWorkFactory unitOfWorkFactoryParam) : base(mapperParam, unitOfWorkFactoryParam)

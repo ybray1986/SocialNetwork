@@ -10,11 +10,9 @@ namespace SocialNetwork.WEB.ViewModels
     public class UserViewModel
     {
         public int IdUser { get; set; }
-        [Required]
         public string FirstName { get; set; }
-        [Required]
         public string LastName { get; set; }
-        public DateTime DateBirth { get; set; }
+        public DateTime? DateBirth { get; set; }
         [Required]
         public string Email { get; set; }
         public CountryViewModel IdCountry { get; set; }
@@ -24,10 +22,10 @@ namespace SocialNetwork.WEB.ViewModels
         [Required]
         public string UserPassword { get; set; }
         public byte[] UserImage { get; set; }
-        public int FirstLogin { get; set; }
-        public bool NotificationEmails { get; set; }
-        public bool NotificationPostLikers { get; set; }
-        public bool NotificationPostComments { get; set; }
+        public int? FirstLogin { get; set; }
+        public bool? NotificationEmails { get; set; }
+        public bool? NotificationPostLikers { get; set; }
+        public bool? NotificationPostComments { get; set; }
         public RoleViewModel Role { get; set; }
     }
 }

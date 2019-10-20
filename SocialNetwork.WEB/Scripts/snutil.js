@@ -53,5 +53,4 @@
     open_modal.on('click', toggleModal);
     close_modal.on('click', toggleModal);
     //
-    //open_settings = 
 });

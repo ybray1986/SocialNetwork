@@ -1194,3 +1194,8 @@ fieldset {
     height: 237px;
 }
 /*Login END*/
+/*Validation BEGIN*/
+.validation-summary-errors ul {
+    list-style: none;
+}
+/*Validation BEGIN*/

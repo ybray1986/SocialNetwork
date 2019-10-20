@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "Main";
+    Layout = @"~/Views/Shared/_Main.cshtml";
+}
+
+
+<div class="text-center">
+    <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#login">
+        Login
+    </button>
+    <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#register">
+        Register
+    </button>
+</div>
+@Html.Action("Login", "Account")
+@Html.Action("Register", "Account")

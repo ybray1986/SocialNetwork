@@ -1,4 +1,4 @@
-﻿@model SocialNetwork.WEB.ViewModels.LoginViewModel
+﻿@model SocialNetwork.WEB.ViewModels.UserViewModel
 @{
     Layout = @"~/Views/Shared/_Main.cshtml";
 }
@@ -8,38 +8,42 @@
         color: red;
     }
 </style>
-@using (Html.BeginForm("Login", "Account", FormMethod.Post))
+@using (Html.BeginForm("Register", "Account", FormMethod.Post))
 {
     <div class="validation-summary-errors text-center">
         @Html.ValidationSummary()
     </div>
-    <div class="modal fade" id="login">
+    <div class="modal fade" id="register">
         <div class="modal-dialog modal-sm modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Login</h4>
+                    <h4 class="modal-title">Register</h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
 
                 <div class="modal-body">
                     <div class="form-group">
                         <div class="col-md-12">
-                            @Html.LabelFor(model => model.UserName, "User Name:")
+                            @Html.LabelFor(model => model.UserName, "User Name")
                             @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
-
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-md-12">
-                            @Html.LabelFor(model => model.Password, "Password:")
-                            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.LabelFor(model => model.UserPassword, "Password")
+                            @Html.EditorFor(model => model.UserPassword, new { htmlAttributes = new { @class = "form-control" } })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            @Html.LabelFor(model => model.Email, "Email")
+                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <input type="submit" class="btn btn-danger" value="Submit" />
                 </div>
-
             </div>
         </div>
     </div>
