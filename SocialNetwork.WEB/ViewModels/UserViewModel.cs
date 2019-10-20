@@ -1,24 +1,33 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using System.Web;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace SocialNetwork.WEB.ViewModels
 {
     public class UserViewModel
     {
-        public int UserId { get; set; }
-        public string UserName { get; set; }
+        public int IdUser { get; set; }
+        [Required]
         public string FirstName { get; set; }
+        [Required]
         public string LastName { get; set; }
-        public string MiddleName { get; set; }
-        public DateTime BirthDate { get; set; }
-        public byte[] Photo { get; set; }
-        public DateTime RegisteredDate { get; set; }
+        public DataType DateBirth { get; set; }
+        [Required]
         public string Email { get; set; }
-        public string Password { get; set; }
-        public bool IsActive { get; set; }
-        public Guid ActivationCode { get; set; }
-        public virtual ICollection<RoleViewModel> Roles { get; set; }
+        public int IdCountry { get; set; }
+        public string Gender { get; set; }
+        [Required]
+        public string UserName { get; set; }
+        [Required]
+        public string UserPassword { get; set; }
+        public byte[] UserImage { get; set; }
+        public int FirstLogin { get; set; }
+        public bool NotificationEmails { get; set; }
+        public bool NotificationPostLikers { get; set; }
+        public bool NotificationPostComments { get; set; }
+        public RoleViewModel Role { get; set; }
     }
 }

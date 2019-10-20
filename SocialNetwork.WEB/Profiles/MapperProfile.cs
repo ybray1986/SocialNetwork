@@ -15,16 +15,10 @@ namespace SocialNetwork.WEB.Profiles
     {
         public MapperProfile()
         {
-            this.CreateMap<AppUser, UserBO>().ConstructUsingServiceLocator();
+            this.CreateMap<User, UserBO>().ConstructUsingServiceLocator();
             this.CreateMap<UserBO, UserViewModel>().ConstructUsingServiceLocator();
             this.CreateMap<UserViewModel, UserBO>().ConstructUsingServiceLocator();
-            this.CreateMap<UserBO, AppUser>().ConstructUsingServiceLocator();
-
-            this.CreateMap<Relationship, RelationshipBO>();
-            this.CreateMap<RelationshipBO, FriendsViewModel>();
-            this.CreateMap<FriendsViewModel, RelationshipBO>();
-            this.CreateMap<RelationshipBO, Relationship>();
-
+            this.CreateMap<UserBO, User>().ConstructUsingServiceLocator();
         }
     }
 }

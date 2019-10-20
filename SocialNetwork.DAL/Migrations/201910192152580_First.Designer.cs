@@ -13,7 +13,7 @@ namespace SocialNetwork.DAL.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201910161614361_First"; }
+            get { return "201910192152580_First"; }
         }
         
         string IMigrationMetadata.Source

@@ -113,14 +113,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\AppRole.cs" />
-    <Compile Include="Entities\AppUser.cs" />
-    <Compile Include="Entities\Message.cs" />
+    <Compile Include="Entities\Category.cs" />
+    <Compile Include="Entities\Comment.cs" />
+    <Compile Include="Entities\Country.cs" />
+    <Compile Include="Entities\Post.cs" />
+    <Compile Include="Entities\PostLike.cs" />
+    <Compile Include="Entities\Role.cs" />
     <Compile Include="Entities\SocialNetworkContext.cs" />
-    <Compile Include="Entities\Relationship.cs" />
-    <Compile Include="Migrations\201910161614361_First.cs" />
-    <Compile Include="Migrations\201910161614361_First.Designer.cs">
-      <DependentUpon>201910161614361_First.cs</DependentUpon>
+    <Compile Include="Entities\User.cs" />
+    <Compile Include="Entities\UserFollower.cs" />
+    <Compile Include="Migrations\201910192152580_First.cs" />
+    <Compile Include="Migrations\201910192152580_First.Designer.cs">
+      <DependentUpon>201910192152580_First.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -153,8 +157,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201910161614361_First.resx">
-      <DependentUpon>201910161614361_First.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201910192152580_First.resx">
+      <DependentUpon>201910192152580_First.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

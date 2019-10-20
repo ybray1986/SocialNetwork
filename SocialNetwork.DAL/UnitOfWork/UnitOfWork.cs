@@ -16,37 +16,39 @@ namespace SocialNetwork.DAL.UnitOfWork
         {
             db = dbParam;
         }
-        Repository<Relationship> _relationshipWoURepository;
-        public Repository<Relationship> FriendWoURepository
-        {
-            get
-            {
-                return (_relationshipWoURepository == null) ? new Repository<Relationship>(db) : _relationshipWoURepository;
-            }
-        }
-
-        Repository<AppUser> _userWoURepository;
-        public Repository<AppUser> UserWoURepository
-        {
-            get
-            {
-                return (_userWoURepository == null) ? new Repository<AppUser>(db) : _userWoURepository;
-            }
-        }
-
-        Repository<AppRole> _roleWoURepository;
-        public Repository<AppRole> RoleWoURepository => _roleWoURepository ?? new Repository<AppRole>(db);
-
-        Repository<Message> _messageWoURepository;
-        public Repository<Message> MessageWoURepository => _messageWoURepository ?? new Repository<Message>(db);
-
+        
         public void Save()
         {
             db.SaveChanges();
         }
+
+        private Repository<Category> _categoryUOWRepository = null;
+        public Repository<Category> CategoryUOWRepository => _categoryUOWRepository ?? new Repository<Category>(db);
+
+
+        private Repository<Comment> _commentUOWRepository = null;
+        public Repository<Comment> CommentUOWRepository => _commentUOWRepository ?? new Repository<Comment>(db);
+
+        private Repository<Country> _countryUOWRepository = null;
+        public Repository<Country> CountryUOWRepository => _countryUOWRepository ?? new Repository<Country>(db);
+
+        private Repository<Post> _postUOWRepository = null;
+        public Repository<Post> PostUOWRepository => _postUOWRepository ?? new Repository<Post>(db);
+
+        private Repository<PostLike> _postLikeUOWRepository = null;
+        public Repository<PostLike> PostLikeUOWRepository => _postLikeUOWRepository ?? new Repository<PostLike>(db);
+
+        private Repository<Role> _roleUOWRepository = null;
+        public Repository<Role> RoleUOWRepository => _roleUOWRepository ?? new Repository<Role>(db);
+
+        private Repository<User> _userUOWRepository = null;
+        public Repository<User> UserUOWRepository => _userUOWRepository ?? new Repository<User>(db);
+
+        private Repository<UserFollower> _userFollowerUOWRepository = null;
+        public Repository<UserFollower> UserFollowerUOWRepository => _userFollowerUOWRepository ?? new Repository<UserFollower>(db);
+
         #region IDisposable Support
         private bool disposedValue = false; // Для определения избыточных вызовов
-
         protected virtual void Dispose(bool disposing)
         {
             if (!disposedValue)

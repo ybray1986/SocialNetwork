@@ -11,26 +11,26 @@ namespace SocialNetwork.BL.Providers
     public class CustomRoleProvider : RoleProvider
     {
 
-        public override string[] GetRolesForUser(string email)
+        public override string[] GetRolesForUser(string userName)
         {
             string[] roles = new string[] { };
             using (SocialNetworkContext db = new SocialNetworkContext())
             {
-                AppUser user = db.AppUsers.Where(u => u.Email == email).FirstOrDefault();
+                User user = db.Users.Where(u => u.UserName == userName).FirstOrDefault();
                 if (user != null)
                 {
-                    roles = user.Roles.Select(r => r.RoleName).ToArray();
+                    roles = new string[] { user.Role.RoleName };
                 }
                 return roles;
             }
         }
 
-        public override bool IsUserInRole(string email, string roleName)
+        public override bool IsUserInRole(string userName, string roleName)
         {
             using (SocialNetworkContext db = new SocialNetworkContext())
             {
-                AppUser user = db.AppUsers.Where(u => u.Email == email).FirstOrDefault();
-                if (user != null && user.Roles.Contains(new AppRole { RoleName = roleName }))
+                User user = db.Users.Where(u => u.UserName == userName).FirstOrDefault();
+                if (user != null && user.Role.RoleName == roleName)
                 {
                     return true;
                 }

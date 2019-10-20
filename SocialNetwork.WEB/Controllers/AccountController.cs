@@ -28,11 +28,11 @@ namespace SocialNetwork.WEB.Controllers
             if (ModelState.IsValid)
             {
                 var userBO = mapper.Map<UserBO>(model);
-                userBO.GetUserBOByEmail(model.Email);
+                userBO.GetUserBOByLogin(model.UserName);
                 if (userBO == null)
                 {
                     userBO.SaveBO();
-                    FormsAuthentication.SetAuthCookie(model.Email, true);
+                    FormsAuthentication.SetAuthCookie(model.UserName, true);
                     return RedirectToAction("Index", "Home");
                 }
                 else
@@ -53,9 +53,9 @@ namespace SocialNetwork.WEB.Controllers
             if (ModelState.IsValid)
             {
                 var user = mapper.ServiceCtor.Invoke(typeof(UserBO));
-                if ((user as UserBO).isValid(model.Email, model.Password))
+                if ((user as UserBO).isValid(model.UserName, model.Password))
                 {
-                    FormsAuthentication.SetAuthCookie(model.Email, true);
+                    FormsAuthentication.SetAuthCookie(model.UserName, true);
                     return Redirect(returnUrl ?? Url.Action("Index", "Home"));
                 }
                 else
@@ -68,6 +68,10 @@ namespace SocialNetwork.WEB.Controllers
             {
                 return View(model);
             }
+        }
+        public ActionResult _Profile()
+        {
+            return PartialView("_Profile");
         }
         public ActionResult Edit()
         {

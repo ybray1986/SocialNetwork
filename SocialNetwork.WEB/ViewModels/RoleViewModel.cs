@@ -6,6 +6,6 @@ namespace SocialNetwork.WEB.ViewModels
     {
         public int RoleId { get; set; }
         public string RoleName { get; set; }
-        public virtual ICollection<UserViewModel> Users { get; set; }
+        public List<UserViewModel> Users { get; set; }
     }
 }

@@ -10,10 +10,14 @@ namespace SocialNetwork.DAL.UnitOfWork
 {
     public interface IUnitOfWork: IDisposable
     {
-        Repository<Relationship> FriendWoURepository { get; }
-        Repository<AppUser> UserWoURepository { get; }
-        Repository<AppRole> RoleWoURepository { get; }
-        Repository<Message> MessageWoURepository { get; }
+        Repository<Category> CategoryUOWRepository { get; }
+        Repository<Comment> CommentUOWRepository { get; }
+        Repository<Country> CountryUOWRepository { get; }
+        Repository<Post> PostUOWRepository { get; }
+        Repository<PostLike> PostLikeUOWRepository { get; }
+        Repository<Role> RoleUOWRepository { get; }
+        Repository<User> UserUOWRepository { get; }
+        Repository<UserFollower> UserFollowerUOWRepository { get; }
         void Save();
     }
 }
