@@ -14,9 +14,9 @@ namespace SocialNetwork.DAL.Entities
         public int IdPost { get; set; }
         public string Title { get; set; }
         public string PostContent { get; set; }
-        public bool TypePublic { get; set; }
+        public bool? TypePublic { get; set; }
         public virtual Category IdCategory { get; set; }
-        public DateTime PostDate { get; set; }
+        public DateTime? PostDate { get; set; }
         public byte [] PostImage { get; set; }
         public virtual User IdUser { get; set; }
     }

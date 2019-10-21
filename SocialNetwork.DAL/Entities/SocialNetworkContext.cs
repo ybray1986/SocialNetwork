@@ -28,7 +28,9 @@ namespace SocialNetwork.DAL.Entities
         {
             protected override void Seed(SocialNetworkContext context)
             {
-                context.Users.Add(new User() { UserName = "user1", UserPassword = "1234", DateBirth = new DateTime(1980, 12, 01), NotificationEmails = true, NotificationPostComments = true, NotificationPostLikers = true, FirstLogin = 1 });
+                context.Categories.Add(new Category { CategoryName = "Books" });
+                context.Categories.Add(new Category { CategoryName = "Photos" });
+                context.Users.Add(new User { UserName = "user1", UserPassword = "1234" });
                 base.Seed(context);
             }
         }

@@ -156,6 +156,7 @@
     <Content Include="Content\custom\bootstrap.css" />
     <Content Include="Content\custom\bootstrap.min.css" />
     <Content Include="Content\icons\cross.png" />
+    <Content Include="Content\images\default-post-image.jpg" />
     <Content Include="Content\images\pin1.jpg" />
     <Content Include="Content\images\pin2.jpg" />
     <Content Include="Content\images\pin3.jpg" />
@@ -199,7 +200,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\UserViewModelController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -226,15 +227,16 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\_AddContent.cshtml" />
-    <Content Include="Views\Home\_Search.cshtml" />
-    <Content Include="Views\Home\_Notification.cshtml" />
+    <Content Include="Views\Home\AddContent.cshtml" />
+    <Content Include="Views\Home\Search.cshtml" />
+    <Content Include="Views\Home\Notification.cshtml" />
     <Content Include="Views\Account\Edit.cshtml" />
     <Content Include="Views\Account\_Profile.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Shared\_Main.cshtml" />
     <Content Include="Views\Account\Main.cshtml" />
+    <Content Include="Views\Home\Posts.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -246,7 +248,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
     <Folder Include="Views\LoginViewModel\" />
-    <Folder Include="Views\UserViewModel\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SocialNetwork.BL\SocialNetwork.BL.csproj">

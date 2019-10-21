@@ -10,6 +10,7 @@ namespace SocialNetwork.WEB.ViewModels
     public class CategoryViewModel
     {
         public int IdCategory { get; set; }
+        [Required]
         public string CategoryName { get; set; }
     }
 }

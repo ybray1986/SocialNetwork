@@ -1,15 +1,5 @@
 ﻿$(document).ready(function () {
     var body = $('body');
-    //category = $('.category');
-    //categoryWrapper = $('.category-wrapper');
-    //toggleCatDropDown = function () {
-    //    if (categoryWrapper.hasClass('active')) {
-    //        categoryWrapper.removeClass('active');
-    //    } else {
-    //        categoryWrapper.addClass('active');
-    //    }
-    //};
-    //category.on('click', toggleCatDropDown);
     typeahead = $('.typeahead');
     field = $('.field');
         toggleSearchDropDown = function () {

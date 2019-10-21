@@ -29,6 +29,21 @@ namespace SocialNetwork.WEB.Profiles
             this.CreateMap<RoleBO, RoleViewModel>().ConstructUsingServiceLocator();
             this.CreateMap<RoleViewModel, RoleBO>().ConstructUsingServiceLocator();
             this.CreateMap<RoleBO, Role>().ConstructUsingServiceLocator();
+
+            this.CreateMap<Post, PostBO>().ConstructUsingServiceLocator();
+            this.CreateMap<PostBO, PostViewModel>().ConstructUsingServiceLocator();
+            this.CreateMap<PostViewModel, PostBO>().ConstructUsingServiceLocator();
+            this.CreateMap<PostBO, Post>().ConstructUsingServiceLocator();
+
+            this.CreateMap<Comment, CommentBO>().ConstructUsingServiceLocator();
+            this.CreateMap<CommentBO, CommentViewModel>().ConstructUsingServiceLocator();
+            this.CreateMap<CommentViewModel, CommentBO>().ConstructUsingServiceLocator();
+            this.CreateMap<CommentBO, Comment>().ConstructUsingServiceLocator();
+
+            this.CreateMap<Category, CategoryBO>().ConstructUsingServiceLocator();
+            this.CreateMap<CategoryBO, CategoryViewModel>().ConstructUsingServiceLocator();
+            this.CreateMap<CategoryViewModel, CategoryBO>().ConstructUsingServiceLocator();
+            this.CreateMap<CategoryBO, Category>().ConstructUsingServiceLocator();
         }
     }
 }

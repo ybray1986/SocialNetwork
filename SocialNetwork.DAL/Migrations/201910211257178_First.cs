@@ -22,7 +22,7 @@ namespace SocialNetwork.DAL.Migrations
                     {
                         IdComment = c.Int(nullable: false, identity: true),
                         CommentText = c.String(),
-                        CommentDate = c.DateTime(nullable: false),
+                        CommentDate = c.DateTime(),
                         IdPost_IdPost = c.Int(),
                         IdUser_IdUser = c.Int(),
                     })
@@ -39,8 +39,8 @@ namespace SocialNetwork.DAL.Migrations
                         IdPost = c.Int(nullable: false, identity: true),
                         Title = c.String(),
                         PostContent = c.String(),
-                        TypePublic = c.Boolean(nullable: false),
-                        PostDate = c.DateTime(nullable: false),
+                        TypePublic = c.Boolean(),
+                        PostDate = c.DateTime(),
                         PostImage = c.Binary(),
                         IdCategory_IdCategory = c.Int(),
                         IdUser_IdUser = c.Int(),

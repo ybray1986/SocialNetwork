@@ -1,0 +1,57 @@
+﻿@model SocialNetwork.WEB.ViewModels.PostViewModel
+
+<div class="modal-content dp-none">
+    @using (Html.BeginForm("AddContent", "Home", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+    {
+        @Html.ValidationSummary()
+        <div class="modal">
+            <div class="standard-form">
+                <h1>
+                    Add new content
+                </h1>
+                <ul>
+                    <li>
+                        <h3>
+                            <label>
+                                Category
+                            </label>
+                        </h3>
+                        <div>
+                            @Html.DropDownListFor(model => model.IdCategory.IdCategory, (IEnumerable<SelectListItem>)@ViewBag.CategoryList, new { @id = "list" })
+                        </div>
+                    </li>
+                    <li>
+                        <h3>
+                            <label>
+                                Description
+                            </label>
+                        </h3>
+                        <div>
+                            @Html.TextAreaFor(model => model.PostContent, new { @HtmlAttributes = new { @placeholder = "Add a short description to your post...", @class = "content" } })
+                        </div>
+                    </li>
+                    <li>
+                        <h3>
+                            <label>
+                                Image
+                            </label>
+                        </h3>
+                        <div>
+                            <input id="upload" type="file" name="image" />
+                        </div>
+                    </li>
+                </ul>
+                <div class="form-footer">
+                    <div class="form-footer-buttons">
+                        <button class="buttonC btn close-modalpopup" type="button">
+                            <span class="button-text">
+                                Cancel
+                            </span>
+                        </button>
+                        <input class="buttonC primary btn" type="submit" value="Submit" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

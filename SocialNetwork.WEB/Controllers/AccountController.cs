@@ -75,10 +75,12 @@ namespace SocialNetwork.WEB.Controllers
         {
             return View();
         }
+        [Authorize]
         public ActionResult _Profile()
         {
-            return PartialView("_Profile");
+            return PartialView();
         }
+        [Authorize]
         public ActionResult Edit()
         {
             return View();
@@ -106,10 +108,11 @@ namespace SocialNetwork.WEB.Controllers
             }
             return View(modelParam);
         }
+        [Authorize]
         public ActionResult Logout()
         {
             FormsAuthentication.SignOut();
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Main", "Home");
         }
     }
 }

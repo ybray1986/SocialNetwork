@@ -15,6 +15,6 @@ namespace SocialNetwork.DAL.Entities
         public string CommentText { get; set; }
         public virtual Post IdPost { get; set; }
         public virtual User IdUser { get; set; }
-        public DateTime CommentDate { get; set; }
+        public DateTime? CommentDate { get; set; }
     }
 }

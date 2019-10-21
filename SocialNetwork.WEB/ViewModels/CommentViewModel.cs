@@ -13,6 +13,6 @@ namespace SocialNetwork.WEB.ViewModels
         public string CommentText { get; set; }
         public PostViewModel IdPost { get; set; }
         public UserViewModel IdUser { get; set; }
-        public DateTime CommentDate { get; set; }
+        public DateTime? CommentDate { get; set; }
     }
 }

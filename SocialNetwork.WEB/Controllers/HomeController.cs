@@ -11,6 +11,7 @@ using System.Web.Mvc;
 
 namespace SocialNetwork.WEB.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         private IMapper mapper;
@@ -24,17 +25,55 @@ namespace SocialNetwork.WEB.Controllers
         }
         public ActionResult Notification()
         {
-            return PartialView("_Notification");
+            return PartialView();
         }
         public ActionResult AddContent()
         {
-            return PartialView("_AddContent");
+            var categoryBO = mapper.ServiceCtor.Invoke(typeof(CategoryBO));
+            var categoryBOList = (categoryBO as CategoryBO).CategoryBOList();
+            var categoryViewModelList = mapper.Map<List<CategoryViewModel>>(categoryBOList);
+            ViewBag.CategoryList = new SelectList(categoryViewModelList, "IdCategory", "CategoryName");
+            return PartialView();
+        }
+        [HttpPost]
+        public ActionResult AddContent(PostViewModel postParam, HttpPostedFileBase image)
+        {
+            var userBO = mapper.ServiceCtor.Invoke(typeof(UserBO));
+            var userBOList = (userBO as UserBO).GetUserBOByLogin(User.Identity.Name);
+            var userViewModel = mapper.Map<UserViewModel>(userBOList);
+            postParam.IdUser = userViewModel;
+            if (image != null)
+            {
+                postParam.PostImage = new byte[image.ContentLength];
+                image.InputStream.Read(postParam.PostImage, 0, image.ContentLength);
+            }
+            else
+            {
+                
+                byte[] defPhoto = System.IO.File.ReadAllBytes(Server.MapPath("~/Content/images/default-post-image.jpg"));
+                postParam.PostImage = new byte[Buffer.ByteLength(defPhoto)];
+                postParam.PostImage = defPhoto;
+            }
+            var post = mapper.Map<PostBO>(postParam);
+            post.SaveBO();
+            return RedirectToAction("Index");
+        }
+        public ActionResult GetCurrentUserIdPosts()
+        {
+            var userBO = mapper.ServiceCtor.Invoke(typeof(UserBO));
+            var userBOList = (userBO as UserBO).GetUserBOByLogin(User.Identity.Name);
+            var userViewModel = mapper.Map<UserViewModel>(userBOList);
+            var userId = userViewModel.IdUser;
+            var postBO = mapper.ServiceCtor.Invoke(typeof(PostBO));
+            var postsBOUser = (postBO as PostBO).GetBOAllPostsByUserId(userId);
+            var postsViewModelList = postsBOUser.Select(model => mapper.Map<PostViewModel>(model)).ToList();
+            return PartialView("Posts", postsViewModelList);
         }
         public ActionResult Search()
         {
             var userBO = mapper.ServiceCtor(typeof(UserBO));
             var model = (userBO as UserBO).GetBOListUsers().Select(item=>mapper.Map<UserViewModel>(item)).ToList();
-            return PartialView("_Search", model);
+            return PartialView(model);
         }
         public FileContentResult GetImage(int id)
         {

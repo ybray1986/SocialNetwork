@@ -54,7 +54,7 @@
                         <a href="#">
                             <div class="profile-link">
                                 <span class="profile-image" style="background:url(/Content/photo/Users/default/default-24.png) no-repeat center;"></span>
-                                <span class="profile-name">User Name</span>
+                                <span class="profile-name">Your Name</span>
                             </div>
                         </a>
                     </div>
@@ -82,18 +82,6 @@
         </div>
     </header>
 
-@*@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-    @Html.ActionLink("Social Network", "Index", "UserViewModel", new { area = "" }, new { @class = "navbar-brand" })
-
-    @if (User.Identity.IsAuthenticated)
-    {
-        @Html.ActionLink("Logout", "Logout", "Account");
-    }
-    else
-    {
-        @Html.ActionLink("Login", "Login", "Account");
-    }
-    <li>@Html.ActionLink("Register", "Register", "Account");</li>*@
     <div id="main">
         @RenderBody()
     </div>

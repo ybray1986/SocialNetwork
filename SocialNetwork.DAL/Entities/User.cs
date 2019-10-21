@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AutoMapper;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -26,6 +27,5 @@ namespace SocialNetwork.DAL.Entities
         public bool? NotificationPostLikers { get; set; }
         public bool? NotificationPostComments { get; set; }
         public virtual Role Role { get; set; }
-
     }
 }

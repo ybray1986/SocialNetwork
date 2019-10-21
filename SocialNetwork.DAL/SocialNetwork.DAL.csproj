@@ -122,9 +122,9 @@
     <Compile Include="Entities\SocialNetworkContext.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Entities\UserFollower.cs" />
-    <Compile Include="Migrations\201910201920081_First.cs" />
-    <Compile Include="Migrations\201910201920081_First.Designer.cs">
-      <DependentUpon>201910201920081_First.cs</DependentUpon>
+    <Compile Include="Migrations\201910211257178_First.cs" />
+    <Compile Include="Migrations\201910211257178_First.Designer.cs">
+      <DependentUpon>201910211257178_First.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -157,8 +157,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201910201920081_First.resx">
-      <DependentUpon>201910201920081_First.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201910211257178_First.resx">
+      <DependentUpon>201910211257178_First.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
