@@ -10,5 +10,6 @@ namespace SocialNetwork.WEB.Controllers
     public class ChatController : ApiController
     {
         //Chatting with other Users
+        //
     }
 }
