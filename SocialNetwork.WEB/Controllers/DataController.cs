@@ -9,6 +9,6 @@ namespace SocialNetwork.WEB.Controllers
 {
     public class DataController : ApiController
     {
-
+        //Get Data: Search Data, Likes Data, Comments Data, Notifications Data, Categories Data
     }
 }
