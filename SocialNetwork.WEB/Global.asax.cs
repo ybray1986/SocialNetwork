@@ -5,6 +5,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using System.Web.Http;
+using System.Web.Routing;
+
 using static SocialNetwork.DAL.Entities.SocialNetworkContext;
 
 namespace SocialNetwork.WEB
@@ -16,6 +19,7 @@ namespace SocialNetwork.WEB
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             Database.SetInitializer(new DbContextInitializer());
+            GlobalConfiguration.Configure(WebApiConfig.Register);
         }
     }
 }
