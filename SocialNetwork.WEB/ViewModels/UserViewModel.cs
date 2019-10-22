@@ -18,7 +18,7 @@ namespace SocialNetwork.WEB.ViewModels
         [Required]
         [EmailAddress]
         public string Email { get; set; }
-        public CountryViewModel IdCountry { get; set; }
+        public int? IdCountry { get; set; }
         public string Gender { get; set; }
         [Required]
         [StringLength(16, MinimumLength = 2)]

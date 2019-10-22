@@ -9,7 +9,7 @@ namespace SocialNetwork.BL.ModelBO
 {
     public class PostLikeBO
     {
-        public PostBO IdPost { get; set; }
-        public UserBO IdUser { get; set; }
+        public int? IdPost { get; set; }
+        public int? IdUser { get; set; }
     }
 }

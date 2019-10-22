@@ -5,11 +5,11 @@
     {
         <div class="item open-modal">
             <a href="#">
-                <img src="~/Content/images/pin1.jpg" />
+                <img src="@Url.Action("GetPostImage","Home",new { id = @item.IdPost })" />
             </a>
             <div class="pin-meta">
                 <p class="pin-description">
-                    Some Description Text
+                    @item.PostContent
                 </p>
                 <div class="pin-social-meta">
                     <a class="social-item-likes" href="#">
@@ -25,7 +25,7 @@
                         Posted by
                     </span>
                     <span class="attribution-name">
-                        @item.IdUser.UserName
+                        @item.IdUser
                     </span>
                 </a>
                 <a class="attribution-item last-attribution " href="#">
@@ -34,7 +34,7 @@
                     <span class="attribution-title">
                         in
                     </span>
-                    <span class="attribution-name">@item.IdCategory.CategoryName</span>
+                    <span class="attribution-name">@item.IdCategory</span>
                 </a>
             </div>
         </div>

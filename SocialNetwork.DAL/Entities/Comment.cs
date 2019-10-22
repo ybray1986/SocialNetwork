@@ -13,8 +13,8 @@ namespace SocialNetwork.DAL.Entities
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int IdComment { get; set; }
         public string CommentText { get; set; }
-        public virtual Post IdPost { get; set; }
-        public virtual User IdUser { get; set; }
+        public int? IdPost { get; set; }
+        public int? IdUser { get; set; }
         public DateTime? CommentDate { get; set; }
     }
 }

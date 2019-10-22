@@ -10,13 +10,12 @@ namespace SocialNetwork.WEB.ViewModels
     public class PostViewModel
     {
         public int IdPost { get; set; }
-        [Required]
         public string Title { get; set; }
         public string PostContent { get; set; }
         public bool? TypePublic { get; set; }
-        public CategoryViewModel IdCategory { get; set; }
+        public int? IdCategory { get; set; }
         public DateTime? PostDate { get; set; }
         public byte [] PostImage { get; set; }
-        public UserViewModel IdUser { get; set; }
+        public int? IdUser { get; set; }
     }
 }

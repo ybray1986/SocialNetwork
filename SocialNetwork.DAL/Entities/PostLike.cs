@@ -12,7 +12,7 @@ namespace SocialNetwork.DAL.Entities
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public virtual Post IdPost { get; set; }
-        public virtual User IdUser { get; set; }
+        public int? IdPost { get; set; }
+        public int? IdUser { get; set; }
     }
 }

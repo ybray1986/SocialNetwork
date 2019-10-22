@@ -13,8 +13,8 @@ namespace SocialNetwork.BL.ModelBO
     {
         public int IdComment { get; set; }
         public string CommentText { get; set; }
-        public PostBO IdPost { get; set; }
-        public UserBO IdUser { get; set; }
+        public int? IdPost { get; set; }
+        public int? IdUser { get; set; }
         public DateTime? CommentDate { get; set; }
 
         public CommentBO(IMapper mapperParam, UnitOfWorkFactory unitOfWorkFactoryParam) : base(mapperParam, unitOfWorkFactoryParam)
@@ -25,7 +25,7 @@ namespace SocialNetwork.BL.ModelBO
             List<CommentBO> comments = new List<CommentBO>();
             using (var unitOfWork = unitOfWorkFactory.Create())
             {
-                comments = unitOfWork.CommentUOWRepository.GetAll().Where(item=>item.IdPost.IdPost == idPost).Select(model => mapper.Map<CommentBO>(model)).ToList();
+                comments = unitOfWork.CommentUOWRepository.GetAll().Where(item=>item.IdPost == idPost).Select(model => mapper.Map<CommentBO>(model)).ToList();
             }
             return comments;
         }

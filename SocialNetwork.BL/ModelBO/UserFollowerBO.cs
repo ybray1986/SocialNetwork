@@ -9,7 +9,7 @@ namespace SocialNetwork.BL.ModelBO
 {
     public class UserFollowerBO
     {
-        public UserBO IdUser1 { get; set; }
-        public UserBO IdUser2 { get; set; }
+        public int? IdUser1 { get; set; }
+        public int? IdUser2 { get; set; }
     }
 }

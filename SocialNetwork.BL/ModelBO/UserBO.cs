@@ -16,7 +16,7 @@ namespace SocialNetwork.BL.ModelBO
         public string LastName { get; set; }
         public DateTime? DateBirth { get; set; }
         public string Email { get; set; }
-        public CountryBO IdCountry { get; set; }
+        public int? IdCountry { get; set; }
         public string Gender { get; set; }
         public string UserName { get; set; }
         public string UserPassword { get; set; }

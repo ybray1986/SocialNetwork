@@ -15,10 +15,10 @@ namespace SocialNetwork.BL.ModelBO
         public string Title { get; set; }
         public string PostContent { get; set; }
         public bool? TypePublic { get; set; }
-        public CategoryBO IdCategory { get; set; }
+        public int? IdCategory { get; set; }
         public DateTime? PostDate { get; set; }
         public byte [] PostImage { get; set; }
-        public UserBO IdUser { get; set; }
+        public int? IdUser { get; set; }
 
         public PostBO(IMapper mapperParam, UnitOfWorkFactory unitOfWorkFactoryParam) : base(mapperParam, unitOfWorkFactoryParam)
         {
@@ -49,7 +49,16 @@ namespace SocialNetwork.BL.ModelBO
             List<PostBO> posts = new List<PostBO>();
             using (var unitOfWork = unitOfWorkFactory.Create())
             {
-                var p = unitOfWork.PostUOWRepository.GetAll();
+                posts = unitOfWork.PostUOWRepository.GetAll().Select(model=>mapper.Map<PostBO>(model)).ToList();
+            }
+            return posts;
+        }
+        public PostBO GetBOPostById(int id)
+        {
+            PostBO posts;
+            using (var unitOfWork = unitOfWorkFactory.Create())
+            {
+                posts = unitOfWork.PostUOWRepository.GetAll().Where(item=>item.IdPost == id).Select(model => mapper.Map<PostBO>(model)).FirstOrDefault();
             }
             return posts;
         }

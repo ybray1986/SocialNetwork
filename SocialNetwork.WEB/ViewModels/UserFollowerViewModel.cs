@@ -9,7 +9,7 @@ namespace SocialNetwork.WEB.ViewModels
 {
     public class UserFollowerViewModel
     {
-        public UserViewModel IdUser1 { get; set; }
-        public UserViewModel IdUser2 { get; set; }
+        public int? IdUser1 { get; set; }
+        public int? IdUser2 { get; set; }
     }
 }

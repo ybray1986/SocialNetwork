@@ -17,7 +17,7 @@
                             </label>
                         </h3>
                         <div>
-                            @Html.DropDownListFor(model => model.IdCategory.IdCategory, (IEnumerable<SelectListItem>)@ViewBag.CategoryList, new { @id = "list" })
+                            @Html.DropDownListFor(model => model.IdCategory, (IEnumerable<SelectListItem>)@ViewBag.CategoryList, new { @id = "list" })
                         </div>
                     </li>
                     <li>

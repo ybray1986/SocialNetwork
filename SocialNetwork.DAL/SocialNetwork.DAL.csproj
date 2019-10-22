@@ -122,11 +122,6 @@
     <Compile Include="Entities\SocialNetworkContext.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Entities\UserFollower.cs" />
-    <Compile Include="Migrations\201910211257178_First.cs" />
-    <Compile Include="Migrations\201910211257178_First.Designer.cs">
-      <DependentUpon>201910211257178_First.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\IRepository.cs" />
     <Compile Include="Repositories\Repository.cs" />
@@ -155,11 +150,6 @@
     <None Include="App.config" />
     <None Include="Data\Messages.json" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201910211257178_First.resx">
-      <DependentUpon>201910211257178_First.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -47,5 +47,15 @@ namespace SocialNetwork.BL.ModelBO
                 return unitOfWork.CategoryUOWRepository.GetAll().Select(item=>mapper.Map<CategoryBO>(item)).ToList();
             }
         }
+
+        public object GetCategoryBOById(int id)
+        {
+            CategoryBO category;
+            using (var unitOfWork = unitOfWorkFactory.Create())
+            {
+                category = unitOfWork.CategoryUOWRepository.GetAll().Where(i => i.IdCategory == id).Select(model => mapper.Map<CategoryBO>(model)).FirstOrDefault();
+            }
+            return category;
+        }
     }
 }
