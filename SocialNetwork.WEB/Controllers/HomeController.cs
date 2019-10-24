@@ -21,8 +21,8 @@ namespace SocialNetwork.WEB.Controllers
         }
         public ActionResult Index()
         {
-            ViewBag.GetUserName = new Func<int, string>(GetUserName);
-            ViewBag.GetCategoryName = new Func<int, string>(GetCategory);
+            //ViewBag.GetUserName = new Func<int, string>(GetUserName);
+            //ViewBag.GetCategoryName = new Func<int, string>(GetCategory);
             return View();
         }
     }
