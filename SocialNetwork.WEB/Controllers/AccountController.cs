@@ -71,22 +71,18 @@ namespace SocialNetwork.WEB.Controllers
                 return View(model);
             }
         }
-        public ActionResult Main()
-        {
-            return View();
-        }
         [Authorize]
-        public ActionResult _Profile()
+        public ActionResult UserProfile()
         {
             return PartialView();
         }
         [Authorize]
-        public ActionResult Edit()
+        public ActionResult Settings()
         {
             return View();
         }
         [HttpGet]
-        public ActionResult Edit(int? id)
+        public ActionResult Settings(int? id)
         {
             var userBO = mapper.ServiceCtor.Invoke(typeof(UserBO));
             var model = mapper.Map<UserViewModel>(userBO);
@@ -98,7 +94,7 @@ namespace SocialNetwork.WEB.Controllers
             return View(model);
         }
         [HttpPost]
-        public ActionResult Edit(UserViewModel modelParam)
+        public ActionResult Settings(UserViewModel modelParam)
         {
             var userBO = mapper.Map<UserBO>(modelParam);
             if (ModelState.IsValid)

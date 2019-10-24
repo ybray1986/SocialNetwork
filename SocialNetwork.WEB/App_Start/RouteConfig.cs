@@ -16,7 +16,7 @@ namespace SocialNetwork.WEB
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Account", action = "Main", id = UrlParameter.Optional }
+                defaults: new { controller = "Main", action = "Main", id = UrlParameter.Optional }
             );
         }
     }
