@@ -39,14 +39,21 @@ namespace SocialNetwork.WEB.Controllers
             return Request.CreateResponse(HttpStatusCode.OK);
         }
         [HttpGet]
-        public HttpResponseMessage GetPostImage(int id)
+        public IHttpActionResult GetPostImage(int id)
         {
             byte[] defPhoto = System.IO.File.ReadAllBytes(HttpContext.Current.Server.MapPath("~/Content/images/pin3.jpg"));
             var postBO = mapper.ServiceCtor(typeof(PostBO));
             var model = (postBO as PostBO).GetBOPostById(id);
             var postViewModel = mapper.Map<PostViewModel>(model);
-            var result = (postViewModel.PostImage != null && postViewModel.PostImage.Length > 0) ? postViewModel.PostImage : defPhoto;
-            return Request.CreateResponse(result);
+            try
+            {
+                var result = postViewModel.PostImage;
+                return Ok(result);
+            }
+            catch (Exception)
+            {
+                return Content(HttpStatusCode.NotFound, defPhoto);
+            }
             //return new FileContentResult(result, "image/jpg");
         }
         [HttpPost]
