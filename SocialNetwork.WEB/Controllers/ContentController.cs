@@ -9,6 +9,7 @@ using System.Net.Http;
 using System.Web;
 using System.Web.Http;
 using Ninject;
+using Ninject.Web.WebApi;
 
 namespace SocialNetwork.WEB.Controllers
 {

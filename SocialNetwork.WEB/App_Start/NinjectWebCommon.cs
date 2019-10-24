@@ -12,6 +12,7 @@ namespace SocialNetwork.WEB.App_Start
     using Ninject.Web.Common;
     using System.Web.Mvc;
     using Ninject.Web.Common.WebHost;
+    using Ninject.Web.WebApi;
     using Infrastucture;
     public static class NinjectWebCommon 
     {

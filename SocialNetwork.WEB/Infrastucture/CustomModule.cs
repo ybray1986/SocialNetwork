@@ -10,7 +10,7 @@ using SocialNetwork.WEB.Profiles;
 
 namespace SocialNetwork.WEB.Infrastucture
 {
-    public class CustomModule : NinjectModule
+    public class CustomModule : NinjectModule,webapi
     {
         public override void Load()
         {
