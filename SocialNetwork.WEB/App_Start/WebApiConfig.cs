@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Ninject;
+//using Ninject.Web.WebApi;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
@@ -9,6 +11,9 @@ namespace SocialNetwork.WEB
     {
         public static void Register(HttpConfiguration config)
         {
+            //var kernel = new StandardKernel();
+            //config.DependencyResolver = new NinjectDependencyResolver(kernel);
+
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(

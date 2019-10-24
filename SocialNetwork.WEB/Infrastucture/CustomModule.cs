@@ -7,10 +7,11 @@ using Ninject.Modules;
 using AutoMapper;
 using Ninject.Activation;
 using SocialNetwork.WEB.Profiles;
+using Ninject.Web.WebApi;
 
 namespace SocialNetwork.WEB.Infrastucture
 {
-    public class CustomModule : NinjectModule,webapi
+    public class CustomModule : NinjectModule
     {
         public override void Load()
         {
