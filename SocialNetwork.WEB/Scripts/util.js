@@ -64,9 +64,36 @@
         dataType: 'json',
         success: function (data) {
             $(data).each(function (index, item) {
-                categoriesDDL.append($('<option/>', { value = item.Id, text = item.Name }));
+                categoriesDDL.append($('<option>').val(item.IdCategory).text(item.CategoryName));
             });
         }
     });
+    //
+    $('.submit-content-button').click(function (e) {
+        e.preventDefault();
+        AddBook();
+    });
+    function AddBook() {
+        var data = new FormData();
+        var category = $('#list-categories-form').find(":selected").text();
+        var content = $('.content-form').val();
+        var files = $('#upload-image-form').get(0).files[0];
+        data.append("category", category);
+        data.append("content", content);
+        data.append("image", files);
+        //if (files.length > 0) {
+        //    data.append("image", files[0]);
+        //}
+        $.ajax({
+            url: 'api/content',
+            method: 'post',
+            data: data,
+            enctype: 'multipart/form-data',
+            contentType: false,
+            processData: false,
+            success: function (result) { console.log(result); },
+            error: function (err) { console.log(err); }
+        });
+    };
     //
 });

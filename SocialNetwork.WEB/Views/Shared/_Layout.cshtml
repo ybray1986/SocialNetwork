@@ -33,7 +33,7 @@
                     @*search*@
                     <div class="typeahead" style="display: none;">
                         <ul>
-                            @foreach (var item in Model)
+                            @*@foreach (var item in Model)
                             {
                                 <li>
                                     <a href="">
@@ -43,7 +43,7 @@
                                         <span class="name" style="text-align:center;">@item.LastName @item.FirstName</span>
                                     </a>
                                 </li>
-                            }
+                            }*@
                         </ul>
                     </div>
                     @**search**@
@@ -57,62 +57,64 @@
                         <em class="icon-plus"></em>
                     </button>
                 </div>
-                @*addcontent*@
-                <div class="modal-content dp-none">
-                    @Html.ValidationSummary()
-                    <div class="modal">
-                        <div class="standard-form">
-                            <h1>
-                                Add new content
-                            </h1>
-                            <ul>
-                                <li>
-                                    <h3>
-                                        <label>
-                                            Category
-                                        </label>
-                                    </h3>
-                                    <div>
-                                        <select id="list-categories-form"></select>
-                                        @*@Html.DropDownListFor(model => model.IdCategory, (IEnumerable<SelectListItem>)@ViewBag.CategoryList, new { @id = "list" })*@
+                    @*addcontent*@
+                    <div class="modal-content dp-none">
+                        @Html.ValidationSummary()
+                        <div class="modal">
+                            <div class="standard-form">
+                                <h1>
+                                    Add new content
+                                </h1>
+                                <ul>
+                                    <li>
+                                        <h3>
+                                            <label>
+                                                Category
+                                            </label>
+                                        </h3>
+                                        <div>
+                                            <select id="list-categories-form"></select>
+                                            @*@Html.DropDownListFor(model => model.IdCategory, (IEnumerable<SelectListItem>)@ViewBag.CategoryList, new { @id = "list" })*@
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <h3>
+                                            <label>
+                                                Description
+                                            </label>
+                                        </h3>
+                                        <div>
+                                            <input type="text" placeholder="Add a short description to your post..." class="content content-form" />
+                                            @*@Html.TextAreaFor(model => model.PostContent, new { @HtmlAttributes = new { @placeholder = "Add a short description to your post...", @class = "content" } })*@
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <h3>
+                                            <label>
+                                                Image
+                                            </label>
+                                        </h3>
+                                        <div>
+                                            <input id="upload-image-form" type="file" />
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="form-footer">
+                                    <div class="form-footer-buttons">
+                                        <button class="buttonC btn close-modalpopup" type="button">
+                                            <span class="button-text">
+                                                Cancel
+                                            </span>
+                                        </button>
+                                        <input class="buttonC btn primary submit-content-button" type="button" value="Submit" />
                                     </div>
-                                </li>
-                                <li>
-                                    <h3>
-                                        <label>
-                                            Description
-                                        </label>
-                                    </h3>
-                                    <div>
-                                        <input type="text" placeholder="Add a short description to your post..." class="content" />
-                                        @*@Html.TextAreaFor(model => model.PostContent, new { @HtmlAttributes = new { @placeholder = "Add a short description to your post...", @class = "content" } })*@
-                                    </div>
-                                </li>
-                                <li>
-                                    <h3>
-                                        <label>
-                                            Image
-                                        </label>
-                                    </h3>
-                                    <div>
-                                        <input id="upload-image" type="file" />
-                                    </div>
-                                </li>
-                            </ul>
-                            <div class="form-footer">
-                                <div class="form-footer-buttons">
-                                    <button class="buttonC btn close-modalpopup" type="button">
-                                        <span class="button-text">
-                                            Cancel
-                                        </span>
-                                    </button>
-                                    <input class="buttonC primary btn" type="submit" value="Submit" />
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                @**addcontent**@
+                    @**addcontent**@
+                
+                
                 <div class="buttonC notifications" style="float:right">
                     <button type="button">
                         <em class="icon-bell-alt"></em>
@@ -121,7 +123,7 @@
                     <div class="notification-wrapper">
                         <a class="notification" href="#">
                             <span class="img">
-                                <img src="@Url.Action("GetUserImage", "Home", new {id = 1})" />
+                                @*<img src="@Url.Action("GetUserImage", "Home", new {id = 1})" />*@
                             </span>
                             <span class="name" style="text-align:center;">Some Text</span>
                         </a>

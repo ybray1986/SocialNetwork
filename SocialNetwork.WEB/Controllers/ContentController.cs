@@ -93,7 +93,8 @@ namespace SocialNetwork.WEB.Controllers
         [HttpPost]
         public void CreateContent()
         {
-            var formData = HttpContext.Current.Request.Params["formData"];
+            var category = HttpContext.Current.Request.Params["category"];
+            var content = HttpContext.Current.Request.Params["content"];
             var image = HttpContext.Current.Request.Params["image"];
             //var userBO = mapper.ServiceCtor.Invoke(typeof(UserBO));
             //var userBOList = (userBO as UserBO).GetUserBOByLogin(User.Identity.Name);
