@@ -80,18 +80,14 @@
         var files = $('#upload-image-form').get(0).files[0];
         data.append("category", category);
         data.append("content", content);
-        data.append("image", files);
-        //if (files.length > 0) {
-        //    data.append("image", files[0]);
-        //}
+        data.append("file", files);
         $.ajax({
             url: 'api/content',
             method: 'post',
             data: data,
-            enctype: 'multipart/form-data',
             contentType: false,
             processData: false,
-            success: function (result) { console.log(result); },
+            success: function (result) { },
             error: function (err) { console.log(err); }
         });
     };

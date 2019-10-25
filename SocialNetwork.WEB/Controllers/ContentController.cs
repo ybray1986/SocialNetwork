@@ -96,6 +96,7 @@ namespace SocialNetwork.WEB.Controllers
             var category = HttpContext.Current.Request.Params["category"];
             var content = HttpContext.Current.Request.Params["content"];
             var image = HttpContext.Current.Request.Params["image"];
+            var file = HttpContext.Current.Request.Files.AllKeys;
             //var userBO = mapper.ServiceCtor.Invoke(typeof(UserBO));
             //var userBOList = (userBO as UserBO).GetUserBOByLogin(User.Identity.Name);
             //var userViewModel = mapper.Map<UserViewModel>(userBOList);
@@ -116,6 +117,7 @@ namespace SocialNetwork.WEB.Controllers
             //post.SaveBO();
             //return RedirectToAction("Index");
         }
+        //[HttpPost]
         //public ActionResult GetCurrentUserIdPosts()
         //{
         //    var userBO = mapper.ServiceCtor.Invoke(typeof(UserBO));

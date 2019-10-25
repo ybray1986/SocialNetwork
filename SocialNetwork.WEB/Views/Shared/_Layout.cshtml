@@ -61,7 +61,7 @@
                     <div class="modal-content dp-none">
                         @Html.ValidationSummary()
                         <div class="modal">
-                            <div class="standard-form">
+                            <div class="standard-form custom-form">
                                 <h1>
                                     Add new content
                                 </h1>
@@ -74,7 +74,6 @@
                                         </h3>
                                         <div>
                                             <select id="list-categories-form"></select>
-                                            @*@Html.DropDownListFor(model => model.IdCategory, (IEnumerable<SelectListItem>)@ViewBag.CategoryList, new { @id = "list" })*@
                                         </div>
                                     </li>
                                     <li>
@@ -85,7 +84,6 @@
                                         </h3>
                                         <div>
                                             <input type="text" placeholder="Add a short description to your post..." class="content content-form" />
-                                            @*@Html.TextAreaFor(model => model.PostContent, new { @HtmlAttributes = new { @placeholder = "Add a short description to your post...", @class = "content" } })*@
                                         </div>
                                     </li>
                                     <li>
@@ -95,7 +93,7 @@
                                             </label>
                                         </h3>
                                         <div>
-                                            <input id="upload-image-form" type="file" />
+                                            <input id="upload-image-form" formenctype="multipart/form-data" type="file"/>
                                         </div>
                                     </li>
                                 </ul>
