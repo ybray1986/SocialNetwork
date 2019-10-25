@@ -43,4 +43,30 @@
     open_modal.on('click', toggleModal);
     close_modal.on('click', toggleModal);
     //
+    function GetUserPosts() {
+        $.ajax({
+            url: '/api/content/',
+            type: 'GET',
+            dataType: 'json',
+            success: function (data) {
+
+            },
+            error: function (err) {
+                alert(err);
+            }
+        });
+    };
+    //
+    var categoriesDDL = $('#list-categories-form');
+    $.ajax({
+        url: 'api/data',
+        method: 'post',
+        dataType: 'json',
+        success: function (data) {
+            $(data).each(function (index, item) {
+                categoriesDDL.append($('<option/>', { value = item.Id, text = item.Name }));
+            });
+        }
+    });
+    //
 });

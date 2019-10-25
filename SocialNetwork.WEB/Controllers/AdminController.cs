@@ -10,6 +10,7 @@ using System.Web.Mvc;
 namespace SocialNetwork.WEB.Controllers
 {
     //Add some filters to get data from this controller
+    //Data: Post, Delete Categories; Add, Edit, Delete User; Add, Edit, Delete Posts
     public class AdminController : Controller
     {
         IMapper mapper;

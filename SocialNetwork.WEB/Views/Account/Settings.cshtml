@@ -1,83 +1,79 @@
-﻿@model SocialNetwork.WEB.ViewModels.UserViewModel
-
-<div id="main-inner">
-    <div class="definitions">
-        <h1>Account Settings</h1>
-        <ul>
-            <li class="section-title">
-                <h2>
-                    Edit Profile
-                </h2>
-            </li>
-            <li>
-                <h3>
-                    <label>
-                        First Name
-                    </label>
-                </h3>
-                <div>
-                    <input type="text" value="July">
-                </div>
-            </li>
-            <li>
-                <h3>
-                    <label>
-                        Last Name
-                    </label>
-                </h3>
-                <div>
-                    <input type="text" value="Mark">
-                </div>
-            </li>
-            <li>
-                <h3>
-                    Photo
-                </h3>
-                <div>
-                    <input id="upload" type="file" />
-                </div>
-            </li>
-            <li>
-                <h3>
-                    <label>
-                        Email Address
-                    </label>
-                </h3>
-                <div>
-                    <input type="text" value="julymark@hotmail.com" disabled="disabled">
-                </div>
-            </li>
-            <li>
-                <h3>
-                    Password
-                </h3>
-                <div>
-                    <input type="password" placeholder="Type Your Password..">
-                    <input type="password" placeholder="Retype Your Password..">
-                </div>
-            </li>
-
-        </ul>
-        <div class="form-footer">
-            <div class="form-footer-delete">
-                <button class="rounded delete-account-button buttonC module has-text btn" type="button">
-                    <span class="button-text">
-                        Deactivate your account
-                    </span>
-                </button>
+﻿<div class="definitions">
+    <h1>Account Settings</h1>
+    <ul>
+        <li class="section-title">
+            <h2>
+                Edit Profile
+            </h2>
+        </li>
+        <li>
+            <h3>
+                <label>
+                    First Name
+                </label>
+            </h3>
+            <div>
+                <input type="text" value="July">
             </div>
-            <div class="form-footer-buttons">
-                <button class="rounded navigate-button buttonC module has-text cancel btn" type="button">
-                    <span class="button-text">
-                        Cancel
-                    </span>
-                </button>
-                <button class="rounded buttonC primary module has-text btn save-settings-button" runat="server" id="save-settings" type="submit">
-                    <span class="button-text">
-                        Save Settings
-                    </span>
-                </button>
+        </li>
+        <li>
+            <h3>
+                <label>
+                    Last Name
+                </label>
+            </h3>
+            <div>
+                <input type="text" value="Mark">
             </div>
+        </li>
+        <li>
+            <h3>
+                Photo
+            </h3>
+            <div>
+                <input id="upload" type="file" />
+            </div>
+        </li>
+        <li>
+            <h3>
+                <label>
+                    Email Address
+                </label>
+            </h3>
+            <div>
+                <input type="text" value="julymark@hotmail.com" disabled="disabled">
+            </div>
+        </li>
+        <li>
+            <h3>
+                Password
+            </h3>
+            <div>
+                <input type="password" placeholder="Type Your Password..">
+                <input type="password" placeholder="Retype Your Password..">
+            </div>
+        </li>
+
+    </ul>
+    <div class="form-footer">
+        <div class="form-footer-delete">
+            <button class="rounded delete-account-button buttonC module has-text btn" type="button">
+                <span class="button-text">
+                    Deactivate your account
+                </span>
+            </button>
+        </div>
+        <div class="form-footer-buttons">
+            <button class="rounded navigate-button buttonC module has-text cancel btn" type="button">
+                <span class="button-text">
+                    Cancel
+                </span>
+            </button>
+            <button class="rounded buttonC primary module has-text btn save-settings-button" runat="server" id="save-settings" type="submit">
+                <span class="button-text">
+                    Save Settings
+                </span>
+            </button>
         </div>
     </div>
 </div>

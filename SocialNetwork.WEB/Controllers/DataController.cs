@@ -18,7 +18,9 @@ namespace SocialNetwork.WEB.Controllers
         {
             mapper = mapperParam;
         }
-        //Get Data: Search Data, Likes Data, Comments Data, Notifications Data, Categories Data
+        //
+        //Get Data: Search Data(Get), Likes Data(Get, Post), Comments Data(Get, Post), Notifications Data(Get), Categories Data(Get)
+        //
         //public ActionResult Search()
         //{
         //    var userBO = mapper.ServiceCtor(typeof(UserBO));
@@ -42,12 +44,19 @@ namespace SocialNetwork.WEB.Controllers
             var user = mapper.Map<UserViewModel>(userBOList);
             return user.UserName;
         }
-        [HttpGet]
-        public IEnumerable<CategoryViewModel> GetCategoryList()
+        [HttpPost]
+        public IHttpActionResult GetCategoryList()
         {
-            var categoryBO = mapper.ServiceCtor(typeof(CategoryBO));
-            var categoryBOList = (categoryBO as CategoryBO).CategoryBOList().Select(model => mapper.Map<CategoryViewModel>(model)).ToList();
-            return categoryBOList;
+            try
+            {
+                var categoryBO = mapper.ServiceCtor(typeof(CategoryBO));
+                var categoryViewModelList = (categoryBO as CategoryBO).CategoryBOList().Select(model => mapper.Map<CategoryViewModel>(model)).ToList();
+                return Ok(categoryViewModelList);
+            }
+            catch (Exception)
+            {
+                return NotFound();
+            }
         }
         public string GetCategory(int id)
         {

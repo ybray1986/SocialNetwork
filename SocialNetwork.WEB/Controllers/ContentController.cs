@@ -24,20 +24,55 @@ namespace SocialNetwork.WEB.Controllers
         {
             mapper = mapperParam;
         }
-        //[HttpGet]
-        //public void AddContent()
-        //{
-        //    var categoryBO = mapper.ServiceCtor.Invoke(typeof(CategoryBO));
-        //    var categoryBOList = (categoryBO as CategoryBO).CategoryBOList();
-        //    var categoryViewModelList = mapper.Map<List<CategoryViewModel>>(categoryBOList);
-        //    ViewBag.CategoryList = new SelectList(categoryViewModelList, "IdCategory", "CategoryName");
-        //    return PartialView();
-        //}
         [HttpGet]
-        public HttpResponseMessage GetPostImage()
+        public IHttpActionResult GetAllContent()
         {
-            return Request.CreateResponse(HttpStatusCode.OK);
+            try
+            {
+                var userBOInst = mapper.ServiceCtor.Invoke(typeof(UserBO));
+                var userBO = (userBOInst as UserBO).GetUserBOByLogin(User.Identity.Name);
+                var userViewModel = mapper.Map<UserViewModel>(userBO);
+                var postBOInst = mapper.ServiceCtor.Invoke(typeof(PostBO));
+                var postBOList = (postBOInst as PostBO).GetBOAllPostsByUserId(userViewModel.IdUser);
+                var postViewModelList = mapper.Map<List<PostViewModel>>(postBOList);
+                return Ok(postViewModelList);
+            }
+            catch (Exception)
+            {
+                return NotFound();
+            }
+            //if (image != null)
+            //{
+            //    postParam.PostImage = new byte[image.ContentLength];
+            //    image.InputStream.Read(postParam.PostImage, 0, image.ContentLength);
+            //}
+            //else
+            //{
+
+            //    byte[] defPhoto = System.IO.File.ReadAllBytes(Server.MapPath("~/Content/images/default-post-image.jpg"));
+            //    postParam.PostImage = new byte[Buffer.ByteLength(defPhoto)];
+            //    postParam.PostImage = defPhoto;
+            //}
+            //var categoryBO = mapper.ServiceCtor.Invoke(typeof(CategoryBO));
+            //try
+            //{
+            //    var categoryBOList = (categoryBO as CategoryBO).CategoryBOList();
+            //    var categoryViewModelList = mapper.Map<List<CategoryViewModel>>(categoryBOList);
+            //    return 
+            //}
+            //catch (Exception)
+            //{
+            //}
+            
+            
+            //ViewBag.CategoryList = new SelectList(categoryViewModelList, "IdCategory", "CategoryName");
+            //return PartialView();
         }
+        //[HttpGet]
+        //public HttpResponseMessage GetPostImage()
+        //{
+        //    return Request.CreateResponse(HttpStatusCode.OK);
+        //}
         [HttpGet]
         public IHttpActionResult GetPostImage(int id)
         {
@@ -54,11 +89,12 @@ namespace SocialNetwork.WEB.Controllers
             {
                 return Content(HttpStatusCode.NotFound, defPhoto);
             }
-            //return new FileContentResult(result, "image/jpg");
         }
         [HttpPost]
-        public void CreateContent([FromBody]PostViewModel postParam, HttpPostedFileBase image)
+        public void CreateContent()
         {
+            var formData = HttpContext.Current.Request.Params["formData"];
+            var image = HttpContext.Current.Request.Params["image"];
             //var userBO = mapper.ServiceCtor.Invoke(typeof(UserBO));
             //var userBOList = (userBO as UserBO).GetUserBOByLogin(User.Identity.Name);
             //var userViewModel = mapper.Map<UserViewModel>(userBOList);
@@ -75,8 +111,8 @@ namespace SocialNetwork.WEB.Controllers
             //    postParam.PostImage = new byte[Buffer.ByteLength(defPhoto)];
             //    postParam.PostImage = defPhoto;
             //}
-            var post = mapper.Map<PostBO>(postParam);
-            post.SaveBO();
+            //var post = mapper.Map<PostBO>(postParam);
+            //post.SaveBO();
             //return RedirectToAction("Index");
         }
         //public ActionResult GetCurrentUserIdPosts()

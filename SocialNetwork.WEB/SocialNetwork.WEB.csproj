@@ -212,7 +212,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\masonry.pkgd.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
-    <Content Include="Scripts\snutil.js" />
+    <Content Include="Scripts\util.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -253,15 +253,11 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\AddContent.cshtml" />
-    <Content Include="Views\Home\Search.cshtml" />
-    <Content Include="Views\Home\Notification.cshtml" />
     <Content Include="Views\Account\Settings.cshtml" />
     <Content Include="Views\Account\UserProfile.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Shared\_Main.cshtml" />
-    <Content Include="Views\Home\Posts.cshtml" />
     <Content Include="Views\Test\Index.cshtml" />
     <Content Include="Views\Main\Main.cshtml" />
     <None Include="Web.Debug.config">
@@ -275,7 +271,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
     <Folder Include="Views\Content\" />
-    <Folder Include="Views\LoginViewModel\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SocialNetwork.BL\SocialNetwork.BL.csproj">
