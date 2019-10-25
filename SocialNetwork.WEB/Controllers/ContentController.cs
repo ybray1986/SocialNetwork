@@ -76,46 +76,55 @@ namespace SocialNetwork.WEB.Controllers
         [HttpGet]
         public IHttpActionResult GetPostImage(int id)
         {
-            byte[] defPhoto = System.IO.File.ReadAllBytes(HttpContext.Current.Server.MapPath("~/Content/images/pin3.jpg"));
-            var postBO = mapper.ServiceCtor(typeof(PostBO));
-            var model = (postBO as PostBO).GetBOPostById(id);
-            var postViewModel = mapper.Map<PostViewModel>(model);
             try
             {
+                var postBO = mapper.ServiceCtor(typeof(PostBO));
+                var model = (postBO as PostBO).GetBOPostById(id);
+                var postViewModel = mapper.Map<PostViewModel>(model);
                 var result = postViewModel.PostImage;
                 return Ok(result);
             }
             catch (Exception)
             {
+                byte[] defPhoto = System.IO.File.ReadAllBytes(HttpContext.Current.Server.MapPath("~/Content/images/pin3.jpg"));
                 return Content(HttpStatusCode.NotFound, defPhoto);
             }
         }
         [HttpPost]
-        public void CreateContent()
+        public IHttpActionResult CreateContent()
         {
             var category = HttpContext.Current.Request.Params["category"];
             var content = HttpContext.Current.Request.Params["content"];
-            var image = HttpContext.Current.Request.Params["image"];
-            var file = HttpContext.Current.Request.Files.AllKeys;
-            //var userBO = mapper.ServiceCtor.Invoke(typeof(UserBO));
-            //var userBOList = (userBO as UserBO).GetUserBOByLogin(User.Identity.Name);
-            //var userViewModel = mapper.Map<UserViewModel>(userBOList);
-            //postParam.IdUser = userViewModel.IdUser;
-            //if (image != null)
-            //{
-            //    postParam.PostImage = new byte[image.ContentLength];
-            //    image.InputStream.Read(postParam.PostImage, 0, image.ContentLength);
-            //}
-            //else
-            //{
+            var image = HttpContext.Current.Request.Files.Get(0);
+            try
+            {
+                var userBO = mapper.ServiceCtor.Invoke(typeof(UserBO)) as UserBO;
+                var postBO = mapper.ServiceCtor.Invoke(typeof(PostBO)) as PostBO;
+                var postViewModel = mapper.Map<PostViewModel>(postBO);
+                postViewModel.IdCategory = int.Parse(category);
+                var userBOId = userBO.GetUserBOId(User.Identity.Name);
+                postViewModel.IdUser = userBOId;
+                if (image != null)
+                {
+                    postViewModel.PostImage = new byte[image.ContentLength];
+                    image.InputStream.Read(postViewModel.PostImage, 0, image.ContentLength);
+                }
+                else
+                {
 
-            //    byte[] defPhoto = System.IO.File.ReadAllBytes(Server.MapPath("~/Content/images/default-post-image.jpg"));
-            //    postParam.PostImage = new byte[Buffer.ByteLength(defPhoto)];
-            //    postParam.PostImage = defPhoto;
-            //}
-            //var post = mapper.Map<PostBO>(postParam);
-            //post.SaveBO();
-            //return RedirectToAction("Index");
+                    byte[] defPhoto = System.IO.File.ReadAllBytes(HttpContext.Current.Server.MapPath("~/Content/images/default-post-image.jpg"));
+                    postViewModel.PostImage = new byte[Buffer.ByteLength(defPhoto)];
+                    postViewModel.PostImage = defPhoto;
+                }
+                postViewModel.PostDate = DateTime.Now;
+                var post = mapper.Map<PostBO>(postViewModel);
+                post.SaveBO();
+                return Ok();
+            }
+            catch (Exception)
+            {
+                return InternalServerError();
+            }
         }
         //[HttpPost]
         //public ActionResult GetCurrentUserIdPosts()

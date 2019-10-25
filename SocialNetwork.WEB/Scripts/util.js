@@ -49,7 +49,7 @@
             type: 'GET',
             dataType: 'json',
             success: function (data) {
-
+                //
             },
             error: function (err) {
                 alert(err);
@@ -75,7 +75,7 @@
     });
     function AddBook() {
         var data = new FormData();
-        var category = $('#list-categories-form').find(":selected").text();
+        var category = $('#list-categories-form').find(":selected").val();
         var content = $('.content-form').val();
         var files = $('#upload-image-form').get(0).files[0];
         data.append("category", category);

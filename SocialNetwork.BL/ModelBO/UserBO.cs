@@ -80,5 +80,9 @@ namespace SocialNetwork.BL.ModelBO
                 return unitOfWork.UserUOWRepository.GetAll().Where(user => user.UserName == userName && user.UserPassword == password).Any();
             }
         }
+        public int GetUserBOId(string userName)
+        {
+            return GetUserBOByLogin(userName).IdUser;
+        }
     }
 }
