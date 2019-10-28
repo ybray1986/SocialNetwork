@@ -14,15 +14,15 @@ namespace SocialNetwork.WEB.Infrastucture
         System.Web.Http.Dependencies.IDependencyResolver,
         System.Web.Mvc.IDependencyResolver
     {
-        private readonly IKernel _kernel;
-        public NinjectResolver(IKernel kernel)
-            : base(kernel)
+        private readonly IKernel kernel;
+        public NinjectResolver(IKernel kernelParam)
+            : base(kernelParam)
         {
-            _kernel = kernel;
+            kernel = kernelParam;
         }
         public IDependencyScope BeginScope()
         {
-            return new NinjectScope(_kernel.BeginBlock());
+            return new NinjectScope(kernel.BeginBlock());
         }
     }
     public class NinjectScope : IDependencyScope

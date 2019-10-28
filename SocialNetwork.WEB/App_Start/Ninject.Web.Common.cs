@@ -52,7 +52,6 @@ namespace SocialNetwork.WEB.App_Start
                 kernel.Bind<Func<IKernel>>().ToMethod(ctx => () => new Bootstrapper().Kernel);
                 kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
                 RegisterServices(kernel);
-                System.Web.Mvc.DependencyResolver.SetResolver(new NinjectResolver(kernel));
                 return kernel;
             }
             catch

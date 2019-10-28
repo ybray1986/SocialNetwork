@@ -30,7 +30,8 @@ namespace SocialNetwork.DAL.Entities
             {
                 context.Categories.Add(new Category { CategoryName = "Books" });
                 context.Categories.Add(new Category { CategoryName = "Photos" });
-                context.Users.Add(new User { UserName = "user1", UserPassword = "1234" });
+                context.Users.Add(new User { UserName = "user1", UserPassword = "1234", FirstName = "Аман", LastName = "Ыбрай" });
+                context.Comments.Add(new Comment { IdPost = 1, IdUser = 1, CommentDate = new DateTime(2018, 12, 10), IdComment = 1, CommentText = "My Favourite Day is Today!" });
                 base.Seed(context);
             }
         }

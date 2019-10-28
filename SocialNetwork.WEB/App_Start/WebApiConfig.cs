@@ -13,13 +13,12 @@ namespace SocialNetwork.WEB
         {
             //var kernel = new StandardKernel();
             //config.DependencyResolver = new NinjectDependencyResolver(kernel);
-
             config.MapHttpAttributeRoutes();
-
+                
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
-                routeTemplate: "Home/api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional }
+                routeTemplate: "Home/web/{controller}/{action}/{id}",
+                defaults: new { controller = "Main", action = "Main", id = RouteParameter.Optional }
             );
         }
     }
