@@ -12,13 +12,14 @@ namespace SocialNetwork.WEB
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+            routes.MapMvcAttributeRoutes();
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Main", action = "Main", id = UrlParameter.Optional },
-                constraints: new { controller = @"(?!Home/web).*" }
+                defaults: new { controller = "Main", id = UrlParameter.Optional }
+
             );
-            routes.MapMvcAttributeRoutes();
+            
         }
     }
 }

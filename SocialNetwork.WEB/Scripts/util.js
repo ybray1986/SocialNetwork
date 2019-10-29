@@ -105,6 +105,20 @@
         });
     };
     //
+    function GetUserIdByPostId(data) {
+        $.ajax({
+            url: 'web/Data/GetUserId',
+            type: 'get',
+            data: 'postId=' + data,
+            success: function (id) {
+                return id;
+            },
+            error: function (err) {
+                console.log("Error UserPostId here:" + err);
+            }
+        });
+    };
+    //
     function GetUserName(data) {
         $.ajax({
             url: 'web/Data/UserName',
@@ -135,15 +149,17 @@
     //
     var userName;
     var userImage;
-    function toggleModal() {
-        body.toggleClass('body-locked');
-        var id = $(this).attr('data-item');
-        $('.modal-container').toggleClass('dp-block');
+    function toggleModal(val, id) {
+        if (val) {
+            body.toggleClass('body-locked');
+            $('.modal-container').toggleClass('dp-block');
+        };
         $.ajax({
             url: 'web/Data/Comments',
             type: 'get',
             data: 'id='+id,
             success: function (data) {
+                $('.comments-data').empty();
                 $(data).each(function (index, comment) {
                     userImage = GetUserImageById(comment.IdUser);
                     userName = GetUserName(comment.IdUser);
@@ -175,8 +191,14 @@
             }
         });
     };
-    $('#container').on('click', '.open-modal', toggleModal);
-    $('#container').on('click', '.close-modal', toggleModal);
+    $('#container').on('click', '.open-modal', function (val, id) {
+        id = $(this).attr('data-item');
+        toggleModal(1, id);
+    });
+    $('#container').on('click', '.close-modal', function (val, id) {
+        id = $(this).attr('data-item');
+        toggleModal(1, id);
+    });
     //
     function GetContent() {
         var container = $('#container');
@@ -237,7 +259,7 @@
                         '           <img src="~/Content/images/pin1.jpg" />' +
                         '       </div>' +
                         '       <div class="modal-box">' +
-                        '           <div class="pin-description comments-data">' +
+                        '           <div class="pin-description comments-data" data-item="' + post.IdPost + '">' +
                         '           </div>' +
                         '           <div class="pin-description-comment detailed">' +
                         '               <a class="user-thumb-container" href="">' +
@@ -254,11 +276,11 @@
                         '                   </div>' +
                         '                   <h1 class="comment-description-content">' +
                         '                      <div class="">' +
-                        '                           <textarea class="content" placeholder="Comment this post" name="description"></textarea>' +
+                        '                           <textarea class="content" id="text-comment" placeholder="Comment this post" name="description"></textarea>' +
                         '                      </div>' +
                         '                   </h1>' +
                         '                   <p>' +
-                        '                       <button class="buttonC btn primary add-comment" type="button">' +
+                        '                       <button class="buttonC btn primary add-comment" data-item="' + post.IdPost + '" type="button">' +
                         '                           <span class="button-text">' +
                         '                               Submit' +
                         '                           </span>' +
@@ -291,31 +313,50 @@
         
     };
     //
-    $('.add-comment').click(function (e) {
-        e.preventDefault();
-        AddComment();
-
-    });
+    $('#container').on('click', '.add-comment', AddComment);
     //
     function AddComment() {
-        var id = $(this).attr('data-item');
         var data = new FormData();
-        var text = $('#list-categories-form').find(":selected").val();
-        var data = $('.content-form').val();
-        var postId = $('#upload-image-form').get(0).files[0];
-        data.append("category", category);
-        data.append("content", content);
-        data.append("file", files);
+        var text = $('textarea#text-comment').val();
+        var postId = $(this).attr('data-item');
+
+        data.append("text", text);
+        data.append("postId", postId);
+        //
+        var userId = GetUserIdByPostId(postId);
+        var userName = GetUserName(userId);
+        var userImage = GetUserImageById(userId);
         $.ajax({
-            url: 'web/Content/Create',
+            url: 'web/Data/PostComment',
             method: 'post',
             data: data,
             contentType: false,
             processData: false,
-            success: function () { toggleModal(); },
+            success: function (data) {
+                var box = $(
+                    '               <div class="pin-description-comment detailed">' +
+                    '                   <a class="user-thumb-container" href="#">' +
+                    '                       <img class="user-thumb" alt="" src="' + userImage + '" />' +
+                    '                   </a>' +
+                    '                   <div class="commenter-name-comment-text">' +
+                    '                       <div class="commenter-wrapper">' +
+                    '                           <a class="comment-description-creator" href="#">' +
+                    '                               ' + userName + '' +
+                    '                           </a>' +
+                    '                           <span class="comment-description-time-ago">' +
+                    '                               ' + data.CommentDate + '' +
+                    '                           </span>' +
+                    '                       </div>' +
+                    '                       <h1 class="comment-description-content">' +
+                    '                           ' + data.CommentText + '' +
+                    '                       </h1>' +
+                    '                   </div>' +
+                    '               </div>'
+                );
+                $('.comments-data').append(box);
+            },
             error: function (err) { console.log(err); }
         });
-    };
     };
     //
     var categoriesDDL = $('#list-categories-form');
@@ -333,7 +374,6 @@
     $('.submit-content-button').click(function (e) {
         e.preventDefault();
         AddBook();
-        
     });
     function AddBook() {
         var data = new FormData();

@@ -29,7 +29,21 @@ namespace SocialNetwork.WEB.Controllers
         //    var model = (userBO as UserBO).GetBOListUsers().Select(item => mapper.Map<UserViewModel>(item)).ToList();
         //    return PartialView(model);
         //}
-
+        [HttpGet]
+        public IHttpActionResult GetUserId(int postId)
+        {
+            try
+            {
+                var post = mapper.ServiceCtor.Invoke(typeof(PostBO)) as PostBO;
+                var postBO = post.GetBOPostById(postId);
+                var postViewModel = mapper.Map<PostViewModel>(postBO);
+                return Ok(postViewModel.IdUser);
+            }
+            catch (Exception e)
+            {
+                return InternalServerError(e);
+            }
+        }
         [HttpPost]
         [ActionName("UserImage")]
         public IHttpActionResult GetUserImage([FromBody] byte[] image)
@@ -110,12 +124,20 @@ namespace SocialNetwork.WEB.Controllers
         [HttpPost]
         public IHttpActionResult PostComment()
         {
-            var category = HttpContext.Current.Request.Params["category"];
-            var content = HttpContext.Current.Request.Params["content"];
-            var image = HttpContext.Current.Request.Files.Get(0);
+            var text = HttpContext.Current.Request.Params["text"];
+            var postId = HttpContext.Current.Request.Params["postId"];
             try
             {
-
+                var user = mapper.ServiceCtor.Invoke(typeof(UserBO)) as UserBO;
+                var userBOId = user.GetUserBOId(User.Identity.Name);
+                var comment = mapper.ServiceCtor.Invoke(typeof(CommentViewModel)) as CommentViewModel;
+                comment.IdPost = int.Parse(postId);
+                comment.IdUser = userBOId;
+                comment.CommentText = text;
+                comment.CommentDate = DateTime.Now;
+                var commentBO = mapper.Map<CommentBO>(comment);
+                commentBO.SaveBO();
+                return Ok(comment);
             }
             catch (Exception e)
             {
