@@ -1,7 +1,11 @@
 ﻿$(document).ready(function () {
-    var resultObj;
+    
     GetContent();
+    var resultObj;
     var body = $('body');
+    //
+
+    //
     typeahead = $('.typeahead');
     field = $('.field');
     toggleSearchDropDown = function () {
@@ -110,8 +114,8 @@
             url: 'web/Data/GetUserId',
             type: 'get',
             data: 'postId=' + data,
-            success: function (id) {
-                return id;
+            success: function (data) {
+                return data;
             },
             error: function (err) {
                 console.log("Error UserPostId here:" + err);

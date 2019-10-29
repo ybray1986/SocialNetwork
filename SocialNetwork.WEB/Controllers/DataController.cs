@@ -60,7 +60,7 @@ namespace SocialNetwork.WEB.Controllers
                 byte[] defPhoto = System.IO.File.ReadAllBytes(HttpContext.Current.Server.MapPath("~/Content/photo/Users/default/default-24.png"));
                 message.Content = new ByteArrayContent(defPhoto);
                 message.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("image/png");
-                return Content(HttpStatusCode.NotFound, message);
+                return Content(HttpStatusCode.OK, message);
             }
         }
         [HttpGet]
@@ -91,10 +91,17 @@ namespace SocialNetwork.WEB.Controllers
         [ActionName("CatName")]
         public IHttpActionResult GetCategory(int id)
         {
-            var categoryBO = mapper.ServiceCtor(typeof(CategoryBO));
-            var categoryBOList = (categoryBO as CategoryBO).GetCategoryBOById(id);
-            var category = mapper.Map<CategoryViewModel>(categoryBOList);
-            return Ok(category);
+            try
+            {
+                var categoryBO = mapper.ServiceCtor(typeof(CategoryBO));
+                var categoryBOList = (categoryBO as CategoryBO).GetCategoryBOById(id);
+                var category = mapper.Map<CategoryViewModel>(categoryBOList);
+                return Ok(category);
+            }
+            catch (Exception e)
+            {
+                return InternalServerError(e);
+            }
         }
         [HttpPost]
         [ActionName("PostImage")]
