@@ -24,7 +24,7 @@ namespace SocialNetwork.DAL.Entities
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
         }
-        public class DbContextInitializer : DropCreateDatabaseAlways<SocialNetworkContext>
+        public class DbContextInitializer : DropCreateDatabaseIfModelChanges<SocialNetworkContext>
         {
             protected override void Seed(SocialNetworkContext context)
             {
